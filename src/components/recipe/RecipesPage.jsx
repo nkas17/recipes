@@ -16,18 +16,22 @@ class RecipePage extends React.Component { //eslint-disable-line
 		this._redirectToAddRecipePage = this._redirectToAddRecipePage.bind(this);
 		this._deleteRecipe = this._deleteRecipe.bind(this);
 	}
+
 	_redirectToAddRecipePage() {
-		this.props.history.push('/recipe/new/edit');
+		const { history } = this.props;
+		history.push('/recipe/new/edit');
 	}
 
-	_deleteRecipe(recipeId) {
+	_deleteRecipe(recipeId, event) {
+		const { actions } = this.props;
 		event.preventDefault();
 
-		if (confirm('Click "Ok" if you are sure you would like to delete this recipe, otherwise "Cancel".')) {
-			console.log(`deleted recipe id - ${recipeId}`);
+		// eslint-disable-next-line no-restricted-globals
+		if (confirm('Click "Ok" if you are sure you would like to delete this recipe, otherwise "Cancel".')) { // eslint-disable-line no-alert
+			console.log(`deleted recipe id - ${recipeId}`); // eslint-disable-line no-console
 
 
-			this.props.actions.deleteRecipe(recipeId)
+			actions.deleteRecipe(recipeId)
 				.then(() => toastr.success('Recipe deleted'))
 				.catch(error => toastr.error(error));
 		}

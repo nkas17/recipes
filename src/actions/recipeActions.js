@@ -43,8 +43,9 @@ export const loadRecipes = () => (dispatch) => {
 export const saveRecipe = recipe => (dispatch) => {
 	dispatch(beginAjaxCall());
 	return RecipeApi.saveRecipe(recipe).then((savedRecipe) => {
-		recipe.id ? dispatch(updateRecipeSuccess(savedRecipe)) : // eslint-disable-line no-unused-expressions
-				dispatch(createRecipeSuccess(savedRecipe));
+		// eslint-disable-next-line no-unused-expressions
+		recipe.id ? dispatch(updateRecipeSuccess(savedRecipe))
+			: dispatch(createRecipeSuccess(savedRecipe));
 	}).catch((error) => {
 		dispatch(ajaxCallError());
 		throw (error);
@@ -54,7 +55,8 @@ export const saveRecipe = recipe => (dispatch) => {
 export const deleteRecipe = recipeId => (dispatch) => {
 	dispatch(beginAjaxCall());
 	return RecipeApi.deleteRecipe(recipeId).then((recipe) => {
-		// deletedRecipe.id ? dispatch(updateRecipeSuccess(deletedRecipe)) : // eslint-disable-line no-unused-expressions
+		// deletedRecipe.id ?
+		// dispatch(updateRecipeSuccess(deletedRecipe)) :
 		dispatch(deleteRecipeSuccess(recipe));
 	}).catch((error) => {
 		dispatch(ajaxCallError());

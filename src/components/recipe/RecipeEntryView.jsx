@@ -4,7 +4,9 @@ import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import SelectInput from '../common/SelectInput';
 
-const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, saving, errors }) => (
+const RecipeEntryView = ({
+	recipe, categories, onSave, onChange, onCancel, saving, errors,
+}) => (
 	<form>
 		<TextInput
 			name="title"
@@ -13,7 +15,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			onChange={onChange}
 			error={errors.title}
 		/>
-
 		<TextInput
 			name="description"
 			label="Description"
@@ -21,8 +22,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			onChange={onChange}
 			error={errors.description}
 		/>
-
-
 		<TextArea
 			name="ingredients"
 			label="Ingredient List"
@@ -31,7 +30,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			onChange={onChange}
 			error={errors.ingredients}
 		/>
-
 		<TextArea
 			name="directions"
 			label="Directions"
@@ -40,7 +38,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			onChange={onChange}
 			error={errors.directions}
 		/>
-
 		<SelectInput
 			name="category"
 			label="Category"
@@ -50,7 +47,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			onChange={onChange}
 			error={errors.category}
 		/>
-
 		<button
 			id="save"
 			type="submit"
@@ -60,7 +56,6 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 		>
 			{saving ? 'saving...' : 'save'}
 		</button>
-
 		<button
 			id="cancel"
 			type="button"
@@ -71,7 +66,7 @@ const RecipeEntryView = ({ recipe, categories, onSave, onChange, onCancel, savin
 			{'cancel'}
 		</button>
 	</form>
-	);
+);
 
 RecipeEntryView.defaultProps = {
 	saving: false,

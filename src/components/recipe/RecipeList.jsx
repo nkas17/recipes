@@ -16,15 +16,15 @@ const RecipeList = ({ recipes, deleteRecipe }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{recipes.map(recipe =>
-				(<RecipeListRow
+			{recipes.map(recipe => (
+				<RecipeListRow
 					key={recipe.id}
 					recipe={recipe}
 					deleteRecipe={deleteRecipe}
 				/>))}
 		</tbody>
 	</table>
-	);
+);
 
 RecipeList.propTypes = {
 	/**

@@ -2,10 +2,11 @@
 const handleResult = (response) => {
 	if (response.status >= 200 && response.status < 300) {
 		return response.json().then((data) => {
-			console.log(data);
+			console.log(data);// eslint-disable-line no-console
 			return data;
 		});
-	} else if (response.bodyUsed) {
+	}
+	if (response.bodyUsed) {
 		return response.json().then((data) => {
 			const error = new Error(`Response error for ${response.url}`);
 			error.additionalData = data;
@@ -28,7 +29,7 @@ class RecipeApi {
 		};
 
 		return fetch(url, options)
-		.then(handleResult);
+			.then(handleResult);
 	}
 
 	static saveRecipe(recipe) {
@@ -45,7 +46,7 @@ class RecipeApi {
 		};
 
 		return fetch(url, options)
-		.then(handleResult);
+			.then(handleResult);
 	}
 
 	static deleteRecipe(recipeId) {
@@ -60,7 +61,7 @@ class RecipeApi {
 		};
 
 		return fetch(url, options)
-		.then(handleResult);
+			.then(handleResult);
 	}
 }
 

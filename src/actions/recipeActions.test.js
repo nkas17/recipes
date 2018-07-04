@@ -1,13 +1,13 @@
-import thunk from 'redux-thunk';
-import nock from 'nock';
-import configureMockStore from 'redux-mock-store';
+// import thunk from 'redux-thunk';
+// import nock from 'nock';
+// import configureMockStore from 'redux-mock-store';
 import {
 	// actions
 	createRecipeSuccess,
 	updateRecipeSuccess,
 	loadRecipesSuccess,
 	// thunks
-	loadRecipes,
+	// loadRecipes,
 } from './recipeActions';
 import * as actionTypes from './actionTypes';
 
@@ -115,7 +115,8 @@ describe('Recipe Actions', () => {
 // 		// arrange
 // 		const expectedActions = [
 // 			{ type: actionTypes.BEGIN_AJAX_CALL },
-// 			{ type: actionTypes.LOAD_RECIPES_SUCCESS, body: { recipes: [{ id: 'delicious-meal', title: 'Delicious Meal' }] } },
+// 			{ type: actionTypes.LOAD_RECIPES_SUCCESS, body:
+//			{ recipes: [{ id: 'delicious-meal', title: 'Delicious Meal' }] } },
 // 		];
 
 // 		const store = mockStore({ recipes: [] }, expectedActions);

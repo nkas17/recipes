@@ -8,8 +8,16 @@ import Header from './Header';
 /* eslint-disable no-undef */
 
 const store = configureStore();
-const renderWithRouter = node => <Router>{node}</Router>;
-const renderWithStore = node => <Provider store={store}>{node}</Provider>;
+const renderWithRouter = node => (
+	<Router>
+		{node}
+	</Router>
+);
+const renderWithStore = node => (
+	<Provider store={store}>
+		{node}
+	</Provider>
+);
 
 describe('Header', () => {
 	it('renders correctly without loading', () => {
@@ -18,7 +26,10 @@ describe('Header', () => {
 				renderWithRouter(
 					<Header
 						loading={false}
-					/>))).toJSON();
+					/>,
+				),
+			),
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -28,7 +39,10 @@ describe('Header', () => {
 				renderWithRouter(
 					<Header
 						loading
-					/>))).toJSON();
+					/>,
+				),
+			),
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

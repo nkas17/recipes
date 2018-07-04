@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import RecipeEntryView from './RecipeEntryView';
 
-/* eslint-disable no-undef */
-
 const setup = saving => (
 	{
 		recipe: {},
@@ -24,7 +22,8 @@ describe('RecipeEntryView', () => {
 		const tree = renderer.create(
 			<RecipeEntryView
 				{...setup(false)}
-			/>).toJSON();
+			/>,
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 

@@ -9,17 +9,17 @@ import LoadingDots from './LoadingDots';
  */
 const Header = ({ loading = true }) => (
 	<header>
-		<h1 className="page-header">{'come and eat!'}</h1>
+		<h1 className="page-header">come and eat!</h1>
 		<nav>
-			<Link to="/" >home</Link>
+			<Link to="/">home</Link>
 			{' | '}
-			<Link to="/recipe" >recipes</Link>
+			<Link to="/recipe">recipes</Link>
 			{' | '}
-			<Link to="/mealList" >meals</Link>
+			<Link to="/mealList">meals</Link>
 			{' | '}
-			<Link to="/groceryList" >groceries</Link>
+			<Link to="/groceryList">groceries</Link>
 			{' | '}
-			<Link to="/about" >about</Link>
+			<Link to="/about">about</Link>
 			{loading && <LoadingDots interval={200} dots={10} />}
 		</nav>
 	</header>

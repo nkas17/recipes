@@ -12,7 +12,8 @@ const configureStore = (initialState) => {
 	return createStore(
 		rootReducer,
 		initialState,
-		composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant())));
+		composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant())),
+	);
 };
 
 export default configureStore;

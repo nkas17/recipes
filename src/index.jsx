@@ -10,7 +10,6 @@ import App from './components/App';
 import { loadRecipes } from './actions/recipeActions';
 import { loadCategories } from './actions/categoryActions';
 import './styles/styles.css';
-// import '../node_modules/milligram/dist/milligram.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
 import './images/favicon.ico';
@@ -22,13 +21,14 @@ store.dispatch(loadCategories());
 const render = () => {
 	ReactDOM.render(
 		<AppContainer>
-			<BrowserRouter >
+			<BrowserRouter>
 				<Provider store={store}>
 					<App />
 				</Provider>
 			</BrowserRouter>
 		</AppContainer>,
-    document.getElementById('app'));
+		document.getElementById('app'),
+	);
 };
 
 render();

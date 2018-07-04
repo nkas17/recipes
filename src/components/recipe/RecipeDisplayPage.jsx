@@ -9,19 +9,20 @@ import _ from 'lodash';
  * View recipes and edit them with a click of a button
  */
 
- // eslint-disable-next-line react/prefer-stateless-function
+// eslint-disable-next-line react/prefer-stateless-function
 class RecipeDisplayPage extends React.Component {
 	render() {
-		const ingredients = _.split(this.props.recipe.ingredients, '\n');
-		const directions = _.split(this.props.recipe.directions, '\n');
+		const { recipe } = this.props;
+		const ingredients = _.split(recipe.ingredients, '\n');
+		const directions = _.split(recipe.directions, '\n');
 		let key = 0;
 		return (
 			<div>
 				<div className="jumbotron">
-					<h2>{this.props.recipe.title}</h2>
-					<p>{this.props.recipe.description}</p>
+					<h2>{recipe.title}</h2>
+					<p>{recipe.description}</p>
 					<hr />
-					<Link to={`/recipe/${this.props.recipe.id}/edit`} >edit</Link>
+					<Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
 				</div>
 				<div className="jumbotron">
 					<div>

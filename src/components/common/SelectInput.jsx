@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SelectInput = ({ name, label, onChange, defaultOption, value, error, options }) => (
+const SelectInput = ({
+	name, label, onChange, defaultOption, value, error, options,
+}) => (
 	<div className="form-group">
 		<label htmlFor={name}>{label}</label>
 		<select
@@ -12,11 +14,11 @@ const SelectInput = ({ name, label, onChange, defaultOption, value, error, optio
 		>
 			<option value="">{defaultOption}</option>
 			{options.map(option => <option key={option.value} value={option.value}>{option.text}</option>)
-				}
+			}
 		</select>
 		{error && (<div className="alert alert-danger">{error}</div>)}
 	</div>
-	);
+);
 
 SelectInput.defaultProps = {
 	defaultOption: '...Select',

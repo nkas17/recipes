@@ -3,8 +3,6 @@ import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { RecipeEntryContainer } from './RecipeEntryContainer';
 
-/* eslint-disable no-undef */
-
 const setup = id => (
 	{
 		categories: [],
@@ -25,7 +23,8 @@ describe('RecipeEntryContainer', () => {
 		const tree = renderer.create(
 			<RecipeEntryContainer
 				{...setup('new')}
-			/>).toJSON();
+			/>,
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -33,7 +32,8 @@ describe('RecipeEntryContainer', () => {
 		const tree = renderer.create(
 			<RecipeEntryContainer
 				{...setup('sushi')}
-			/>).toJSON();
+			/>,
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 

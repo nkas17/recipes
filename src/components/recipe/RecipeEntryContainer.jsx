@@ -15,7 +15,7 @@ export class RecipeEntryContainer extends React.Component {
 		super(props, context);
 
 		this.state = {
-			recipe: Object.assign({}, this.props.recipe),
+			recipe: Object.assign({}, props.recipe),
 			errors: {},
 			saving: false,
 		};
@@ -26,23 +26,26 @@ export class RecipeEntryContainer extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (this.props.recipe.id !== nextProps.recipe.id) {
+		const { recipe } = this.props;
+		if (recipe.id !== nextProps.recipe.id) {
 			this.setState({ recipe: Object.assign({}, nextProps.recipe) });
 		}
 	}
 
 	_updateRecipeState(event) {
+		const { recipe } = this.state;
 		const field = event.target.name;
-		const recipe = this.state.recipe;
-		recipe[field] = event.target.value;
-		return this.setState({ recipe });
+		const tempRecipe = recipe;
+		tempRecipe[field] = event.target.value;
+		return this.setState({ recipe: tempRecipe });
 	}
 
 	_recipeFormIsValid() {
 		let formIsValid = true;
 		const errors = {};
+		const { recipe } = this.state;
 
-		if (this.state.recipe.title.length < 5) {
+		if (recipe.title.length < 5) {
 			errors.title = 'title must be at least 5 characters.';
 			formIsValid = false;
 		}
@@ -53,14 +56,16 @@ export class RecipeEntryContainer extends React.Component {
 
 	_saveRecipe(event) {
 		event.preventDefault();
+		const { recipe } = this.state;
+		const { actions } = this.props;
 
 		if (!this._recipeFormIsValid()) {
 			return;
 		}
 
 		this.setState({ saving: true });
-		if (this.state.recipe.id === undefined) this.state.recipe.id = replaceAll(this.state.recipe.title, ' ', '-');
-		this.props.actions.saveRecipe(this.state.recipe)
+		if (recipe.id === undefined) recipe.id = replaceAll(recipe.title, ' ', '-');
+		actions.saveRecipe(recipe)
 			.then(() => this._redirectOnSave())
 			.catch((error) => {
 				toastr.error(error);
@@ -69,9 +74,11 @@ export class RecipeEntryContainer extends React.Component {
 	}
 
 	_redirectOnSave() {
+		const { recipe } = this.state;
+		const { history } = this.props;
 		this.setState({ saving: false });
 		toastr.success('Recipe saved');
-		this.props.history.push(`/recipe/${this.state.recipe.id}`);
+		history.push(`/recipe/${recipe.id}`);
 	}
 
 	_cancelRecipe() {
@@ -79,25 +86,27 @@ export class RecipeEntryContainer extends React.Component {
 	}
 
 	_redirectOnCancel() {
+		const { history, recipe } = this.props;
 		toastr.success('Recipe cancelled');
-		if (this.props.recipe.id === undefined) this.props.history.push('/recipe');
-		else this.props.history.push(`/recipe/${this.props.recipe.id}`);
+		if (recipe.id === undefined) history.push('/recipe');
+		else history.push(`/recipe/${recipe.id}`);
 	}
 
 	render() {
-		const { categories } = this.props;
+		const { errors, recipe, saving } = this.state;
+		const { categories, match } = this.props;
 		return (
 			<div className="jumbotron">
-				<h2>{`Manage ${this.props.match.params && this.props.match.params.id} Recipe`} </h2>
+				<h2>{`Manage ${match.params && match.params.id} Recipe`} </h2>
 				<hr />
 				<RecipeEntryView
-					recipe={this.state.recipe}
+					recipe={recipe}
 					categories={categories}
 					onChange={this._updateRecipeState}
 					onSave={this._saveRecipe}
 					onCancel={this._cancelRecipe}
-					errors={this.state.errors}
-					saving={this.state.saving}
+					errors={errors}
+					saving={saving}
 				/>
 			</div>
 		);

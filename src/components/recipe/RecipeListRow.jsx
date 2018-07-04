@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const RecipeListRow = ({ recipe, deleteRecipe }) => (
 	<tr>
 		<td>&nbsp;</td>
-		<td><Link to={`recipe/${recipe.id}`} >{recipe.title}</Link></td>
+		<td><Link to={`recipe/${recipe.id}`}>{recipe.title}</Link></td>
 		<td>{recipe.description}</td>
 		<td>
 			<input
@@ -19,7 +19,7 @@ const RecipeListRow = ({ recipe, deleteRecipe }) => (
 			/>
 		</td>
 	</tr>
-	);
+);
 
 RecipeListRow.propTypes = {
 	/**

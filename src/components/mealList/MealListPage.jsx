@@ -7,6 +7,6 @@ import React from 'react';
  */
 const MealListPage = () => (
 	<div>MealListPage</div>
-	);
+);
 
 export default MealListPage;

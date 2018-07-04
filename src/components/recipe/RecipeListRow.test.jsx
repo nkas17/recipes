@@ -3,8 +3,6 @@ import renderer from 'react-test-renderer';
 import { MemoryRouter as Router } from 'react-router-dom';
 import RecipeListRow from './RecipeListRow';
 
-/* eslint-disable no-undef */
-
 const setup = () => (
 	{
 		recipe: {
@@ -40,7 +38,8 @@ describe('RecipeListRow', () => {
 		const tree = renderWithRouter(
 			<RecipeListRow
 				{...setup()}
-			/>).toJSON();
+			/>,
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

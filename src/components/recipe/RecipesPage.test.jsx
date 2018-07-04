@@ -1,7 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { MemoryRouter as Router } from 'react-router-dom';
-import RecipeList from './RecipeList';
+import { Provider } from 'react-redux';
+import RecipesPage from './RecipesPage';
+import configureStore from '../../store/configureStore';
 
 /* eslint-disable no-undef */
 
@@ -58,14 +60,25 @@ const setup = () => (
 	}
 );
 
-const renderWithRouter = node => renderer.create(<Router>{node}</Router>);
+const store = configureStore(setup());
+const renderWithRouter = node => (
+	<Router>
+		{node}
+	</Router>
+);
+const renderWithStore = node => <Provider store={store}>{node}</Provider>;
 
-describe('RecipeList', () => {
+describe('RecipesPage', () => {
 	it('renders correctly', () => {
-		const tree = renderWithRouter(
-			<RecipeList
-				{...setup()}
-			/>).toJSON();
+		const tree = renderer.create(
+			renderWithStore(
+				renderWithRouter(
+					<RecipesPage
+						history={{}}
+					/>,
+				),
+			),
+		).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });
