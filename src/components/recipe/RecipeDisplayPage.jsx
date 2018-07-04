@@ -9,6 +9,7 @@ import _ from 'lodash';
  * View recipes and edit them with a click of a button
  */
 
+ // eslint-disable-next-line react/prefer-stateless-function
 class RecipeDisplayPage extends React.Component {
 	render() {
 		const ingredients = _.split(this.props.recipe.ingredients, '\n');
@@ -47,7 +48,7 @@ RecipeDisplayPage.propTypes = {
 	 */
 	recipe: PropTypes.objectOf(PropTypes.any).isRequired,
 
-	match: PropTypes.objectOf(PropTypes.any).isRequired,
+	// match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
