@@ -7,8 +7,6 @@ const { resolve, join } = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const port = 3000;
-
 module.exports = {
 	resolve: {
 		modules: [
@@ -21,14 +19,11 @@ module.exports = {
 		 * @see - http://stackoverflow.com/a/31170775/5429686
 		 */
 		alias: {
-			react: resolve('./node_modules/react'),
-			'react-router': resolve('./node_modules/react-router'),
+			// react: resolve('./node_modules/react'),
+			// 'react-router': resolve('./node_modules/react-router'),
 		},
 	},
 	entry: [
-		// activate HMR for React
-		'react-hot-loader/patch',
-
 		// the entry point of our app
 		'./index.jsx',
 	],
@@ -39,7 +34,7 @@ module.exports = {
 		path: resolve(__dirname, 'dist'),
 
 		// necessary for HMR to know where to load the hot update chunks
-		publicPath: '/',
+		// publicPath: '/',
 	},
 
 	context: resolve(__dirname, 'src'),
@@ -54,14 +49,12 @@ module.exports = {
 		contentBase: resolve(__dirname, 'dist'),
 
 		// match the output `publicPath`
-		publicPath: '/',
-
-		port,
+		// publicPath: '/',
 
 		// Allow for HTML 5 navigation (single page nav without #)
 		historyApiFallback: {
 			rewrites: [
-				{ from: /./, to: '/index.html' },
+				{ to: '/index.html' },
 			],
 		},
 	},

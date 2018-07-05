@@ -11,6 +11,9 @@ const RecipeListRow = ({ recipe, deleteRecipe }) => (
 		<td><Link to={`recipe/${recipe.id}`}>{recipe.title}</Link></td>
 		<td>{recipe.description}</td>
 		<td>
+			<input type="button" className="btn btn-link" value="Add to Meal List" />
+		</td>
+		<td>
 			<input
 				type="button"
 				value="delete"

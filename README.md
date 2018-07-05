@@ -1,4 +1,8 @@
 # Recipe Catalog/Meal planner/grocery list creator.
+## Technology:
+* react
+* redux
+* mongo db
 ## Requirements:
 * [x]add recipes
 * [x]edit recipes
@@ -15,8 +19,4 @@
 * [ ]add pictures with recipes
 * [ ]export list?
 
-## Technology:
-* react
-* redux
-* mongo db
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
@@ -33,4 +34,4 @@ class App extends React.Component { // eslint-disable-line
 	}
 }
 
-export default App;
+export default hot(module)(App);

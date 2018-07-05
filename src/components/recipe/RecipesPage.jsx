@@ -56,7 +56,6 @@ class RecipePage extends React.Component { //eslint-disable-line
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-sm-12">
-							<button type="button" className="btn btn-primary">Add to Meal List</button>
 							<button type="button" className="btn btn-primary">View Meal List</button>
 						</div>
 					</div>

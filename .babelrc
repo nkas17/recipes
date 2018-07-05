@@ -1,5 +1,4 @@
 {
   "presets": ["env", "react"],
-  "sourceMaps": "inline",
-  "retainLines": true
+  "plugins": ["react-hot-loader/babel"]
 }
