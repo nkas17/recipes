@@ -9,10 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	resolve: {
-		modules: [
-			join(__dirname, 'src'),
-			'node_modules',
-		],
+		modules: [join(__dirname, 'src'), 'node_modules'],
 		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
 		/**
 		 * Allow all reacts to resolve to one module so npm link works
@@ -53,9 +50,7 @@ module.exports = {
 
 		// Allow for HTML 5 navigation (single page nav without #)
 		historyApiFallback: {
-			rewrites: [
-				{ to: '/index.html' },
-			],
+			rewrites: [{ to: '/index.html' }],
 		},
 	},
 
@@ -63,17 +58,12 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				use: [
-					'babel-loader',
-				],
+				use: ['babel-loader'],
 				include: /src/,
 			},
 			{
 				test: /\.css$/,
-				use: [
-					'style-loader',
-					'css-loader',
-				],
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.json$/,

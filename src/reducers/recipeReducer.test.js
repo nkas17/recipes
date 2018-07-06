@@ -6,10 +6,7 @@ import * as actions from '../actions/recipeActions';
 describe('Recipe Reducer', () => {
 	it('should add recipe when passed CREATE_RECIPE_SUCCESS', () => {
 		// arrange
-		const initialState = [
-			{ title: 'A' },
-			{ title: 'B' },
-		];
+		const initialState = [{ title: 'A' }, { title: 'B' }];
 
 		const newRecipe = { title: 'C' };
 

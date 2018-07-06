@@ -6,28 +6,37 @@ const HomePage = () => (
 		<div className="jumbotron">
 			<h2>recipe administration</h2>
 			<hr />
-			<p>recipe administration system,{' '}
-				also create meal plans and generate grocery lists based on plans
+			<p>
+				recipe administration system, also create meal plans and generate
+				grocery lists based on plans
 			</p>
-			<Link to="about" className="btn btn-primary btn-lg">learn more</Link>
+			<Link to="about" className="btn btn-primary btn-lg">
+				learn more
+			</Link>
 		</div>
 		<div className="jumbotron">
 			<h2>recipes</h2>
 			<hr />
 			<p>here we can manage our recipes</p>
-			<Link to="recipe" className="btn btn-primary btn-lg">recipes</Link>
+			<Link to="recipe" className="btn btn-primary btn-lg">
+				recipes
+			</Link>
 		</div>
 		<div className="jumbotron">
 			<h2>meal list</h2>
 			<hr />
 			<p>here we can manage our meal list</p>
-			<Link to="mealList" className="btn btn-primary btn-lg">meal list</Link>
+			<Link to="mealList" className="btn btn-primary btn-lg">
+				meal list
+			</Link>
 		</div>
 		<div className="jumbotron">
 			<h2>grocery lists</h2>
 			<hr />
 			<p>here we can manage our grocery lists</p>
-			<Link to="groceryList" className="btn btn-primary btn-lg">grocery lists</Link>
+			<Link to="groceryList" className="btn btn-primary btn-lg">
+				grocery lists
+			</Link>
 		</div>
 	</div>
 );

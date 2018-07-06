@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 const RecipeListRow = ({ recipe, deleteRecipe }) => (
 	<tr>
 		<td>&nbsp;</td>
-		<td><Link to={`recipe/${recipe.id}`}>{recipe.title}</Link></td>
+		<td>
+			<Link to={`recipe/${recipe.id}`}>{recipe.title}</Link>
+		</td>
 		<td>{recipe.description}</td>
 		<td>
 			<input type="button" className="btn btn-link" value="Add to Meal List" />

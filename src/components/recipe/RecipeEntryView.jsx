@@ -5,7 +5,13 @@ import TextArea from '../common/TextArea';
 import SelectInput from '../common/SelectInput';
 
 const RecipeEntryView = ({
-	recipe, categories, onSave, onChange, onCancel, saving, errors,
+	recipe,
+	categories,
+	onSave,
+	onChange,
+	onCancel,
+	saving,
+	errors,
 }) => (
 	<form>
 		<TextInput

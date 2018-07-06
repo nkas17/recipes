@@ -31,12 +31,13 @@ class LoadingDots extends React.Component {
 			text += '.';
 			tempDots--;
 		}
-		return (<span>{text}&nbsp;</span>);
+		return <span>{text}&nbsp;</span>;
 	}
 }
 
 LoadingDots.defaultProps = {
-	interval: 300, dots: 3,
+	interval: 300,
+	dots: 3,
 };
 
 LoadingDots.propTypes = {

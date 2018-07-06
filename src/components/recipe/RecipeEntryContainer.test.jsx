@@ -1,39 +1,33 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { RecipeEntryContainer } from './RecipeEntryContainer';
+import RecipeEntryContainer from './RecipeEntryContainer';
 
-const setup = id => (
-	{
-		categories: [],
-		match: { params: { id } },
-		recipe: {
-			title: '',
-			description: '',
-		},
-		actions: { saveRecipe: () => Promise.resolve() },
-		history: {},
-	}
-);
+const setup = id => ({
+	categories: [],
+	match: { params: { id } },
+	recipe: {
+		title: '',
+		description: '',
+	},
+	actions: { saveRecipe: () => Promise.resolve() },
+	history: {},
+});
 
 const enzymeSetup = id => mount(<RecipeEntryContainer {...setup(id)} />);
 
 describe('RecipeEntryContainer', () => {
 	it('renders new recipe correctly', () => {
-		const tree = renderer.create(
-			<RecipeEntryContainer
-				{...setup('new')}
-			/>,
-		).toJSON();
+		const tree = renderer
+			.create(<RecipeEntryContainer {...setup('new')} />)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
 	it('renders an undefined recipe correctly', () => {
-		const tree = renderer.create(
-			<RecipeEntryContainer
-				{...setup('sushi')}
-			/>,
-		).toJSON();
+		const tree = renderer
+			.create(<RecipeEntryContainer {...setup('sushi')} />)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 
@@ -42,6 +36,8 @@ describe('RecipeEntryContainer', () => {
 		const saveButton = wrapper.find('#save');
 		expect(saveButton.prop('type')).toBe('submit');
 		saveButton.simulate('click');
-		expect(wrapper.state().errors.title).toBe('title must be at least 5 characters.');
+		expect(wrapper.state().errors.title).toBe(
+			'title must be at least 5 characters.'
+		);
 	});
 });

@@ -11,37 +11,37 @@ import {
 } from './recipeActions';
 import * as actionTypes from './actionTypes';
 
-/* eslint-disable no-undef */
-
 /**
  * test actions
  */
 
 describe('Recipe Actions', () => {
 	// arange - shared data
-	const recipes = [{
-		id: 'tacos',
-		title: 'tacos',
-		category: 'other',
-		description: 'Tasty homemade tacos - hard or soft',
-		ingredients: [
-			{
-				id: 'cheese',
-				quantity: '8',
-				unit: 'oz',
-			},
-			{
-				id: 'ground beef',
-				quantity: '1.5',
-				unit: 'lbs',
-			},
-			{
-				id: 'tortilla',
-				quantity: '1',
-				unit: '',
-			},
-		],
-	}];
+	const recipes = [
+		{
+			id: 'tacos',
+			title: 'tacos',
+			category: 'other',
+			description: 'Tasty homemade tacos - hard or soft',
+			ingredients: [
+				{
+					id: 'cheese',
+					quantity: '8',
+					unit: 'oz',
+				},
+				{
+					id: 'ground beef',
+					quantity: '1.5',
+					unit: 'lbs',
+				},
+				{
+					id: 'tortilla',
+					quantity: '1',
+					unit: '',
+				},
+			],
+		},
+	];
 	describe('createRecipeSuccess', () => {
 		it('should create a CREATE_RECIPE_SUCCESS action', () => {
 			// arrange
@@ -95,12 +95,10 @@ describe('Recipe Actions', () => {
  * test thunks
  */
 
-
 // TODO: need ot mock API - RecipeApi before testing thunks
 
 // const middleware = [thunk];
 // const mockStore = configureMockStore(middleware);
-
 
 // describe('Recipe Thunks', () => {
 // 	afterEach(() => {

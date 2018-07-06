@@ -7,13 +7,14 @@ import RecipesPage from './recipe/RecipesPage';
 import GroceryListPage from './groceryList/GroceryListPage';
 import MealListPage from './mealList/MealListPage';
 import RecipeDisplayPage from './recipe/RecipeDisplayPage';
-import RecipeEntryContainer from './recipe/RecipeEntryContainer'; // eslint-disable-line import/no-named-as-default
+import RecipeEntryContainer from './recipe/RecipeEntryContainer';
 import Header from './common/Header';
 
 /**
  * Main component that wraps everything else
  */
-class App extends React.Component { // eslint-disable-line
+// eslint-disable-next-line react/prefer-stateless-function
+class App extends React.Component {
 	render() {
 		return (
 			<div className="container-fluid">

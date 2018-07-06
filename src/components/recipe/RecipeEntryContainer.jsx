@@ -8,9 +8,10 @@ import * as recipeActions from '../../actions/recipeActions';
 import { categoriesFormattedForSelectInput } from '../../selectors/selectors';
 import RecipeEntryView from './RecipeEntryView';
 
-const replaceAll = (str, find, replace) => str.replace(new RegExp(find, 'g'), replace);
+const replaceAll = (str, find, replace) =>
+	str.replace(new RegExp(find, 'g'), replace);
 
-export class RecipeEntryContainer extends React.Component {
+class RecipeEntryContainer extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 
@@ -65,9 +66,10 @@ export class RecipeEntryContainer extends React.Component {
 
 		this.setState({ saving: true });
 		if (recipe.id === undefined) recipe.id = replaceAll(recipe.title, ' ', '-');
-		actions.saveRecipe(recipe)
+		actions
+			.saveRecipe(recipe)
 			.then(() => this._redirectOnSave())
-			.catch((error) => {
+			.catch(error => {
 				toastr.error(error);
 				this.setState({ saving: false });
 			});
@@ -149,4 +151,7 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(recipeActions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeEntryContainer);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(RecipeEntryContainer);

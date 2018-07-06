@@ -26,12 +26,17 @@ class RecipePage extends React.Component { //eslint-disable-line
 		const { actions } = this.props;
 		event.preventDefault();
 
-		// eslint-disable-next-line no-restricted-globals
-		if (confirm('Click "Ok" if you are sure you would like to delete this recipe, otherwise "Cancel".')) { // eslint-disable-line no-alert
+		if (
+			/* eslint-disable no-alert */
+			// eslint-disable-next-line no-restricted-globals
+			confirm(
+				'Click "Ok" if you are sure you would like to delete this recipe, otherwise "Cancel".'
+			)
+		) {
 			console.log(`deleted recipe id - ${recipeId}`); // eslint-disable-line no-console
 
-
-			actions.deleteRecipe(recipeId)
+			actions
+				.deleteRecipe(recipeId)
 				.then(() => toastr.success('Recipe deleted'))
 				.catch(error => toastr.error(error));
 		}
@@ -49,14 +54,13 @@ class RecipePage extends React.Component { //eslint-disable-line
 					onClick={this._redirectToAddRecipePage}
 				/>
 				<hr />
-				<RecipeList
-					recipes={recipes}
-					deleteRecipe={this._deleteRecipe}
-				/>
+				<RecipeList recipes={recipes} deleteRecipe={this._deleteRecipe} />
 				<div className="container-fluid">
 					<div className="row">
 						<div className="col-sm-12">
-							<button type="button" className="btn btn-primary">View Meal List</button>
+							<button type="button" className="btn btn-primary">
+								View Meal List
+							</button>
 						</div>
 					</div>
 				</div>
@@ -79,4 +83,7 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(recipeActions, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipePage);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(RecipePage);

@@ -3,27 +3,23 @@ import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import RecipeEntryView from './RecipeEntryView';
 
-const setup = saving => (
-	{
-		recipe: {},
-		saving,
-		errors: {},
-		categories: [],
-		onSave: () => {},
-		onChange: () => {},
-		onCancel: () => {},
-	}
-);
+const setup = saving => ({
+	recipe: {},
+	saving,
+	errors: {},
+	categories: [],
+	onSave: () => {},
+	onChange: () => {},
+	onCancel: () => {},
+});
 
 const enzymeSetup = saving => shallow(<RecipeEntryView {...setup(saving)} />);
 
 describe('RecipeEntryView', () => {
 	it('renders correctly', () => {
-		const tree = renderer.create(
-			<RecipeEntryView
-				{...setup(false)}
-			/>,
-		).toJSON();
+		const tree = renderer
+			.create(<RecipeEntryView {...setup(false)} />)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 

@@ -1,8 +1,6 @@
 import { loadCategoriesSuccess } from './categoryActions';
 import * as actionTypes from './actionTypes';
 
-/* eslint-disable no-undef */
-
 describe('Category Actions', () => {
 	// arange
 	const categories = [

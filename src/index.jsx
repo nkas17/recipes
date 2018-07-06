@@ -1,4 +1,3 @@
-
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -23,5 +22,5 @@ ReactDOM.render(
 			<App />
 		</Provider>
 	</BrowserRouter>,
-	document.getElementById('app'),
+	document.getElementById('app')
 );

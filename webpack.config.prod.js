@@ -10,10 +10,7 @@ const webpack = require('webpack');
 
 module.exports = {
 	resolve: {
-		modules: [
-			join(__dirname, 'src'),
-			'node_modules',
-		],
+		modules: [join(__dirname, 'src'), 'node_modules'],
 		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
 	},
 
@@ -24,7 +21,6 @@ module.exports = {
 		filename: 'bundle.js',
 
 		path: resolve(__dirname, 'dist'),
-
 	},
 
 	context: resolve(__dirname, 'src'),
@@ -35,9 +31,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				use: [
-					'babel-loader',
-				],
+				use: ['babel-loader'],
 				include: /src/,
 			},
 			{
@@ -82,8 +76,8 @@ module.exports = {
 			// {output}/dist/file.txt
 			{ from: 'index.html' },
 
-		// 	// Copy directory contents to {output}/to/directory/
-		// 	{ from: 'assets', to: 'assets' },
+			// 	// Copy directory contents to {output}/to/directory/
+			// 	{ from: 'assets', to: 'assets' },
 		]),
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,

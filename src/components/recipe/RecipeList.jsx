@@ -21,7 +21,8 @@ const RecipeList = ({ recipes, deleteRecipe }) => (
 					key={recipe.id}
 					recipe={recipe}
 					deleteRecipe={deleteRecipe}
-				/>))}
+				/>
+			))}
 		</tbody>
 	</table>
 );

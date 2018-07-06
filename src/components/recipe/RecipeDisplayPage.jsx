@@ -35,7 +35,12 @@ class RecipeDisplayPage extends React.Component {
 					<div>
 						<h3>Directions</h3>
 						<hr />
-						{directions.map(direction => <p key={key++}>{direction}<br /></p>)}
+						{directions.map(direction => (
+							<p key={key++}>
+								{direction}
+								<br />
+							</p>
+						))}
 					</div>
 				</div>
 			</div>
@@ -77,4 +82,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeDisplayPage);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(RecipeDisplayPage);

@@ -75,15 +75,15 @@ const recipes = [
 // This would be performed on the server in a real app. Just stubbing in.
 // const generateId = recipe => replaceAll(recipe.title, ' ', '-');
 
-const handleResult = (response) => {
+const handleResult = response => {
 	if (response.status >= 200 && response.status < 300) {
-		return response.json().then((data) => {
+		return response.json().then(data => {
 			console.log(data); // eslint-disable-line no-console
 			return data;
 		});
 	}
 	if (response.bodyUsed) {
-		return response.json().then((data) => {
+		return response.json().then(data => {
 			const error = new Error(`Response error for ${response.url}`);
 			error.additionalData = data;
 			throw error;
@@ -94,7 +94,8 @@ const handleResult = (response) => {
 
 class RecipeApi {
 	static getAllRecipes() {
-		const db = process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
+		const db =
+			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
 		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
 		// /databases/{database}/collections/{collection}
 		const options = {
@@ -105,8 +106,7 @@ class RecipeApi {
 			},
 		};
 
-		return fetch(url, options)
-			.then(handleResult);
+		return fetch(url, options).then(handleResult);
 		// return new Promise((resolve /* reject*/) => {
 		// 	setTimeout(() => {
 		// 		resolve(Object.assign([], recipes));
@@ -115,7 +115,8 @@ class RecipeApi {
 	}
 
 	static saveRecipe(recipe) {
-		const db = process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
+		const db =
+			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
 		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
 		// /databases/{database}/collections/{collection}
 		const options = {
@@ -127,8 +128,7 @@ class RecipeApi {
 			body: JSON.stringify(recipe),
 		};
 
-		return fetch(url, options)
-			.then(handleResult);
+		return fetch(url, options).then(handleResult);
 
 		// const theRecipe = Object.assign({}, recipe); // to avoid manipulating object passed in.
 		// return new Promise((resolve, reject) => {
@@ -159,7 +159,9 @@ class RecipeApi {
 	static deleteRecipe(recipeId) {
 		return new Promise((resolve /* reject */) => {
 			setTimeout(() => {
-				const indexOfRecipeToDelete = recipes.findIndex(recipe => recipe.id === recipeId);
+				const indexOfRecipeToDelete = recipes.findIndex(
+					recipe => recipe.id === recipeId
+				);
 				recipes.splice(indexOfRecipeToDelete, 1);
 				resolve();
 			}, delay);

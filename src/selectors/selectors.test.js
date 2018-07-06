@@ -1,7 +1,5 @@
 import { categoriesFormattedForSelectInput } from './selectors';
 
-/* eslint-disable no-undef */
-
 describe('Recipe Selectors', () => {
 	describe('categoriesFormattedForSelectInput', () => {
 		it('should return category data formatted for use in a select input', () => {

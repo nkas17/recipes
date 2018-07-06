@@ -3,8 +3,6 @@ import rootReducer from '../reducers';
 import initialState from '../reducers/initialState';
 import { createRecipeSuccess } from '../actions/recipeActions';
 
-/* eslint-disable no-undef */
-
 describe('Store', () => {
 	it('should handle creating recipes', () => {
 		// arange

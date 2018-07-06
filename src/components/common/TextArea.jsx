@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TextArea = ({
-	name, label, onChange, readonly, rows, cols, placeholder, value, error,
+	name,
+	label,
+	onChange,
+	readonly,
+	rows,
+	cols,
+	placeholder,
+	value,
+	error,
 }) => {
 	let wrapperClass = 'form-group';
 	if (error && error.length > 0) {

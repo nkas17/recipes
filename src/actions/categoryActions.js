@@ -15,11 +15,13 @@ export const loadCategoriesSuccess = (categories) => ({ // eslint-disable-line
  * thunks
  */
 
-export const loadCategories = () => (dispatch) => {
+export const loadCategories = () => dispatch => {
 	dispatch(beginAjaxCall());
-	return CategoryApi.getAllCategories().then((categories) => {
-		dispatch(loadCategoriesSuccess(categories));
-	}).catch((error) => {
-		throw (error);
-	});
+	return CategoryApi.getAllCategories()
+		.then(categories => {
+			dispatch(loadCategoriesSuccess(categories));
+		})
+		.catch(error => {
+			throw error;
+		});
 };
