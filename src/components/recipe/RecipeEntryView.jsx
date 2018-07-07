@@ -66,7 +66,7 @@ const RecipeEntryView = ({
 			id="cancel"
 			type="button"
 			disabled={saving}
-			className="btn btn-secondary"
+			className="btn btn-link"
 			onClick={onCancel}
 		>
 			{'cancel'}

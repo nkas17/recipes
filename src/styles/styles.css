@@ -34,12 +34,59 @@
 	font-style: normal;
 }
 
+html,
+#app .dark{
+	color: #888;
+	background-color: #222;
+}
+
+#app .dark .page-header,
+#app .dark .table>thead>tr>th,
+#app .table>tbody>tr>td {
+	border-bottom: 1px solid #a053ec;
+}
+
+#app .dark .table>tbody>tr>td {
+	border-top: 1px solid #a053ec;
+}
+
+#app .dark .jumbotron {
+	background-color: #333;
+}
+#app .dark .jumbotron>hr {
+	border-top-color: #a053ec;
+}
+
+#app .dark nav a {
+	color: #a053ec;
+	text-decoration: none;
+}
+
+#app .dark .btn {
+	text-decoration: none;
+}
+#app .dark .btn-primary {
+	color: #aaa;
+	background-color: #622ac5;
+	border-color: #360096;
+}
+
+#app .dark .btn-link,
+#app .dark a {
+	color: #aaa;
+	text-decoration: underline;
+}
+
+#app .dark .form-control {
+	background-color: #444;
+	color: #eee;
+}
 
 #app {
 	/*font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
 	font: 16px Garamond, Helvetica, Arial, sans-serif;
 	font-weight: 200;
-	color: #4d4d4d;
+	/* color: #4d4d4d; */
 }
 
 #app nav {
@@ -62,3 +109,7 @@
 	font-family: 'Flex Display', Helvetica, Arial, sans-serif;
 	font-weight: bold;
 }*/
+
+.theme-toggle {
+	float: right;
+}

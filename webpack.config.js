@@ -3,13 +3,13 @@
  *
  * @see - https://webpack.js.org/guides/hmr-react/#webpack-config
  */
-const { resolve, join } = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+	mode: 'development',
 	resolve: {
-		modules: [join(__dirname, 'src'), 'node_modules'],
 		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
 		/**
 		 * Allow all reacts to resolve to one module so npm link works
@@ -25,9 +25,6 @@ module.exports = {
 		'./index.jsx',
 	],
 	output: {
-		// the output bundle
-		filename: 'bundle.js',
-
 		path: resolve(__dirname, 'dist'),
 
 		// necessary for HMR to know where to load the hot update chunks
@@ -65,10 +62,10 @@ module.exports = {
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
 			},
-			{
-				test: /\.json$/,
-				loader: 'json-loader',
-			},
+			// {
+			// 	test: /\.json$/,
+			// 	loader: 'json-loader',
+			// },
 			{
 				test: /\.(jpe?g|png|gif|ico)$/i,
 				loader: 'file-loader?name=[name].[ext]',
@@ -94,9 +91,6 @@ module.exports = {
 	plugins: [
 		// enable HMR globally
 		new webpack.HotModuleReplacementPlugin(),
-
-		// prints more readable module names in the browser console on HMR updates
-		new webpack.NamedModulesPlugin(),
 
 		// Moves the index.html file over and asset folder to the dist folder
 		new CopyWebpackPlugin([

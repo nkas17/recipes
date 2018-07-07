@@ -15,9 +15,35 @@ import Header from './common/Header';
  */
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
+	constructor(props, context) {
+		super(props, context);
+		this.state = {
+			theme: '',
+		};
+
+		this._toggleTheme = this._toggleTheme.bind(this);
+	}
+
+	_toggleTheme() {
+		const { theme } = this.state;
+		if (theme === '') {
+			this.setState({ theme: 'dark' });
+		} else {
+			this.setState({ theme: '' });
+		}
+	}
+
 	render() {
+		const { theme } = this.state;
 		return (
-			<div className="container-fluid">
+			<div className={`${theme} container-fluid`}>
+				<button
+					type="button"
+					className="btn btn-link theme-toggle"
+					onClick={this._toggleTheme}
+				>
+					theme toggle
+				</button>
 				<Header />
 				<main>
 					<Switch>
