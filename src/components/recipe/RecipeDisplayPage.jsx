@@ -28,7 +28,12 @@ class RecipeDisplayPage extends React.Component {
 					<div>
 						<h3>Ingredients</h3>
 						<hr />
-						{ingredients.map(ingredient => <p key={key++}>{ingredient}</p>)}
+						{ingredients.map(ingredient => (
+							<p key={key++}>
+								{ingredient}
+								<br />
+							</p>
+						))}
 					</div>
 				</div>
 				<div className="jumbotron">

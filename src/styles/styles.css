@@ -42,7 +42,7 @@ html,
 
 #app .dark .page-header,
 #app .dark .table>thead>tr>th,
-#app .table>tbody>tr>td {
+#app .dark .table>tbody>tr>td {
 	border-bottom: 1px solid #a053ec;
 }
 
