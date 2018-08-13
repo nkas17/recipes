@@ -22,9 +22,8 @@ class RecipePage extends React.Component { //eslint-disable-line
 		history.push('/recipe/new/edit');
 	}
 
-	_deleteRecipe(recipeId, event) {
+	_deleteRecipe(recipeId) {
 		const { actions } = this.props;
-		event.preventDefault();
 
 		if (
 			/* eslint-disable no-alert */
