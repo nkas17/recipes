@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import toastr from 'toastr';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import _ from 'lodash';
 import RecipeList from './RecipeList';
 import * as recipeActions from '../../actions/recipeActions';
 
@@ -75,7 +76,7 @@ RecipePage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	recipes: state.recipes,
+	recipes: _.sortBy(state.recipes, [o => o.title]),
 });
 
 const mapDispatchToProps = dispatch => ({
