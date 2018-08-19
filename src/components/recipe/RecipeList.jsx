@@ -7,14 +7,6 @@ import RecipeListRow from './RecipeListRow';
  */
 const RecipeList = ({ recipes, deleteRecipe }) => (
 	<table className="table">
-		<thead>
-			<tr>
-				<th>&nbsp;</th>
-				<th>title</th>
-				<th>description</th>
-				<th>&nbsp;</th>
-			</tr>
-		</thead>
 		<tbody>
 			{recipes.map(recipe => (
 				<RecipeListRow

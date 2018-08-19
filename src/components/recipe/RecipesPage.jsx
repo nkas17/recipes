@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import RecipeList from './RecipeList';
 import * as recipeActions from '../../actions/recipeActions';
+import RecipeSearchContainer from './RecipeSearchContainer';
 
 /**
  * Page that has all the recipe things
@@ -46,24 +47,24 @@ class RecipePage extends React.Component { //eslint-disable-line
 		const { recipes } = this.props;
 		return (
 			<div className="jumbotron">
-				<h2>recipes</h2>
-				<input
-					type="submit"
-					value="add"
-					className="btn btn-link"
-					onClick={this._redirectToAddRecipePage}
-				/>
-				<hr />
-				<RecipeList recipes={recipes} deleteRecipe={this._deleteRecipe} />
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-sm-12">
-							<button type="button" className="btn btn-primary">
-								View Meal List
-							</button>
-						</div>
+				<header className="row">
+					<div className="col-lg-1">
+						<h2>recipes</h2>
 					</div>
-				</div>
+					<div className="col-lg-11">
+						<h2>
+							<button
+								type="button"
+								className="btn btn-link ml-3"
+								onClick={this._redirectToAddRecipePage}
+							>
+								add
+							</button>
+						</h2>
+					</div>
+				</header>
+				<RecipeSearchContainer />
+				<RecipeList recipes={recipes} deleteRecipe={this._deleteRecipe} />
 			</div>
 		);
 	}
