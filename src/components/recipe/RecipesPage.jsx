@@ -55,10 +55,18 @@ class RecipePage extends React.Component { //eslint-disable-line
 		const { recipes } = this.props;
 		const { searchValue } = this.state;
 		return _.reject(recipes, recipe => {
-			const index = recipe.title
+			const titleIndex = recipe.title
 				.toLowerCase()
 				.indexOf(searchValue.toLowerCase());
-			return index === -1;
+			const descriptionIndex = recipe.description
+				.toLowerCase()
+				.indexOf(searchValue.toLowerCase());
+			const categoryIndex = recipe.category
+				.toLowerCase()
+				.indexOf(searchValue.toLowerCase());
+			const isDisplaying =
+				titleIndex === -1 && descriptionIndex === -1 && categoryIndex === -1;
+			return isDisplaying;
 		});
 	}
 
