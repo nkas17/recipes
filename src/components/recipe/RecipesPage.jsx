@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import RecipeList from './RecipeList';
 import * as recipeActions from '../../actions/recipeActions';
-import RecipeSearchContainer from './RecipeSearchContainer';
+import RecipeSearchView from './RecipeSearchView';
 
 /**
  * Page that has all the recipe things
@@ -14,9 +14,17 @@ import RecipeSearchContainer from './RecipeSearchContainer';
 class RecipePage extends React.Component { //eslint-disable-line
 	constructor(props, context) {
 		super(props, context);
+		this.state = {
+			searchValue: '',
+		};
 
+		this._onSearchChange = this._onSearchChange.bind(this);
 		this._redirectToAddRecipePage = this._redirectToAddRecipePage.bind(this);
 		this._deleteRecipe = this._deleteRecipe.bind(this);
+	}
+
+	_onSearchChange(event) {
+		return this.setState({ searchValue: event.target.value });
 	}
 
 	_redirectToAddRecipePage() {
@@ -43,15 +51,21 @@ class RecipePage extends React.Component { //eslint-disable-line
 		}
 	}
 
-	render() {
+	_getRecipesToDisplay() {
 		const { recipes } = this.props;
+		const { searchValue } = this.state;
+		return _.reject(recipes, recipe => recipe.title.indexOf(searchValue));
+	}
+
+	render() {
+		const { searchValue } = this.state;
 		return (
 			<div className="jumbotron">
 				<header className="row">
-					<div className="col-lg-1">
+					<div className="col">
 						<h2>recipes</h2>
 					</div>
-					<div className="col-lg-11">
+					<div className="col">
 						<h2>
 							<button
 								type="button"
@@ -63,8 +77,14 @@ class RecipePage extends React.Component { //eslint-disable-line
 						</h2>
 					</div>
 				</header>
-				<RecipeSearchContainer />
-				<RecipeList recipes={recipes} deleteRecipe={this._deleteRecipe} />
+				<RecipeSearchView
+					searchValue={searchValue}
+					onChange={this._onSearchChange}
+				/>
+				<RecipeList
+					recipes={this._getRecipesToDisplay()}
+					deleteRecipe={this._deleteRecipe}
+				/>
 			</div>
 		);
 	}
