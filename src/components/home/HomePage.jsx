@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => (
-	<div>
+	<article className="py-2">
 		<div className="jumbotron">
 			<h2>recipes</h2>
 			<hr />
@@ -27,7 +27,7 @@ const HomePage = () => (
 				grocery lists
 			</Link>
 		</div> */}
-	</div>
+	</article>
 );
 
 export default HomePage;

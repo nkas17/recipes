@@ -65,32 +65,34 @@ class RecipePage extends React.Component { //eslint-disable-line
 	render() {
 		const { searchValue } = this.state;
 		return (
-			<div className="jumbotron">
-				<header className="row">
-					<div className="col">
-						<h2>recipes</h2>
-					</div>
-					<div className="col">
-						<h2>
-							<button
-								type="button"
-								className="btn btn-link ml-3"
-								onClick={this._redirectToAddRecipePage}
-							>
-								add
-							</button>
-						</h2>
-					</div>
-				</header>
-				<RecipeSearchView
-					searchValue={searchValue}
-					onChange={this._onSearchChange}
-				/>
-				<RecipeList
-					recipes={this._getRecipesToDisplay()}
-					deleteRecipe={this._deleteRecipe}
-				/>
-			</div>
+			<article className="py-2">
+				<div className="jumbotron">
+					<header className="row">
+						<div className="col">
+							<h2>recipes</h2>
+						</div>
+						<div className="col">
+							<h2 className="float-right">
+								<button
+									type="button"
+									className="btn btn-link ml-3"
+									onClick={this._redirectToAddRecipePage}
+								>
+									add
+								</button>
+							</h2>
+						</div>
+					</header>
+					<RecipeSearchView
+						searchValue={searchValue}
+						onChange={this._onSearchChange}
+					/>
+					<RecipeList
+						recipes={this._getRecipesToDisplay()}
+						deleteRecipe={this._deleteRecipe}
+					/>
+				</div>
+			</article>
 		);
 	}
 }

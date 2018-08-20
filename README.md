@@ -9,6 +9,9 @@
 * [x]sort recipe list
 * [x]mobile friendly
 * [ ]search recipes
+  *  [x] search by title
+	*  [ ] search includes description
+	*  [ ] search includes category
 * [ ]make a meal list
 * [ ]make a grocery list based on meal list
 * [ ]save lists of frequently purchased items
