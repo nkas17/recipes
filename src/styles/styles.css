@@ -36,6 +36,7 @@
 
 html,
 #app .dark{
+	font-size: 16px;
 	color: #888;
 	background-color: #222;
 }
