@@ -20,7 +20,7 @@ const RecipeListRow = ({ recipe, deleteRecipe }) => (
 			<input
 				type="button"
 				value="delete"
-				className="btn btn-link"
+				className="btn btn-link delete-recipe"
 				onClick={() => deleteRecipe(recipe._id.$oid)}
 			/>
 		</td>

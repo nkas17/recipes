@@ -93,6 +93,9 @@ html,
 	font-weight: 200;
 	/* color: #4d4d4d; */
 }
+#app .jumbotron {
+	padding-top: 1rem;
+}
 
 #app nav {
 	padding-bottom: 10px;
@@ -105,6 +108,7 @@ html,
 /* 	font-style: italic; */
 	font-weight: bold;
 	letter-spacing: 7px;
+	padding-top: 15px;
 }
 
 .btn {
@@ -115,6 +119,11 @@ html,
 	font-weight: bold;
 }*/
 
-.theme-toggle {
+#app .theme-toggle {
 	float: right;
+	font-size: .5rem;
+}
+
+#app .delete-recipe {
+	font-size: .75rem;
 }
