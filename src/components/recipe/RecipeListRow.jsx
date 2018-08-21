@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const RecipeListRow = ({ recipe, deleteRecipe }) => (
 	<tr>
 		<td>&nbsp;</td>
-		<td className="recipe-list-column">
+		<td>
 			<Link to={`recipe/${recipe.id}`}>{recipe.title}</Link>
 		</td>
 		<td>{recipe.description}</td>
