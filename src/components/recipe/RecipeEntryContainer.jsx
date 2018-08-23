@@ -98,19 +98,21 @@ class RecipeEntryContainer extends React.Component {
 		const { errors, recipe, saving } = this.state;
 		const { categories, match } = this.props;
 		return (
-			<div className="jumbotron">
-				<h2>{`Manage ${match.params && match.params.id} Recipe`} </h2>
-				<hr />
-				<RecipeEntryView
-					recipe={recipe}
-					categories={categories}
-					onChange={this._updateRecipeState}
-					onSave={this._saveRecipe}
-					onCancel={this._cancelRecipe}
-					errors={errors}
-					saving={saving}
-				/>
-			</div>
+			<article className="py-2">
+				<div className="jumbotron">
+					<h2>{`Manage ${match.params && match.params.id} Recipe`} </h2>
+					<hr />
+					<RecipeEntryView
+						recipe={recipe}
+						categories={categories}
+						onChange={this._updateRecipeState}
+						onSave={this._saveRecipe}
+						onCancel={this._cancelRecipe}
+						errors={errors}
+						saving={saving}
+					/>
+				</div>
+			</article>
 		);
 	}
 }

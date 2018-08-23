@@ -12,6 +12,7 @@
   *  [x] search by title
 	*  [x] search includes description
 	*  [x] search includes category
+* [ ]gateway to db
 * [ ]switch to full redux
 * [ ]new design/css without bootstrap
 * [ ]make a meal list

@@ -37,8 +37,29 @@
 html,
 #app .dark{
 	font-size: 16px;
-	color: #888;
-	background-color: #222;
+	/* color: #888; */
+}
+
+body {    
+	color: #282727;
+	background-image: url("../assets/food.png");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	/* opacity: 0.75; */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+	background-size: cover;
+}
+
+#app {
+	background-color: rgba(256,256,256,.5);
+	height: 100%;
+	overflow: auto;
 }
 
 #app .table td, #app .table th {
@@ -53,6 +74,17 @@ html,
 
 #app .dark .table>tbody>tr>td {
 	border-top: 1px solid #a053ec;
+}
+
+#app header {
+	background: rgba(255,255,255,.7);
+	border-radius: .3rem;
+	padding: 1rem;
+	margin-top: .5rem;
+}
+
+#app .container-fluid {
+	padding: 0 .5rem;
 }
 
 #app .dark .jumbotron {
@@ -95,6 +127,7 @@ html,
 }
 #app .jumbotron {
 	padding-top: 1rem;
+	background: rgba(255,255,255,.7);
 }
 
 #app nav {
@@ -108,7 +141,6 @@ html,
 /* 	font-style: italic; */
 	font-weight: bold;
 	letter-spacing: 7px;
-	padding-top: 15px;
 }
 
 .btn {

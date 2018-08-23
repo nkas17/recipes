@@ -17,7 +17,7 @@ class RecipeDisplayPage extends React.Component {
 		const directions = _.split(recipe.directions, '\n');
 		let key = 0;
 		return (
-			<div>
+			<article className="py-2">
 				<div className="jumbotron">
 					<h2>{recipe.title}</h2>
 					<p>{recipe.description}</p>
@@ -48,7 +48,7 @@ class RecipeDisplayPage extends React.Component {
 						))}
 					</div>
 				</div>
-			</div>
+			</article>
 		);
 	}
 }
