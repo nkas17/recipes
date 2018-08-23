@@ -8,10 +8,12 @@
 * [x]edit recipes
 * [x]sort recipe list
 * [x]mobile friendly
-* [ ]search recipes
+* [x]search recipes
   *  [x] search by title
 	*  [x] search includes description
 	*  [x] search includes category
+* [ ]switch to full redux
+* [ ]new design/css without bootstrap
 * [ ]make a meal list
 * [ ]make a grocery list based on meal list
 * [ ]save lists of frequently purchased items
