@@ -12,6 +12,7 @@
   *  [x] search by title
 	*  [x] search includes description
 	*  [x] search includes category
+* [x]add background image
 * [ ]gateway to db
 * [ ]switch to full redux
 * [ ]new design/css without bootstrap
