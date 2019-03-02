@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import vanillaToast from 'vanilla-toast';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import _ from 'lodash';
+import { reject, sortBy } from 'lodash';
 import RecipeList from './RecipeList';
 import * as recipeActions from '../../actions/recipeActions';
 import RecipeSearchView from './RecipeSearchView';
@@ -54,7 +54,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 	_getRecipesToDisplay() {
 		const { recipes } = this.props;
 		const { searchValue } = this.state;
-		return _.reject(recipes, recipe => {
+		return reject(recipes, recipe => {
 			const titleIndex = recipe.title
 				.toLowerCase()
 				.indexOf(searchValue.toLowerCase());
@@ -112,7 +112,7 @@ RecipePage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	recipes: _.sortBy(state.recipes, [o => o.title]),
+	recipes: sortBy(state.recipes, [o => o.title]),
 });
 
 const mapDispatchToProps = dispatch => ({

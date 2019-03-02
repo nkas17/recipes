@@ -3,13 +3,13 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import vanillaToast from 'vanilla-toast';
-import _ from 'lodash';
+import { find } from 'lodash';
 import * as recipeActions from '../../actions/recipeActions';
 import { categoriesFormattedForSelectInput } from '../../selectors/selectors';
 import RecipeEntryView from './RecipeEntryView';
 
-const replaceAll = (str, find, replace) =>
-	str.replace(new RegExp(find, 'g'), replace);
+const replaceAll = (str, get, replace) =>
+	str.replace(new RegExp(get, 'g'), replace);
 
 class RecipeEntryContainer extends React.Component {
 	constructor(props, context) {
@@ -134,7 +134,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 
 	if (recipeId !== 'new') {
-		recipe = _.find(state.recipes, { id: recipeId });
+		recipe = find(state.recipes, { id: recipeId });
 		if (recipe === undefined) {
 			recipe = {
 				title: '',

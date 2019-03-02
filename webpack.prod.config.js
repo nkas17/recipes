@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const LodashPlugin = require('lodash-webpack-plugin');
 
@@ -50,7 +50,9 @@ module.exports = {
 	plugins: [
 		new CopyWebpackPlugin([{ from: 'index.html' }]),
 		extractCSS,
-		new BundleAnalyzerPlugin(),
-		new LodashPlugin({}),
+		// new BundleAnalyzerPlugin(),
+		new LodashPlugin({
+			shorthands: true,
+		}),
 	],
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { find, split } from 'lodash';
 
 /**
  * Recipe display page
@@ -13,8 +13,8 @@ import _ from 'lodash';
 class RecipeDisplayPage extends React.Component {
 	render() {
 		const { recipe } = this.props;
-		const ingredients = _.split(recipe.ingredients, '\n');
-		const directions = _.split(recipe.directions, '\n');
+		const ingredients = split(recipe.ingredients, '\n');
+		const directions = split(recipe.directions, '\n');
 		let key = 0;
 		return (
 			<article className="py-2">
@@ -71,7 +71,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 
 	if (recipeId !== 'new') {
-		recipe = _.find(state.recipes, { id: recipeId });
+		recipe = find(state.recipes, { id: recipeId });
 		if (recipe === undefined) {
 			recipe = {
 				title: '',
