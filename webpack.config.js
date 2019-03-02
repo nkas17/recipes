@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const LodashPlugin = require('lodash-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
@@ -51,9 +52,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CopyWebpackPlugin([
-			{ from: 'index.html' },
-			{ from: 'assets', to: 'assets' },
-		]),
+		new CopyWebpackPlugin([{ from: 'index.html' }]),
+		new LodashPlugin({}),
 	],
 };

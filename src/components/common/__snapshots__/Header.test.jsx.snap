@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly while loading 1`] = `
+<header>
+  <h1
+    className="page-header"
+  >
+    come and eat!
+  </h1>
+  <nav>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      home
+    </a>
+     | 
+    <a
+      href="/recipe"
+      onClick={[Function]}
+    >
+      recipes
+    </a>
+     | 
+    <a
+      href="/mealList"
+      onClick={[Function]}
+    >
+      meals
+    </a>
+     | 
+    <a
+      href="/groceryList"
+      onClick={[Function]}
+    >
+      groceries
+    </a>
+     | 
+    <a
+      href="/about"
+      onClick={[Function]}
+    >
+      about
+    </a>
+  </nav>
+</header>
+`;
+
+exports[`Header renders correctly without loading 1`] = `
+<header>
+  <h1
+    className="page-header"
+  >
+    come and eat!
+  </h1>
+  <nav>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      home
+    </a>
+     | 
+    <a
+      href="/recipe"
+      onClick={[Function]}
+    >
+      recipes
+    </a>
+     | 
+    <a
+      href="/mealList"
+      onClick={[Function]}
+    >
+      meals
+    </a>
+     | 
+    <a
+      href="/groceryList"
+      onClick={[Function]}
+    >
+      groceries
+    </a>
+     | 
+    <a
+      href="/about"
+      onClick={[Function]}
+    >
+      about
+    </a>
+  </nav>
+</header>
+`;

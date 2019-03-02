@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import toastr from 'toastr';
+import vanillaToast from 'vanilla-toast';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
@@ -46,8 +46,8 @@ class RecipePage extends React.Component { //eslint-disable-line
 
 			actions
 				.deleteRecipe(recipeId)
-				.then(() => toastr.success('Recipe deleted'))
-				.catch(error => toastr.error(error));
+				.then(() => vanillaToast.success('Recipe deleted'))
+				.catch(error => vanillaToast.error(error));
 		}
 	}
 

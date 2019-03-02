@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecipeListRow renders correctly 1`] = `
+<tr>
+  <td>
+     
+  </td>
+  <td>
+    <a
+      href="/recipe/tacos"
+      onClick={[Function]}
+    >
+      tacos
+    </a>
+  </td>
+  <td>
+    Tasty homemade tacos - hard or soft
+  </td>
+  <td>
+    other
+  </td>
+  <td>
+    <input
+      className="btn btn-link delete-recipe"
+      onClick={[Function]}
+      type="button"
+      value="delete"
+    />
+  </td>
+</tr>
+`;

@@ -1,8 +1,10 @@
 const presets = [
 		"@babel/react",
-		"@babel/env"
+		["@babel/env",{
+        "modules": false
+      }]
 	];
-const plugins= [];
+const plugins= ["lodash"];
 
 
 module.exports = { presets, plugins };

@@ -1,5 +1,10 @@
 const { resolve } = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const LodashPlugin = require('lodash-webpack-plugin');
+
+const extractCSS = new ExtractTextPlugin('styles.css');
 
 module.exports = {
 	mode: 'production',
@@ -17,7 +22,8 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				// use: ['style-loader', 'css-loader'],//
+				use: extractCSS.extract(['css-loader']), // , 'postcss-loader']),
 			},
 			{
 				test: /\.(jpe?g|png|gif|ico)$/i,
@@ -42,9 +48,9 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CopyWebpackPlugin([
-			{ from: 'index.html' },
-			{ from: 'assets', to: 'assets' },
-		]),
+		new CopyWebpackPlugin([{ from: 'index.html' }]),
+		extractCSS,
+		new BundleAnalyzerPlugin(),
+		new LodashPlugin({}),
 	],
 };

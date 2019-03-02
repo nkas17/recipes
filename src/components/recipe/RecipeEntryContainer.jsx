@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
+import vanillaToast from 'vanilla-toast';
 import _ from 'lodash';
 import * as recipeActions from '../../actions/recipeActions';
 import { categoriesFormattedForSelectInput } from '../../selectors/selectors';
@@ -70,7 +70,7 @@ class RecipeEntryContainer extends React.Component {
 			.saveRecipe(recipe)
 			.then(() => this._redirectOnSave())
 			.catch(error => {
-				toastr.error(error);
+				vanillaToast.error(error);
 				this.setState({ saving: false });
 			});
 	}
@@ -79,7 +79,7 @@ class RecipeEntryContainer extends React.Component {
 		const { recipe } = this.state;
 		const { history } = this.props;
 		this.setState({ saving: false });
-		toastr.success('Recipe saved');
+		vanillaToast.success('Recipe saved');
 		history.push(`/recipe/${recipe.id}`);
 	}
 
@@ -89,7 +89,7 @@ class RecipeEntryContainer extends React.Component {
 
 	_redirectOnCancel() {
 		const { history, recipe } = this.props;
-		toastr.success('Recipe cancelled');
+		vanillaToast.success('Recipe cancelled');
 		if (recipe.id === undefined) history.push('/recipe');
 		else history.push(`/recipe/${recipe.id}`);
 	}
