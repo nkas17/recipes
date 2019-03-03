@@ -26,7 +26,7 @@ module.exports = {
 				use: extractCSS.extract(['css-loader']), // , 'postcss-loader']),
 			},
 			{
-				test: /\.(jpe?g|png|gif|ico)$/i,
+				test: /\.(jpe?g|png|gif|ico|webp)$/i,
 				loader: 'file-loader?name=[name].[ext]',
 			},
 			{
