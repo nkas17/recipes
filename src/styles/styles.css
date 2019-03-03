@@ -42,7 +42,6 @@ html,
 
 body {
 	color: #282727;
-	background-image: url("../images/food.webp");
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center;
@@ -54,6 +53,14 @@ body {
 	position: absolute;
 	z-index: -1;
 	background-size: cover;
+}
+
+.no-webp body{
+  background-image: url("../images/food.png");
+}
+
+.webp body {
+background-image: url("../images/food.webp");
 }
 
 #app {

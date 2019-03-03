@@ -48,7 +48,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CopyWebpackPlugin([{ from: 'index.html' }]),
+		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
 		extractCSS,
 		// new BundleAnalyzerPlugin(),
 		new LodashPlugin({

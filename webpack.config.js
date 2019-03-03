@@ -52,7 +52,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		new CopyWebpackPlugin([{ from: 'index.html' }]),
+		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
 		new LodashPlugin({
 			shorthands: true,
 		}),
