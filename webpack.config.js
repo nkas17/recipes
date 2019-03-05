@@ -25,6 +25,11 @@ module.exports = {
 				include: /src/,
 			},
 			{
+				test: /\.jsx?$/,
+				include: /node_modules/,
+				use: ['react-hot-loader/webpack'],
+			},
+			{
 				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
 			},
