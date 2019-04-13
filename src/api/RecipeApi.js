@@ -15,27 +15,28 @@ const handleResult = response => {
 	throw new Error(`Response error for ${response.url}`);
 };
 
+const url =
+	process.env.NODE_ENV === 'production'
+		? `https://recipe-api-gateway.herokuapp.com/recipe`
+		: 'http://localhost:3000/recipe';
+
 class RecipeApi {
 	static getAllRecipes() {
-		const db =
-			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
-		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
 		const options = {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
+			credentials: 'include',
 		};
 
 		return fetch(url, options).then(handleResult);
 	}
 
 	static saveRecipe(recipe) {
+		console.log(recipe);
 		const theRecipe = Object.assign({}, recipe); // to avoid manipulating object passed in.
-		const db =
-			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
-		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
 		const options = {
 			method: 'POST',
 			headers: {
@@ -49,9 +50,7 @@ class RecipeApi {
 	}
 
 	static deleteRecipe(recipeId) {
-		const db =
-			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
-		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes/${recipeId}?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
+		const deleteUrl = `${url}/${recipeId}`;
 		const options = {
 			method: 'DELETE',
 			headers: {
@@ -60,7 +59,7 @@ class RecipeApi {
 			},
 		};
 
-		return fetch(url, options).then(handleResult);
+		return fetch(deleteUrl, options).then(handleResult);
 	}
 }
 
