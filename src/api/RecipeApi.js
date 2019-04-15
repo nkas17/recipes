@@ -28,15 +28,13 @@ class RecipeApi {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
-			credentials: 'include',
 		};
 
 		return fetch(url, options).then(handleResult);
 	}
 
 	static saveRecipe(recipe) {
-		console.log(recipe);
-		const theRecipe = Object.assign({}, recipe); // to avoid manipulating object passed in.
+		const theRecipe = { ...recipe };
 		const options = {
 			method: 'POST',
 			headers: {
