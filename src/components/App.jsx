@@ -3,12 +3,12 @@ import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
+import LoginPage from './login/LoginPage';
 import RecipesPage from './recipe/RecipesPage';
 import GroceryListPage from './groceryList/GroceryListPage';
 import MealListPage from './mealList/MealListPage';
 import RecipeDisplayPage from './recipe/RecipeDisplayPage';
 import RecipeEntryContainer from './recipe/RecipeEntryContainer';
-import Header from './common/Header';
 
 /**
  * Main component that wraps everything else
@@ -44,10 +44,10 @@ class App extends React.Component {
 				>
 					theme toggle
 				</button>
-				<Header />
 				<main>
 					<Switch>
 						<Route exact path="/" component={HomePage} />
+						<Route exact path="/login" component={LoginPage} />
 						<Route path="/about" component={AboutPage} />
 						<Route exact path="/recipe" component={RecipesPage} />
 						<Route exact path="/recipe/:id" component={RecipeDisplayPage} />

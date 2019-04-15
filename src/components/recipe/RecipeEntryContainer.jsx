@@ -7,6 +7,7 @@ import { find } from 'lodash';
 import * as recipeActions from '../../actions/recipeActions';
 import { categoriesFormattedForSelectInput } from '../../selectors/selectors';
 import RecipeEntryView from './RecipeEntryView';
+import Header from '../common/Header';
 
 const replaceAll = (str, get, replace) =>
 	str.replace(new RegExp(get, 'g'), replace);
@@ -98,21 +99,24 @@ class RecipeEntryContainer extends React.Component {
 		const { errors, recipe, saving } = this.state;
 		const { categories, match } = this.props;
 		return (
-			<article className="py-2">
-				<div className="jumbotron">
-					<h2>{`Manage ${match.params && match.params.id} Recipe`} </h2>
-					<hr />
-					<RecipeEntryView
-						recipe={recipe}
-						categories={categories}
-						onChange={this._updateRecipeState}
-						onSave={this._saveRecipe}
-						onCancel={this._cancelRecipe}
-						errors={errors}
-						saving={saving}
-					/>
-				</div>
-			</article>
+			<React.Fragment>
+				<Header />
+				<article className="py-2">
+					<div className="jumbotron">
+						<h2>{`Manage ${match.params && match.params.id} Recipe`} </h2>
+						<hr />
+						<RecipeEntryView
+							recipe={recipe}
+							categories={categories}
+							onChange={this._updateRecipeState}
+							onSave={this._saveRecipe}
+							onCancel={this._cancelRecipe}
+							errors={errors}
+							saving={saving}
+						/>
+					</div>
+				</article>
+			</React.Fragment>
 		);
 	}
 }

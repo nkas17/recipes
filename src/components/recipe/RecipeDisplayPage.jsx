@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { find, split } from 'lodash';
+import Header from '../common/Header';
 
 /**
  * Recipe display page
@@ -17,38 +18,41 @@ class RecipeDisplayPage extends React.Component {
 		const directions = split(recipe.directions, '\n');
 		let key = 0;
 		return (
-			<article className="py-2">
-				<div className="jumbotron">
-					<h2>{recipe.title}</h2>
-					<p>{recipe.description}</p>
-					<hr />
-					<Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
-				</div>
-				<div className="jumbotron">
-					<div>
-						<h3>Ingredients</h3>
+			<React.Fragment>
+				<Header />
+				<article className="py-2">
+					<div className="jumbotron">
+						<h2>{recipe.title}</h2>
+						<p>{recipe.description}</p>
 						<hr />
-						{ingredients.map(ingredient => (
-							<p key={key++}>
-								{ingredient}
-								<br />
-							</p>
-						))}
+						<Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
 					</div>
-				</div>
-				<div className="jumbotron">
-					<div>
-						<h3>Directions</h3>
-						<hr />
-						{directions.map(direction => (
-							<p key={key++}>
-								{direction}
-								<br />
-							</p>
-						))}
+					<div className="jumbotron">
+						<div>
+							<h3>Ingredients</h3>
+							<hr />
+							{ingredients.map(ingredient => (
+								<p key={key++}>
+									{ingredient}
+									<br />
+								</p>
+							))}
+						</div>
 					</div>
-				</div>
-			</article>
+					<div className="jumbotron">
+						<div>
+							<h3>Directions</h3>
+							<hr />
+							{directions.map(direction => (
+								<p key={key++}>
+									{direction}
+									<br />
+								</p>
+							))}
+						</div>
+					</div>
+				</article>
+			</React.Fragment>
 		);
 	}
 }
