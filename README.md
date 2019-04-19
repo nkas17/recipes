@@ -2,6 +2,7 @@
 ## Technology:
 * react
 * redux
+* express back-end
 * mongo db
 ## Requirements:
 * [x]add recipes
@@ -13,7 +14,7 @@
 	*  [x] search includes description
 	*  [x] search includes category
 * [x]add background image
-* [ ]gateway to db
+* [x]gateway to db
 * [ ]switch to full redux
 * [ ]new design/css without bootstrap
 * [ ]make a meal list
@@ -26,5 +27,3 @@
 * [ ]archive recipes
 * [ ]add pictures with recipes
 * [ ]export list?
-
-

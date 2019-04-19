@@ -129,6 +129,7 @@ class LoginPage extends React.Component {
 const mapStateToProps = state => ({
 	loggingIn: state.user.authenticating,
 	authenticated: state.user.authenticated,
+	error: state.user.error.additionalData.error.message,
 });
 
 const mapDispatchToProps = dispatch => ({

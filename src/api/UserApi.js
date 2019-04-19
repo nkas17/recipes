@@ -7,7 +7,7 @@ const handleResult = response => {
 			return { ...data, authenticated: true };
 		});
 	}
-	if (response.bodyUsed) {
+	if (response.status === 401) {
 		return response.json().then(data => {
 			const error = new Error(`Response error for ${response.url}`);
 			error.additionalData = data;

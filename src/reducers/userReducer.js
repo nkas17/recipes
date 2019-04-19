@@ -13,11 +13,23 @@ const userReducer = (state = initialState.user, action) => {
 	/* eslint-disable indent */
 	switch (action.type) {
 		case USER_AUTHENTICATE_SUCCESS:
-			return { ...state, ...action.user, authenticating: false };
+			return {
+				...state,
+				...action.user,
+				authenticating: false,
+			};
 		case USER_AUTHENTICATE_FAILURE:
-			return { ...state, authenticating: false, authenticated: false };
+			return {
+				...state,
+				authenticating: false,
+				authenticated: false,
+				error: action.error,
+			};
 		case USER_AUTHENTICATE:
-			return { ...state, authenticating: true };
+			return {
+				...state,
+				authenticating: true,
+			};
 		case USER_UNAUTHENTICATE:
 			return {
 				...state,

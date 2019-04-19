@@ -1,3 +1,4 @@
+import vanillaToast from 'vanilla-toast';
 import * as actionTypes from './actionTypes';
 import { UserApi } from '../api/UserApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
@@ -7,8 +8,9 @@ export const userLoginSuccess = user => ({
 	user,
 });
 
-export const userLoginFailure = () => ({
+export const userLoginFailure = error => ({
 	type: actionTypes.USER_AUTHENTICATE_FAILURE,
+	error,
 });
 
 const userLoginStart = () => ({
@@ -31,6 +33,8 @@ export const userLogin = (username, password) => dispatch => {
 			dispatch(userLoginSuccess(user));
 		})
 		.catch(error => {
-			throw error;
+			dispatch(ajaxCallError());
+			dispatch(userLoginFailure(error));
+			vanillaToast.error(error.additionalData.error.message);
 		});
 };
