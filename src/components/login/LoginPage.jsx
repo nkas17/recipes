@@ -58,7 +58,7 @@ class LoginPage extends React.Component {
 		const { username, password, submitted } = this.state;
 		return (
 			<React.Fragment>
-				<Header navigation={false} />
+				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
 						<h2>Login</h2>
