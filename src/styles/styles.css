@@ -140,8 +140,9 @@ background-image: url("../images/food.webp");
 
 #app nav {
 	padding-bottom: 10px;
-	font-family: 'Flex Display', Helvetica, Arial, sans-serif;
-    letter-spacing: 7px;
+	font-family: Arial, sans-serif;
+    letter-spacing: 5px;
+			font-weight: bold;
 }
 
 #app .page-header {

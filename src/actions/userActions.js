@@ -35,6 +35,8 @@ export const userLogin = (username, password) => dispatch => {
 		.catch(error => {
 			dispatch(ajaxCallError());
 			dispatch(userLoginFailure(error));
-			vanillaToast.error(error.additionalData.error.message);
+			if (error && error.additionalData && error.additionalData.error) {
+				vanillaToast.error(error.additionalData.error.message);
+			}
 		});
 };
