@@ -5,7 +5,7 @@ import RecipeListRow from './RecipeListRow';
 /**
  * List of recipes
  */
-const RecipeList = ({ recipes, deleteRecipe }) => (
+const RecipeList = ({ recipes, deleteRecipe, showDelete }) => (
 	<table className="table">
 		<tbody>
 			{recipes.map(recipe => (
@@ -13,6 +13,7 @@ const RecipeList = ({ recipes, deleteRecipe }) => (
 					key={recipe.id}
 					recipe={recipe}
 					deleteRecipe={deleteRecipe}
+					showDelete={showDelete}
 				/>
 			))}
 		</tbody>

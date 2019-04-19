@@ -13,7 +13,7 @@ import Header from '../common/Header';
 // eslint-disable-next-line react/prefer-stateless-function
 class RecipeDisplayPage extends React.Component {
 	render() {
-		const { recipe } = this.props;
+		const { recipe, authenticated } = this.props;
 		const ingredients = split(recipe.ingredients, '\n');
 		const directions = split(recipe.directions, '\n');
 		let key = 0;
@@ -25,7 +25,9 @@ class RecipeDisplayPage extends React.Component {
 						<h2>{recipe.title}</h2>
 						<p>{recipe.description}</p>
 						<hr />
-						<Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
+						{authenticated && (
+							<Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
+						)}
 					</div>
 					<div className="jumbotron">
 						<div>
@@ -63,6 +65,10 @@ RecipeDisplayPage.propTypes = {
 	 */
 	recipe: PropTypes.objectOf(PropTypes.any).isRequired,
 
+	/**
+	 * whether user is authenticated
+	 */
+	authenticated: PropTypes.bool.isRequired,
 	// match: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
@@ -86,6 +92,7 @@ const mapStateToProps = (state, ownProps) => {
 
 	return {
 		recipe,
+		authenticated: state.user.authenticated,
 	};
 };
 

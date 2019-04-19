@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import RecipeApi from '../api/recipeApi';
+import RecipeApi from '../api/RecipeApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 /**
@@ -42,9 +42,9 @@ export const loadRecipes = () => dispatch => {
 		});
 };
 
-export const saveRecipe = recipe => dispatch => {
+export const saveRecipe = (recipe, token) => dispatch => {
 	dispatch(beginAjaxCall());
-	return RecipeApi.saveRecipe(recipe)
+	return RecipeApi.saveRecipe(recipe, token)
 		.then(savedRecipe => {
 			// eslint-disable-next-line no-unused-expressions
 			recipe.id
@@ -57,9 +57,9 @@ export const saveRecipe = recipe => dispatch => {
 		});
 };
 
-export const deleteRecipe = recipeId => dispatch => {
+export const deleteRecipe = (recipeId, token) => dispatch => {
 	dispatch(beginAjaxCall());
-	return RecipeApi.deleteRecipe(recipeId)
+	return RecipeApi.deleteRecipe(recipeId, token)
 		.then(recipe => {
 			// deletedRecipe.id ?
 			// dispatch(updateRecipeSuccess(deletedRecipe)) :

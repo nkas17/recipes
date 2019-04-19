@@ -3,3 +3,5 @@ export const categoriesFormattedForSelectInput = categories =>
 		value: category.id,
 		text: category.name,
 	}));
+
+export const getUser = store => store.user;

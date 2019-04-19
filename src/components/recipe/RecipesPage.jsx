@@ -34,7 +34,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 	}
 
 	_deleteRecipe(recipeId) {
-		const { actions } = this.props;
+		const { actions, token } = this.props;
 
 		if (
 			/* eslint-disable no-alert */
@@ -46,7 +46,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 			console.log(`deleted recipe id - ${recipeId}`); // eslint-disable-line no-console
 
 			actions
-				.deleteRecipe(recipeId)
+				.deleteRecipe(recipeId, token)
 				.then(() => vanillaToast.success('Recipe deleted'))
 				.catch(error => vanillaToast.error(error));
 		}
@@ -73,6 +73,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 
 	render() {
 		const { searchValue } = this.state;
+		const { authenticated } = this.props;
 		return (
 			<React.Fragment>
 				<Header />
@@ -82,17 +83,19 @@ class RecipePage extends React.Component { //eslint-disable-line
 							<div className="col">
 								<h2>recipes</h2>
 							</div>
-							<div className="col">
-								<h2 className="float-right">
-									<button
-										type="button"
-										className="btn btn-link ml-3"
-										onClick={this._redirectToAddRecipePage}
-									>
-										add
-									</button>
-								</h2>
-							</div>
+							{authenticated && (
+								<div className="col">
+									<h2 className="float-right">
+										<button
+											type="button"
+											className="btn btn-link ml-3"
+											onClick={this._redirectToAddRecipePage}
+										>
+											add
+										</button>
+									</h2>
+								</div>
+							)}
 						</header>
 						<RecipeSearchView
 							searchValue={searchValue}
@@ -101,6 +104,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 						<RecipeList
 							recipes={this._getRecipesToDisplay()}
 							deleteRecipe={this._deleteRecipe}
+							showDelete={authenticated}
 						/>
 					</div>
 				</article>
@@ -113,10 +117,13 @@ RecipePage.propTypes = {
 	recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
 	actions: PropTypes.objectOf(PropTypes.func).isRequired,
+	authenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
 	recipes: sortBy(state.recipes, [o => o.title]),
+	authenticated: state.user.authenticated,
+	token: state.user.token,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -7,30 +7,42 @@ import LoadingDots from './LoadingDots';
 /**
  * Common Header component
  */
-const Header = ({ loading = true }) => (
+const Header = ({ loading, navigation, authenticated }) => (
 	<header>
 		<h1 className="page-header">come and eat!</h1>
-		<nav>
-			<Link to="/">home</Link>
-			{' | '}
-			<Link to="/recipe">recipes</Link>
-			{' | '}
-			<Link to="/mealList">meals</Link>
-			{' | '}
-			<Link to="/groceryList">groceries</Link>
-			{' | '}
-			<Link to="/about">about</Link>
-			{loading && <LoadingDots interval={200} dots={10} />}
-		</nav>
+		{navigation && (
+			<nav>
+				<Link to="/">home</Link>
+				{' | '}
+				<Link to="/recipe">recipes</Link>
+				{' | '}
+				<Link to="/mealList">meals</Link>
+				{' | '}
+				<Link to="/groceryList">groceries</Link>
+				{' | '}
+				<Link to="/about">about</Link>
+				{' | '}
+				<Link to="/login">log {authenticated ? 'out' : 'in'}</Link>
+				{loading && <LoadingDots interval={200} dots={10} />}
+			</nav>
+		)}
 	</header>
 );
 
+Header.defaultProps = {
+	loading: true,
+	navigation: true,
+};
+
 Header.propTypes = {
-	loading: PropTypes.bool.isRequired,
+	loading: PropTypes.bool,
+	navigation: PropTypes.bool,
+	authenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
 	loading: state.numAjaxCallsInProgress > 0,
+	authenticated: state.user.authenticated,
 });
 
 export default connect(mapStateToProps)(Header);

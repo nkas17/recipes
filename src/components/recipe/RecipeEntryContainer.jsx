@@ -59,7 +59,7 @@ class RecipeEntryContainer extends React.Component {
 	_saveRecipe(event) {
 		event.preventDefault();
 		const { recipe } = this.state;
-		const { actions } = this.props;
+		const { actions, token } = this.props;
 
 		if (!this._recipeFormIsValid()) {
 			return;
@@ -68,7 +68,7 @@ class RecipeEntryContainer extends React.Component {
 		this.setState({ saving: true });
 		if (recipe.id === undefined) recipe.id = replaceAll(recipe.title, ' ', '-');
 		actions
-			.saveRecipe(recipe)
+			.saveRecipe(recipe, token)
 			.then(() => this._redirectOnSave())
 			.catch(error => {
 				vanillaToast.error(error);
@@ -150,6 +150,7 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		recipe,
 		categories: categoriesFormattedForSelectInput(state.categories),
+		token: state.user.token,
 	};
 };
 

@@ -30,15 +30,16 @@ class RecipeApi {
 			},
 		};
 
-		return fetch(url, options).then(handleResult);
+		return fetch(`${url}s`, options).then(handleResult);
 	}
 
-	static saveRecipe(recipe) {
+	static saveRecipe(recipe, token) {
 		const theRecipe = { ...recipe };
 		const options = {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(theRecipe),
@@ -47,12 +48,13 @@ class RecipeApi {
 		return fetch(url, options).then(handleResult);
 	}
 
-	static deleteRecipe(recipeId) {
+	static deleteRecipe(recipeId, token) {
 		const deleteUrl = `${url}/${recipeId}`;
 		const options = {
 			method: 'DELETE',
 			headers: {
 				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
 				'Content-Type': 'application/json',
 			},
 		};
