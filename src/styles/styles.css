@@ -69,6 +69,13 @@ background-image: url("../images/food.webp");
 	overflow: auto;
 }
 
+#app .recipe-display {
+	background: rgba(255,255,255,.7);
+	border-radius: .3rem;
+	padding: 1rem;
+	margin-top: .5rem;
+}
+
 #app table {
 	background: rgba(255,255,255,.7);
     border-radius: .3rem;
@@ -153,6 +160,10 @@ background-image: url("../images/food.webp");
 			font-weight: bold;
 }
 
+#app .ingredient-list-item {
+	line-height: 1.5rem;
+}
+
 #app .page-header {
 	font: 3em 'Flex Display', Helvetica, Arial, sans-serif;
 /* 	font-style: italic; */
@@ -175,4 +186,11 @@ background-image: url("../images/food.webp");
 
 #app .delete-recipe {
 	font-size: .75rem;
+}
+
+@media print {
+	#app .page-header,
+	#app nav {
+		display: none;
+	}
 }

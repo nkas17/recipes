@@ -21,7 +21,7 @@ class RecipeDisplayPage extends React.Component {
 			<React.Fragment>
 				<Header />
 				<article className="py-2">
-					<div className="jumbotron">
+					<div className="jumbotron recipe-display">
 						<h2>{recipe.title}</h2>
 						<p>{recipe.description}</p>
 						<hr />
@@ -30,30 +30,25 @@ class RecipeDisplayPage extends React.Component {
 						)}
 					</div>
 					<div className="jumbotron">
-						<div>
+						<div className="recipe-display">
 							<h3>Ingredients</h3>
 							<hr />
 							{ingredients
 								? ingredients.map(ingredient => (
-									<p key={key++}>
+									<span className="ingredient-list-item" key={key++}>
 										{ingredient}
 										<br />
-									</p>
+									</span>
 								  ))
 								: 'No Ingredients Added'}
 						</div>
 					</div>
 					<div className="jumbotron">
-						<div>
+						<div className="recipe-display">
 							<h3>Directions</h3>
 							<hr />
 							{directions
-								? directions.map(direction => (
-									<p key={key++}>
-										{direction}
-										<br />
-									</p>
-								  ))
+								? directions.map(direction => <p key={key++}>{direction}</p>)
 								: 'No Directions Added'}
 						</div>
 					</div>
