@@ -79,10 +79,8 @@ class RecipePage extends React.Component { //eslint-disable-line
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
-						<header className="row">
-							<div className="col">
-								<h2>recipes</h2>
-							</div>
+						<div>
+							<h2>recipes</h2>
 							{authenticated && (
 								<div className="col">
 									<h2 className="float-right">
@@ -96,7 +94,8 @@ class RecipePage extends React.Component { //eslint-disable-line
 									</h2>
 								</div>
 							)}
-						</header>
+							<hr />
+						</div>
 						<RecipeSearchView
 							searchValue={searchValue}
 							onChange={this._onSearchChange}
