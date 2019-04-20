@@ -33,24 +33,26 @@ class RecipeDisplayPage extends React.Component {
 						<div>
 							<h3>Ingredients</h3>
 							<hr />
-							{ingredients.map(ingredient => (
-								<p key={key++}>
-									{ingredient}
-									<br />
-								</p>
-							))}
+							{ingredients &&
+								ingredients.map(ingredient => (
+									<p key={key++}>
+										{ingredient}
+										<br />
+									</p>
+								))}
 						</div>
 					</div>
 					<div className="jumbotron">
 						<div>
 							<h3>Directions</h3>
 							<hr />
-							{directions.map(direction => (
-								<p key={key++}>
-									{direction}
-									<br />
-								</p>
-							))}
+							{directions &&
+								directions.map(direction => (
+									<p key={key++}>
+										{direction}
+										<br />
+									</p>
+								))}
 						</div>
 					</div>
 				</article>
