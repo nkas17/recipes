@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
-						<h2>Login</h2>
+						<h2>login</h2>
 						<hr />
 						<div className="col-md-6 col-md-offset-3">
 							<form name="form" onSubmit={this._handleSubmit}>
