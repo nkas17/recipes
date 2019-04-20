@@ -14,8 +14,8 @@ import Header from '../common/Header';
 class RecipeDisplayPage extends React.Component {
 	render() {
 		const { recipe, authenticated } = this.props;
-		const ingredients = split(recipe.ingredients, '\n');
-		const directions = split(recipe.directions, '\n');
+		const ingredients = recipe.ingredients && split(recipe.ingredients, '\n');
+		const directions = recipe.directions && split(recipe.directions, '\n');
 		let key = 0;
 		return (
 			<React.Fragment>
