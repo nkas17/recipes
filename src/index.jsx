@@ -10,7 +10,7 @@ import { loadCategories } from './actions/categoryActions';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/vanilla-toast/vanilla-toast.css';
-import './images/favicon.ico';
+import './images/recipe-512.png';
 
 const store = configureStore();
 store.dispatch(loadRecipes());
