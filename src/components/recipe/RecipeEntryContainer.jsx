@@ -27,6 +27,7 @@ class RecipeEntryContainer extends React.Component {
 		this._cancelRecipe = this._cancelRecipe.bind(this);
 	}
 
+	// eslint-disable-next-line camelcase
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		const { recipe } = this.props;
 		if (recipe.id !== nextProps.recipe.id) {
@@ -127,6 +128,7 @@ RecipeEntryContainer.propTypes = {
 	recipe: PropTypes.objectOf(PropTypes.any).isRequired,
 	actions: PropTypes.objectOf(PropTypes.func).isRequired,
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
+	token: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {

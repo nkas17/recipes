@@ -1,7 +1,6 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
-import HomePage from './home/HomePage';
 import AboutPage from './about/AboutPage';
 import LoginPage from './login/LoginPage';
 import RecipesPage from './recipe/RecipesPage';
@@ -47,7 +46,6 @@ class App extends React.Component {
 				<main>
 					<Switch>
 						<Route exact path="/" component={RecipesPage} />
-						{/* <Route exact path="/home" component={HomePage} /> */}
 						<Route exact path="/login" component={LoginPage} />
 						<Route path="/about" component={AboutPage} />
 						<Route exact path="/recipe" component={RecipesPage} />

@@ -1,4 +1,4 @@
-import delay from './delay';
+// import delay from './delay';
 
 const handleResult = response => {
 	if (response.status >= 200 && response.status < 300) {
@@ -42,12 +42,12 @@ export class UserApi {
 
 export default UserApi;
 
-export class MockUserApi {
-	static userLogin() {
-		return new Promise((resolve /* reject */) => {
-			setTimeout(() => {
-				resolve({ token: 'mocked', authenticated: true });
-			}, delay);
-		});
-	}
-}
+// export class MockUserApi {
+// 	static userLogin() {
+// 		return new Promise((resolve /* reject */) => {
+// 			setTimeout(() => {
+// 				resolve({ token: 'mocked', authenticated: true });
+// 			}, delay);
+// 		});
+// 	}
+// }

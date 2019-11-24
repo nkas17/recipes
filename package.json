@@ -6,7 +6,7 @@
 		"start": "webpack-dev-server",
 		"clean": "node node_modules/rimraf/bin.js dist/*",
 		"build": "npm run clean && webpack --config ./webpack.prod.config.js",
-		"lint": "node_modules/.bin/esw webpack.config.* src --ext js --ext jsx",
+		"lint": "node_modules/.bin/esw webpack.config.* src --ext js --ext jsx --ignore-pattern assets",
 		"lint:watch": "npm run lint -- --watch",
 		"test": "jest",
 		"test:watch": "npm run test -- --watch"

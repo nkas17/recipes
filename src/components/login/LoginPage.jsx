@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -19,12 +20,10 @@ class LoginPage extends React.Component {
 		this._handleSubmit = this._handleSubmit.bind(this);
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		// reset login status
-		const {
-			actions: { userLogout },
-		} = this.props;
-		userLogout();
+		const { actions } = this.props;
+		actions.userLogout();
 	}
 
 	componentDidUpdate() {
@@ -41,15 +40,13 @@ class LoginPage extends React.Component {
 
 	_handleSubmit(e) {
 		e.preventDefault();
-		const {
-			actions: { userLogin },
-		} = this.props;
+		const { actions } = this.props;
 
 		this.setState({ submitted: true });
 		const { username, password } = this.state;
 
 		if (username && password) {
-			userLogin(username, password);
+			actions.userLogin(username, password);
 		}
 	}
 
@@ -121,6 +118,13 @@ class LoginPage extends React.Component {
 		);
 	}
 }
+
+LoginPage.propTypes = {
+	actions: PropTypes.objectOf(PropTypes.any).isRequired,
+	loggingIn: PropTypes.bool.isRequired,
+	authenticated: PropTypes.bool.isRequired,
+	history: PropTypes.objectOf(PropTypes.any).isRequired,
+};
 
 const mapStateToProps = state => ({
 	loggingIn: state.user.authenticating,

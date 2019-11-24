@@ -113,6 +113,7 @@ RecipePage.propTypes = {
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
 	actions: PropTypes.objectOf(PropTypes.func).isRequired,
 	authenticated: PropTypes.bool.isRequired,
+	token: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = state => ({

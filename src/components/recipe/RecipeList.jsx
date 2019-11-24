@@ -30,6 +30,11 @@ RecipeList.propTypes = {
 	 * function to delete a recipe
 	 */
 	deleteRecipe: PropTypes.func.isRequired,
+
+	/**
+	 * Show delete button or not.
+	 */
+	showDelete: PropTypes.bool.isRequired,
 };
 
 export default RecipeList;

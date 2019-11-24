@@ -14,11 +14,13 @@ const setup = id => ({
 	history: {},
 });
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const enzymeSetup = id => mount(<RecipeEntryContainer {...setup(id)} />);
 
 describe('RecipeEntryContainer', () => {
 	it('renders new recipe correctly', () => {
 		const tree = renderer
+			// eslint-disable-next-line react/jsx-props-no-spreading
 			.create(<RecipeEntryContainer {...setup('new')} />)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
@@ -26,6 +28,7 @@ describe('RecipeEntryContainer', () => {
 
 	it('renders an undefined recipe correctly', () => {
 		const tree = renderer
+			// eslint-disable-next-line react/jsx-props-no-spreading
 			.create(<RecipeEntryContainer {...setup('sushi')} />)
 			.toJSON();
 		expect(tree).toMatchSnapshot();
