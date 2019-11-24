@@ -5,7 +5,7 @@ import Header from '../common/Header';
  * List of meals
  */
 const MealListPage = () => (
-	<React.Fragment>
+	<>
 		<Header />
 		<article className="py-2">
 			<div className="jumbotron">
@@ -16,7 +16,7 @@ const MealListPage = () => (
 				</header>
 			</div>
 		</article>
-	</React.Fragment>
+	</>
 );
 
 export default MealListPage;

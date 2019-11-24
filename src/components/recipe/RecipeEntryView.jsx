@@ -69,7 +69,7 @@ const RecipeEntryView = ({
 			className="btn btn-link"
 			onClick={onCancel}
 		>
-			{'cancel'}
+			cancel
 		</button>
 	</form>
 );

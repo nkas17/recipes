@@ -1,7 +1,7 @@
 {
-	"name": "weller-react--redux-starter",
+	"name": "recipes",
 	"version": "1.1.1",
-	"description": "Starter kit for React and Redux",
+	"description": "Application to manage recipes",
 	"scripts": {
 		"start": "webpack-dev-server",
 		"clean": "node node_modules/rimraf/bin.js dist/*",

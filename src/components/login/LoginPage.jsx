@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
 		const { loggingIn } = this.props;
 		const { username, password, submitted } = this.state;
 		return (
-			<React.Fragment>
+			<>
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
@@ -117,7 +117,7 @@ class LoginPage extends React.Component {
 						</div>
 					</div>
 				</article>
-			</React.Fragment>
+			</>
 		);
 	}
 }

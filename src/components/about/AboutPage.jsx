@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../common/Header';
 
 const AboutPage = () => (
-	<React.Fragment>
+	<>
 		<Header />
 		<article className="py-2">
 			<div className="jumbotron">
@@ -21,7 +21,7 @@ const AboutPage = () => (
 				</p>
 			</div>
 		</article>
-	</React.Fragment>
+	</>
 );
 
 export default AboutPage;

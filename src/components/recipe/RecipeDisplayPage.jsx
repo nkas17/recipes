@@ -35,11 +35,11 @@ class RecipeDisplayPage extends React.Component {
 							<hr />
 							{ingredients
 								? ingredients.map(ingredient => (
-									<span className="ingredient-list-item" key={key++}>
-										{ingredient}
-										<br />
-									</span>
-								))
+										<span className="ingredient-list-item" key={key++}>
+											{ingredient}
+											<br />
+										</span>
+								  ))
 								: 'No Ingredients Added'}
 						</div>
 					</div>

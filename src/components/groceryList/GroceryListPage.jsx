@@ -5,7 +5,7 @@ import Header from '../common/Header';
  * List of groceries
  */
 const GroceryListPage = () => (
-	<React.Fragment>
+	<>
 		<Header />
 		<article className="py-2">
 			<div className="jumbotron">
@@ -16,7 +16,7 @@ const GroceryListPage = () => (
 				</header>
 			</div>
 		</article>
-	</React.Fragment>
+	</>
 );
 
 export default GroceryListPage;

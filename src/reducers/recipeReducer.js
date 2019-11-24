@@ -8,11 +8,11 @@ const recipeReducer = (state = initialState.recipes, action) => {
 	/* eslint-disable indent */
 	switch (action.type) {
 		case actionTypes.CREATE_RECIPE_SUCCESS:
-			return [...state, Object.assign({}, action.recipe)];
+			return [...state, { ...action.recipe }];
 		case actionTypes.UPDATE_RECIPE_SUCCESS:
 			return [
 				...state.filter(recipe => recipe.id !== action.recipe.id),
-				Object.assign({}, action.recipe),
+				{ ...action.recipe },
 			];
 		case actionTypes.DELETE_RECIPE_SUCCESS:
 			return [...state.filter(recipe => recipe.id !== action.recipe.id)];
