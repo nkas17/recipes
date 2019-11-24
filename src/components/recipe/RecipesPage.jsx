@@ -75,31 +75,27 @@ class RecipePage extends React.Component { //eslint-disable-line
 		const { searchValue } = this.state;
 		const { authenticated } = this.props;
 		return (
-			<React.Fragment>
+			<>
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
-						<div>
+						<div className="recipes-header">
 							<h2>recipes</h2>
-							{authenticated && (
-								<div className="col">
-									<h2 className="float-right">
-										<button
-											type="button"
-											className="btn btn-link ml-3"
-											onClick={this._redirectToAddRecipePage}
-										>
-											add
-										</button>
-									</h2>
-								</div>
-							)}
 							<hr />
 						</div>
 						<RecipeSearchView
 							searchValue={searchValue}
 							onChange={this._onSearchChange}
 						/>
+						{authenticated && (
+							<button
+								type="button"
+								className="btn btn-link ml-3"
+								onClick={this._redirectToAddRecipePage}
+							>
+								add
+							</button>
+						)}
 						<RecipeList
 							recipes={this._getRecipesToDisplay()}
 							deleteRecipe={this._deleteRecipe}
@@ -107,7 +103,7 @@ class RecipePage extends React.Component { //eslint-disable-line
 						/>
 					</div>
 				</article>
-			</React.Fragment>
+			</>
 		);
 	}
 }
@@ -129,7 +125,4 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(recipeActions, dispatch),
 });
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(RecipePage);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipePage);

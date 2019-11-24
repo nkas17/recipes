@@ -18,7 +18,7 @@ class RecipeDisplayPage extends React.Component {
 		const directions = recipe.directions && split(recipe.directions, '\n');
 		let key = 0;
 		return (
-			<React.Fragment>
+			<>
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron recipe-display">
@@ -39,7 +39,7 @@ class RecipeDisplayPage extends React.Component {
 										{ingredient}
 										<br />
 									</span>
-								  ))
+								))
 								: 'No Ingredients Added'}
 						</div>
 					</div>
@@ -53,7 +53,7 @@ class RecipeDisplayPage extends React.Component {
 						</div>
 					</div>
 				</article>
-			</React.Fragment>
+			</>
 		);
 	}
 }
@@ -97,7 +97,4 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = () => ({});
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(RecipeDisplayPage);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeDisplayPage);

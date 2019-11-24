@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../common/Header';
 
 const HomePage = () => (
-	<React.Fragment>
+	<>
 		<Header />
 		<article className="py-2">
 			<div className="jumbotron">
@@ -31,7 +31,7 @@ const HomePage = () => (
 			</Link>
 		</div> */}
 		</article>
-	</React.Fragment>
+	</>
 );
 
 export default HomePage;

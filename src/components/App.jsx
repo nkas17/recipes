@@ -46,7 +46,8 @@ class App extends React.Component {
 				</button> */}
 				<main>
 					<Switch>
-						<Route exact path="/" component={HomePage} />
+						<Route exact path="/" component={RecipesPage} />
+						{/* <Route exact path="/home" component={HomePage} /> */}
 						<Route exact path="/login" component={LoginPage} />
 						<Route path="/about" component={AboutPage} />
 						<Route exact path="/recipe" component={RecipesPage} />

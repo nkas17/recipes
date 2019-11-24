@@ -17,7 +17,7 @@ class RecipeEntryContainer extends React.Component {
 		super(props, context);
 
 		this.state = {
-			recipe: Object.assign({}, props.recipe),
+			recipe: { ...props.recipe },
 			errors: {},
 			saving: false,
 		};
@@ -27,10 +27,10 @@ class RecipeEntryContainer extends React.Component {
 		this._cancelRecipe = this._cancelRecipe.bind(this);
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		const { recipe } = this.props;
 		if (recipe.id !== nextProps.recipe.id) {
-			this.setState({ recipe: Object.assign({}, nextProps.recipe) });
+			this.setState({ recipe: { ...nextProps.recipe } });
 		}
 	}
 
@@ -99,7 +99,7 @@ class RecipeEntryContainer extends React.Component {
 		const { errors, recipe, saving } = this.state;
 		const { categories, match } = this.props;
 		return (
-			<React.Fragment>
+			<>
 				<Header />
 				<article className="py-2">
 					<div className="jumbotron">
@@ -116,7 +116,7 @@ class RecipeEntryContainer extends React.Component {
 						/>
 					</div>
 				</article>
-			</React.Fragment>
+			</>
 		);
 	}
 }

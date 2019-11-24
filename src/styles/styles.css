@@ -196,3 +196,14 @@ background-image: url("../images/food.webp");
 		display: none;
 	}
 }
+
+@media screen and (max-width: 600px) {
+	#app .recipe-description,
+	#app .recipes-header ,
+	#app .page-header{
+		display: none;	
+	}
+	#app nav {
+		padding: 0;
+	}
+}
