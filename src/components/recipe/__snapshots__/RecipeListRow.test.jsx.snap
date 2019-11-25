@@ -3,17 +3,15 @@
 exports[`RecipeListRow renders correctly 1`] = `
 <tr>
   <td>
-     
-  </td>
-  <td>
-    <a
-      href="/recipe/tacos"
-      onClick={[Function]}
+    <Link
+      to="recipe/tacos"
     >
       tacos
-    </a>
+    </Link>
   </td>
-  <td>
+  <td
+    className="recipe-description"
+  >
     Tasty homemade tacos - hard or soft
   </td>
   <td>

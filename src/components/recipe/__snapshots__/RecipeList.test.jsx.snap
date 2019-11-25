@@ -5,60 +5,42 @@ exports[`RecipeList renders correctly 1`] = `
   className="table"
 >
   <tbody>
-    <tr>
-      <td>
-         
-      </td>
-      <td>
-        <a
-          href="/recipe/tacos"
-          onClick={[Function]}
-        >
-          tacos
-        </a>
-      </td>
-      <td>
-        Tasty homemade tacos - hard or soft
-      </td>
-      <td>
-        other
-      </td>
-      <td>
-        <input
-          className="btn btn-link delete-recipe"
-          onClick={[Function]}
-          type="button"
-          value="delete"
-        />
-      </td>
-    </tr>
-    <tr>
-      <td>
-         
-      </td>
-      <td>
-        <a
-          href="/recipe/quiche"
-          onClick={[Function]}
-        >
-          quiche
-        </a>
-      </td>
-      <td>
-        Delicious Spinach Quiche and Ham & Cauliflower quiche
-      </td>
-      <td>
-        other
-      </td>
-      <td>
-        <input
-          className="btn btn-link delete-recipe"
-          onClick={[Function]}
-          type="button"
-          value="delete"
-        />
-      </td>
-    </tr>
+    <RecipeListRow
+      deleteRecipe={[Function]}
+      key="tacos"
+      recipe={
+        Object {
+          "category": "other",
+          "description": "Tasty homemade tacos - hard or soft",
+          "id": "tacos",
+          "ingredients": Array [
+            "cheese",
+            "ground beef",
+            "tortilla",
+          ],
+          "title": "tacos",
+        }
+      }
+      showDelete={true}
+    />
+    <RecipeListRow
+      deleteRecipe={[Function]}
+      key="quiche"
+      recipe={
+        Object {
+          "category": "other",
+          "description": "Delicious Spinach Quiche and Ham & Cauliflower quiche",
+          "id": "quiche",
+          "ingredients": Array [
+            "cheese",
+            "pie-crust",
+            "egg",
+          ],
+          "title": "quiche",
+        }
+      }
+      showDelete={true}
+    />
   </tbody>
 </table>
 `;

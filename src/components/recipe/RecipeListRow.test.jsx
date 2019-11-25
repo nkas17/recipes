@@ -1,6 +1,6 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { MemoryRouter as Router } from 'react-router-dom';
+import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import RecipeListRow from './RecipeListRow';
 
 const recipe = {
@@ -8,30 +8,14 @@ const recipe = {
 	title: 'tacos',
 	category: 'other',
 	description: 'Tasty homemade tacos - hard or soft',
-	ingredients: [
-		{
-			id: 'cheese',
-			quantity: '8',
-			unit: 'oz',
-		},
-		{
-			id: 'ground beef',
-			quantity: '1.5',
-			unit: 'lbs',
-		},
-		{
-			id: 'tortilla',
-			quantity: '1',
-			unit: '',
-		},
-	],
+	ingredients: ['cheese', 'ground beef', 'tortilla'],
 };
-
-const renderWithRouter = node => renderer.create(<Router>{node}</Router>);
 
 describe('RecipeListRow', () => {
 	it('renders correctly', () => {
-		const tree = renderWithRouter(<RecipeListRow recipe={recipe} />).toJSON();
-		expect(tree).toMatchSnapshot();
+		const tree = shallow(
+			<RecipeListRow recipe={recipe} showDelete deleteRecipe={() => {}} />
+		);
+		expect(toJSON(tree)).toMatchSnapshot();
 	});
 });

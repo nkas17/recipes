@@ -12,9 +12,6 @@ const RecipeListRow = ({ recipe, deleteRecipe, showDelete }) => (
 		</td>
 		<td className="recipe-description">{recipe.description}</td>
 		<td>{recipe.category}</td>
-		{/* <td>
-			<input type="button" className="btn btn-link" value="Add to Meal List" />
-		</td> */}
 		{showDelete && (
 			<td>
 				<input
