@@ -12,13 +12,7 @@ const Header = ({ loading, navigation, authenticated }) => (
 		<h1 className="page-header">come and eat!</h1>
 		{navigation && (
 			<nav>
-				{/* <Link to="/home">home</Link>| */}
-				<Link to="/recipe">recipes</Link>
-				{/* {' | '}
-				<Link to="/mealList">meals</Link>
-				{' | '}
-				<Link to="/groceryList">groceries</Link> */}
-				|<Link to="/about">about</Link>|
+				<Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
 				<Link to="/login">log&nbsp;{authenticated ? 'out' : 'in'}</Link>
 				{loading && <LoadingDots interval={200} dots={10} />}
 			</nav>
@@ -43,3 +37,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Header);
+export { Header as HeaderTest, mapStateToProps };

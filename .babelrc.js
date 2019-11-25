@@ -1,8 +1,6 @@
 const presets = [
 		"@babel/react",
-		["@babel/env",{
-        "modules": false
-      }]
+		"@babel/env",
 	];
 const plugins= ["lodash"];
 

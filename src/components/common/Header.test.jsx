@@ -1,28 +1,33 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
-import { MemoryRouter as Router } from 'react-router-dom';
-import configureStore from '../../store/configureStore';
-import Header from './Header';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import { HeaderTest, mapStateToProps } from './Header';
 
-/* eslint-disable no-undef */
-
-const store = configureStore();
-const renderWithRouter = node => <Router>{node}</Router>;
-const renderWithStore = node => <Provider store={store}>{node}</Provider>;
-
-describe('Header', () => {
-	it('renders correctly without loading', () => {
-		const tree = renderer
-			.create(renderWithStore(renderWithRouter(<Header loading={false} />)))
-			.toJSON();
-		expect(tree).toMatchSnapshot();
+describe('Header renders', () => {
+	it('correctly without loading', () => {
+		const tree = shallow(<HeaderTest loading={false} authenticated={false} />);
+		expect(toJson(tree)).toMatchSnapshot();
 	});
 
-	it('renders correctly while loading', () => {
-		const tree = renderer
-			.create(renderWithStore(renderWithRouter(<Header loading />)))
-			.toJSON();
-		expect(tree).toMatchSnapshot();
+	it('correctly when authenticated', () => {
+		const tree = shallow(<HeaderTest loading={false} authenticated />);
+		expect(toJson(tree)).toMatchSnapshot();
+	});
+
+	it('correctly while loading', () => {
+		const tree = shallow(<HeaderTest loading authenticated={false} />);
+		expect(toJson(tree)).toMatchSnapshot();
+	});
+});
+
+describe('Header mapStateToProps runs', () => {
+	const state = {
+		numAjaxCallsInProgress: 0,
+		user: { authenticated: false },
+	};
+
+	expect(mapStateToProps(state)).toStrictEqual({
+		loading: false,
+		authenticated: false,
 	});
 });

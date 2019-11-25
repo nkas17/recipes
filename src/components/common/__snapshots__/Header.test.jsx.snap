@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Header renders correctly when authenticated 1`] = `
+<header>
+  <h1
+    className="page-header"
+  >
+    come and eat!
+  </h1>
+  <nav>
+    <Link
+      to="/recipe"
+    >
+      recipes
+    </Link>
+    |
+    <Link
+      to="/about"
+    >
+      about
+    </Link>
+    |
+    <Link
+      to="/login"
+    >
+      log 
+      out
+    </Link>
+  </nav>
+</header>
+`;
+
 exports[`Header renders correctly while loading 1`] = `
 <header>
   <h1
@@ -8,40 +38,28 @@ exports[`Header renders correctly while loading 1`] = `
     come and eat!
   </h1>
   <nav>
-    <a
-      href="/"
-      onClick={[Function]}
-    >
-      home
-    </a>
-     | 
-    <a
-      href="/recipe"
-      onClick={[Function]}
+    <Link
+      to="/recipe"
     >
       recipes
-    </a>
-     | 
-    <a
-      href="/mealList"
-      onClick={[Function]}
-    >
-      meals
-    </a>
-     | 
-    <a
-      href="/groceryList"
-      onClick={[Function]}
-    >
-      groceries
-    </a>
-     | 
-    <a
-      href="/about"
-      onClick={[Function]}
+    </Link>
+    |
+    <Link
+      to="/about"
     >
       about
-    </a>
+    </Link>
+    |
+    <Link
+      to="/login"
+    >
+      log 
+      in
+    </Link>
+    <LoadingDots
+      dots={10}
+      interval={200}
+    />
   </nav>
 </header>
 `;
@@ -54,40 +72,24 @@ exports[`Header renders correctly without loading 1`] = `
     come and eat!
   </h1>
   <nav>
-    <a
-      href="/"
-      onClick={[Function]}
-    >
-      home
-    </a>
-     | 
-    <a
-      href="/recipe"
-      onClick={[Function]}
+    <Link
+      to="/recipe"
     >
       recipes
-    </a>
-     | 
-    <a
-      href="/mealList"
-      onClick={[Function]}
-    >
-      meals
-    </a>
-     | 
-    <a
-      href="/groceryList"
-      onClick={[Function]}
-    >
-      groceries
-    </a>
-     | 
-    <a
-      href="/about"
-      onClick={[Function]}
+    </Link>
+    |
+    <Link
+      to="/about"
     >
       about
-    </a>
+    </Link>
+    |
+    <Link
+      to="/login"
+    >
+      log 
+      in
+    </Link>
   </nav>
 </header>
 `;
