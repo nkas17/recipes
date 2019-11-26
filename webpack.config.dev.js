@@ -1,18 +1,21 @@
 const { resolve } = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const LodashPlugin = require('lodash-webpack-plugin');
-
-// const extractCSS = new ExtractTextPlugin('styles.css');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-	mode: 'production',
+	mode: 'development',
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
 	},
 	entry: ['./index.jsx'],
 	context: resolve(__dirname, 'src'),
+	devtool: 'inline-source-map',
+	devServer: {
+		hot: true,
+		historyApiFallback: {
+			rewrites: [{ to: '/index.html' }],
+		},
+	},
 	module: {
 		rules: [
 			{
@@ -21,9 +24,13 @@ module.exports = {
 				include: /src/,
 			},
 			{
+				test: /\.jsx?$/,
+				include: /node_modules/,
+				use: ['react-hot-loader/webpack'],
+			},
+			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader'], //
-				// use: extractCSS.extract(['css-loader']), // , 'postcss-loader']),
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.(jpe?g|png|gif|ico|webp)$/i,
@@ -48,11 +55,7 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new webpack.HotModuleReplacementPlugin(),
 		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
-		// extractCSS,
-		// new BundleAnalyzerPlugin(),
-		new LodashPlugin({
-			shorthands: true,
-		}),
 	],
 };

@@ -1,32 +1,20 @@
 const { resolve } = require('path');
-const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	resolve: {
 		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
 	},
 	entry: ['./index.jsx'],
 	context: resolve(__dirname, 'src'),
-	devtool: 'inline-source-map',
-	devServer: {
-		hot: true,
-		historyApiFallback: {
-			rewrites: [{ to: '/index.html' }],
-		},
-	},
 	module: {
 		rules: [
 			{
 				test: /\.jsx?$/,
 				use: ['babel-loader'],
 				include: /src/,
-			},
-			{
-				test: /\.jsx?$/,
-				include: /node_modules/,
-				use: ['react-hot-loader/webpack'],
 			},
 			{
 				test: /\.css$/,
@@ -55,7 +43,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
+		new BundleAnalyzerPlugin(),
 	],
 };
