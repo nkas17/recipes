@@ -21,12 +21,11 @@ const Header = ({ loading, navigation, authenticated }) => (
 );
 
 Header.defaultProps = {
-	loading: true,
 	navigation: true,
 };
 
 Header.propTypes = {
-	loading: PropTypes.bool,
+	loading: PropTypes.bool.isRequired,
 	navigation: PropTypes.bool,
 	authenticated: PropTypes.bool.isRequired,
 };

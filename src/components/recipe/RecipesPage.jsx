@@ -108,12 +108,16 @@ class RecipePage extends React.Component { //eslint-disable-line
 	}
 }
 
+RecipePage.defaultProps = {
+	token: null,
+};
+
 RecipePage.propTypes = {
 	recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
 	actions: PropTypes.objectOf(PropTypes.func).isRequired,
 	authenticated: PropTypes.bool.isRequired,
-	token: PropTypes.string.isRequired,
+	token: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
@@ -127,3 +131,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipePage);
+export { RecipePage as RecipePageTest };

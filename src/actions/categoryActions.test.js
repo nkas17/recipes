@@ -2,7 +2,7 @@ import { loadCategoriesSuccess } from './categoryActions';
 import * as actionTypes from './actionTypes';
 
 describe('Category Actions', () => {
-	// arange
+	// arrange
 	const categories = [
 		{
 			id: 'other',
@@ -20,7 +20,7 @@ describe('Category Actions', () => {
 
 	describe('loadCategoriesSuccess', () => {
 		it('should create a LOAD_CATEGORIES_SUCCESS action', () => {
-			// arange
+			// arrange
 			const expectedAction = {
 				type: actionTypes.LOAD_CATEGORIES_SUCCESS,
 				categories,

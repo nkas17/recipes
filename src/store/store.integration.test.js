@@ -5,7 +5,7 @@ import { createRecipeSuccess } from '../actions/recipeActions';
 
 describe('Store', () => {
 	it('should handle creating recipes', () => {
-		// arange
+		// arrange
 		const store = createStore(rootReducer, initialState);
 		const recipe = {
 			title: 'Delicious Meal',

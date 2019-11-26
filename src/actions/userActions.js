@@ -1,24 +1,29 @@
 import vanillaToast from 'vanilla-toast';
-import * as actionTypes from './actionTypes';
+import {
+	USER_AUTHENTICATE_SUCCESS,
+	USER_AUTHENTICATE_FAILURE,
+	USER_AUTHENTICATE,
+	USER_UNAUTHENTICATE,
+} from './actionTypes';
 import { UserApi } from '../api/UserApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 export const userLoginSuccess = user => ({
-	type: actionTypes.USER_AUTHENTICATE_SUCCESS,
+	type: USER_AUTHENTICATE_SUCCESS,
 	user,
 });
 
 export const userLoginFailure = error => ({
-	type: actionTypes.USER_AUTHENTICATE_FAILURE,
+	type: USER_AUTHENTICATE_FAILURE,
 	error,
 });
 
 const userLoginStart = () => ({
-	type: actionTypes.USER_AUTHENTICATE,
+	type: USER_AUTHENTICATE,
 });
 
 export const userLogout = () => ({
-	type: actionTypes.USER_UNAUTHENTICATE,
+	type: USER_UNAUTHENTICATE,
 });
 
 /**

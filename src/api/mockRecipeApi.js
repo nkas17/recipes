@@ -5,155 +5,71 @@ import delay from './delay';
 // All calls return promises.
 const recipes = [
 	{
-		id: 'quiche',
+		_id: {
+			$oid: '593f6ceec2ef162c8cca24ec',
+		},
 		title: 'quiche',
+		description: 'delicious Spinach Quiche and Ham & Cauliflower quiche',
 		category: 'other',
-		description: 'Delicious Spinach Quiche and Ham & Cauliflower quiche',
-		ingredients: [
-			{
-				id: 'cheese',
-				quantity: '8',
-				unit: 'oz',
-			},
-			{
-				id: 'pie-crust',
-				quantity: '2',
-				unit: '',
-			},
-			{
-				id: 'egg',
-				quantity: '7',
-				unit: '',
-			},
-		],
+		id: 'quiche',
+		ingredients:
+			'pie crust\nhalf n half\nmilk\neggs\ncheddar cheese\nparmesan cheese\nham\ncauliflower\nspinach',
+		directions:
+			'prepare pie crust by cooking per package directions or at 350 for 5-10 minutes.\n\nsteam cauliflower\nchop ham into 1/4 - 1/2 cubes\ngrade 8 oz cheese 4 per quiche\ndefrost and press water out of spinach\n\ngently press cheese into bottom of crust\nspread spinach on cheese\nspread cauliflower and ham on cheese in other crust\n\nbeat 7-8 eggs very well, mix 1 cup hal n half and 1 cup milk totaling about 4 cups of liquid\nmix well\npour half of egg/half n half/milk mixture into pir crust over spinach and ham and cauliflower\n\nsprinkle parmesan cheese over top\n\nbake at 350 for 45 - 60 minutes or until top is swollen and firm and lightly browned\n\n',
 	},
 	{
-		id: 'tacos',
-		title: 'tacos',
-		category: 'other',
-		description: 'Tasty homemade tacos - hard or soft',
-		ingredients: [
-			{
-				id: 'cheese',
-				quantity: '8',
-				unit: 'oz',
-			},
-			{
-				id: 'ground beef',
-				quantity: '1.5',
-				unit: 'lbs',
-			},
-			{
-				id: 'tortilla',
-				quantity: '1',
-				unit: '',
-			},
-		],
+		_id: {
+			$oid: '593f6e31bd966f4138b1faed',
+		},
+		title: 'tacos 2.2',
+		description: 'yummy',
+		category: 'beef',
+		id: 'tacos-2.2',
+		ingredients: 'meat\nveggies',
+		directions: 'cook and serve',
 	},
 ];
 
-// const ingredients = [
-// 	{
-// 		id: 'cheese',
-// 		name: 'cheese',
-// 		category: 'dairy',
-// 	},
-// 	{
-// 		id: 'pie-crust',
-// 		name: 'pie crust',
-// 		category: 'frozen',
-// 	},
-// 	{
-// 		id: 'egg',
-// 		name: 'egg',
-// 		category: 'dairy',
-// 	},
-// ];
-
-// const replaceAll = (str, find, replace) => str.replace(new RegExp(find, 'g'), replace);
-
-// This would be performed on the server in a real app. Just stubbing in.
-// const generateId = recipe => replaceAll(recipe.title, ' ', '-');
-
-const handleResult = response => {
-	if (response.status >= 200 && response.status < 300) {
-		return response.json().then(data => {
-			console.log(data); // eslint-disable-line no-console
-			return data;
-		});
-	}
-	if (response.bodyUsed) {
-		return response.json().then(data => {
-			const error = new Error(`Response error for ${response.url}`);
-			error.additionalData = data;
-			throw error;
-		});
-	}
-	throw new Error(`Response error for ${response.url}`);
-};
-
 class RecipeApi {
 	static getAllRecipes() {
-		const db =
-			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
-		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
-		// /databases/{database}/collections/{collection}
-		const options = {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-		};
-
-		return fetch(url, options).then(handleResult);
-		// return new Promise((resolve /* reject*/) => {
-		// 	setTimeout(() => {
-		// 		resolve(Object.assign([], recipes));
-		// 	}, delay);
-		// });
+		return new Promise(resolve => {
+			setTimeout(() => {
+				resolve(Object.assign([], recipes));
+			}, delay);
+		});
 	}
 
 	static saveRecipe(recipe) {
-		const db =
-			process.env.NODE_ENV === 'production' ? 'recipes' : 'recipes-test';
-		const url = `https://api.mlab.com/api/1/databases/${db}/collections/recipes?apiKey=vtzkXhp1ptUbHzA6FVL_tSbINmUiqyKh`;
-		// /databases/{database}/collections/{collection}
-		const options = {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(recipe),
-		};
+		const theRecipe = { ...recipe }; // to avoid manipulating object passed in.
+		return new Promise((resolve, reject) => {
+			setTimeout(() => {
+				// Simulate server-side validation
+				const minRecipeTitleLength = 1;
+				if (theRecipe.title.length < minRecipeTitleLength) {
+					reject(
+						new Error(
+							`Title must be at least ${minRecipeTitleLength} characters.`
+						)
+					);
+				}
 
-		return fetch(url, options).then(handleResult);
+				if (theRecipe.id) {
+					const existingRecipeIndex = recipes.findIndex(
+						a => a.id === theRecipe.id
+					);
+					recipes.splice(existingRecipeIndex, 1, theRecipe);
+				} else {
+					// Just simulating creation here.
+					// The server would generate ids and watchHref's for new courses in a real app.
+					// Cloning so copy returned is passed by value rather than by reference.
+					theRecipe.id = ++recipes.length;
+					// recipe.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
+					recipes.push(theRecipe);
+				}
 
-		// const theRecipe = Object.assign({}, recipe); // to avoid manipulating object passed in.
-		// return new Promise((resolve, reject) => {
-		//	setTimeout(() => {
-		//		// Simulate server-side validation
-		// 		const minRecipeTitleLength = 1;
-		// 		if (theRecipe.title.length < minRecipeTitleLength) {
-		// 			reject(`Title must be at least ${minRecipeTitleLength} characters.`);
-		// 		}
-
-		// 		if (theRecipe.id) {
-		// 			const existingRecipeIndex = recipes.findIndex(a => a.id === theRecipe.id);
-		// 			recipes.splice(existingRecipeIndex, 1, theRecipe);
-		// 		} else {
-		//			// Just simulating creation here.
-		//			// The server would generate ids and watchHref's for new courses in a real app.
-		//			// Cloning so copy returned is passed by value rather than by reference.
-		// 			theRecipe.id = generateId(theRecipe);
-		// 			// recipe.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
-		// 			recipes.push(theRecipe);
-		// 		}
-
-		// 		resolve(theRecipe);
-		// 	}, delay);
-		// });
+				resolve(theRecipe);
+			}, delay);
+		});
 	}
 
 	static deleteRecipe(recipeId) {

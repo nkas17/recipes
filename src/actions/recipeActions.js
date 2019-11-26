@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import RecipeApi from '../api/RecipeApi';
+// import RecipeApi from '../api/mockRecipeApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 /**
@@ -38,6 +39,7 @@ export const loadRecipes = () => dispatch => {
 			dispatch(loadRecipesSuccess(recipes));
 		})
 		.catch(error => {
+			dispatch(ajaxCallError());
 			throw error;
 		});
 };
@@ -61,8 +63,6 @@ export const deleteRecipe = (recipeId, token) => dispatch => {
 	dispatch(beginAjaxCall());
 	return RecipeApi.deleteRecipe(recipeId, token)
 		.then(recipe => {
-			// deletedRecipe.id ?
-			// dispatch(updateRecipeSuccess(deletedRecipe)) :
 			dispatch(deleteRecipeSuccess(recipe));
 		})
 		.catch(error => {

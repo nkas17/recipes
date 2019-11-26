@@ -1,114 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RecipesPage renders correctly 1`] = `
-<article
-  className="py-2"
->
-  <div
-    className="jumbotron"
+<Fragment>
+  <Connect(Header) />
+  <article
+    className="py-2"
   >
-    <header
-      className="row"
+    <div
+      className="jumbotron"
     >
       <div
-        className="col"
+        className="recipes-header"
       >
         <h2>
           recipes
         </h2>
+        <hr />
       </div>
-      <div
-        className="col"
+      <RecipeSearchView
+        onChange={[Function]}
+        searchValue=""
+      />
+      <button
+        className="btn btn-link ml-3"
+        onClick={[Function]}
+        type="button"
       >
-        <h2
-          className="float-right"
-        >
-          <button
-            className="btn btn-link ml-3"
-            onClick={[Function]}
-            type="button"
-          >
-            add
-          </button>
-        </h2>
-      </div>
-    </header>
-    <div
-      className="row"
-    >
-      <div
-        className="col-12 my-4"
-      >
-        <input
-          className="form-control"
-          name="searchRecipe"
-          onChange={[Function]}
-          placeholder="Search Recipes"
-          type="text"
-          value=""
-        />
-      </div>
+        add
+      </button>
+      <RecipeList
+        deleteRecipe={[Function]}
+        recipes={
+          Array [
+            Object {
+              "category": "other",
+              "description": "Tasty homemade tacos - hard or soft",
+              "id": "tacos",
+              "ingredients": Array [
+                "cheese",
+                "ground beef",
+                "tortilla",
+              ],
+              "title": "tacos",
+            },
+            Object {
+              "category": "other",
+              "description": "Delicious Spinach Quiche and Ham & Cauliflower quiche",
+              "id": "quiche",
+              "ingredients": Array [
+                "cheese",
+                "pie-crust",
+                "egg",
+              ],
+              "title": "quiche",
+            },
+          ]
+        }
+        showDelete={true}
+      />
     </div>
-    <table
-      className="table"
-    >
-      <tbody>
-        <tr>
-          <td>
-             
-          </td>
-          <td>
-            <a
-              href="/recipe/quiche"
-              onClick={[Function]}
-            >
-              quiche
-            </a>
-          </td>
-          <td>
-            Delicious Spinach Quiche and Ham & Cauliflower quiche
-          </td>
-          <td>
-            other
-          </td>
-          <td>
-            <input
-              className="btn btn-link delete-recipe"
-              onClick={[Function]}
-              type="button"
-              value="delete"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-             
-          </td>
-          <td>
-            <a
-              href="/recipe/tacos"
-              onClick={[Function]}
-            >
-              tacos
-            </a>
-          </td>
-          <td>
-            Tasty homemade tacos - hard or soft
-          </td>
-          <td>
-            other
-          </td>
-          <td>
-            <input
-              className="btn btn-link delete-recipe"
-              onClick={[Function]}
-              type="button"
-              value="delete"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</article>
+  </article>
+</Fragment>
 `;

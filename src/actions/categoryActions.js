@@ -1,12 +1,12 @@
 import CategoryApi from '../api/mockCategoryApi';
 import * as actionTypes from './actionTypes';
-import { beginAjaxCall } from './ajaxStatusActions';
+import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 /**
  * actions
  */
 
-export const loadCategoriesSuccess = (categories) => ({ // eslint-disable-line
+export const loadCategoriesSuccess = categories => ({
 	type: actionTypes.LOAD_CATEGORIES_SUCCESS,
 	categories,
 });
@@ -22,6 +22,7 @@ export const loadCategories = () => dispatch => {
 			dispatch(loadCategoriesSuccess(categories));
 		})
 		.catch(error => {
+			dispatch(ajaxCallError());
 			throw error;
 		});
 };
