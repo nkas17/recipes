@@ -1,9 +1,10 @@
-# Recipe Catalog/Meal planner/grocery list creator.
+# Recipe Catalog
 ## Technology:
+### Front-end:
 * react
 * redux
-* express back-end
-* mongo db
+### Back-end: https://github.com/nkas17/recipe-api-gateway
+
 ## Requirements:
 * [x]add recipes
 * [x]edit recipes
@@ -17,6 +18,9 @@
 * [x]gateway to db
 * [ ]switch to full redux
 * [ ]new design/css without bootstrap
+* [ ]add pictures with recipes
+
+## Maybe someday
 * [ ]make a meal list
 * [ ]make a grocery list based on meal list
 * [ ]save lists of frequently purchased items
@@ -25,5 +29,4 @@
 * [ ]mark as favorites
 * [ ]filter favorites
 * [ ]archive recipes
-* [ ]add pictures with recipes
 * [ ]export list?
