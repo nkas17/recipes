@@ -42,6 +42,11 @@ html,
 	/* color: #888; */
 }
 
+#app .dark,
+#app .table{
+	color: #888;
+}
+
 body {
 	color: #282727;
 	background-size: cover;
@@ -78,6 +83,10 @@ background-image: url("../images/food.webp");
 	margin-top: .5rem;
 }
 
+#app .dark table {
+	background-color: #333;
+}
+
 #app table {
 	background: rgba(255,255,255,.7);
     border-radius: .3rem;
@@ -97,6 +106,10 @@ background-image: url("../images/food.webp");
 
 #app .dark .table>tbody>tr>td {
 	border-top: 1px solid #a053ec;
+}
+
+#app .dark header {
+	background-color: #333;
 }
 
 #app header {
@@ -139,7 +152,7 @@ background-image: url("../images/food.webp");
 
 #app .dark .form-control {
 	background-color: #444;
-	color: #eee;
+	color: #aaa;
 }
 
 #app {

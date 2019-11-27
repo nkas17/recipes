@@ -3,14 +3,14 @@
 	"version": "1.1.1",
 	"description": "Application to manage recipes",
 	"scripts": {
-		"start": "webpack-dev-server -- config webpack.config.dev.js",
+		"start": "webpack-dev-server --config webpack.config.dev.js",
 		"clean": "node node_modules/rimraf/bin.js dist/*",
 		"build": "yarn run clean && webpack --config webpack.config.js",
 		"analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer ./stats.json",
 		"lint": "node_modules/.bin/esw webpack.config.* src --ext js --ext jsx --ignore-pattern assets color",
-		"lint:watch": "yarn run lint -- --watch",
+		"lint:watch": "yarn run lint --watch",
 		"test": "jest --coverage",
-		"test:watch": "yarn run test -- --watch"
+		"test:watch": "yarn run test --watch"
 	},
 	"author": "nathan m weller",
 	"license": "MIT",

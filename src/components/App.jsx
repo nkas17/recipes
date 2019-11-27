@@ -12,7 +12,6 @@ import RecipeEntryContainer from './recipe/RecipeEntryContainer';
 /**
  * Main component that wraps everything else
  */
-// eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
 	constructor(props, context) {
 		super(props, context);
@@ -36,13 +35,13 @@ class App extends React.Component {
 		const { theme } = this.state;
 		return (
 			<div className={`${theme} container-fluid`}>
-				{/* <button
+				<button
 					type="button"
 					className="btn btn-link theme-toggle"
 					onClick={this._toggleTheme}
 				>
 					theme toggle
-				</button> */}
+				</button>
 				<main>
 					<Switch>
 						<Route exact path="/" component={RecipesPage} />
