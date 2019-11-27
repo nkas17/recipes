@@ -6,7 +6,11 @@ import {
 	// thunks
 	// loadRecipes,
 } from './recipeActions';
-import * as actionTypes from './actionTypes';
+import {
+	CREATE_RECIPE_SUCCESS,
+	LOAD_RECIPES_SUCCESS,
+	UPDATE_RECIPE_SUCCESS,
+} from './actionTypes';
 
 /**
  * test actions
@@ -28,7 +32,7 @@ describe('Recipe Actions', () => {
 		it('should create a CREATE_RECIPE_SUCCESS action', () => {
 			// arrange
 			const expectedAction = {
-				type: actionTypes.CREATE_RECIPE_SUCCESS,
+				type: CREATE_RECIPE_SUCCESS,
 				recipe: recipes[0],
 			};
 
@@ -44,7 +48,7 @@ describe('Recipe Actions', () => {
 		it('should create an UPDATE_RECIPE_SUCCESS action', () => {
 			// arrange
 			const expectedAction = {
-				type: actionTypes.UPDATE_RECIPE_SUCCESS,
+				type: UPDATE_RECIPE_SUCCESS,
 				recipe: recipes[0],
 			};
 
@@ -60,7 +64,7 @@ describe('Recipe Actions', () => {
 		it('should create a LOAD_RECIPES_SUCCESS action', () => {
 			// arrange
 			const expectedAction = {
-				type: actionTypes.LOAD_RECIPES_SUCCESS,
+				type: LOAD_RECIPES_SUCCESS,
 				recipes,
 			};
 

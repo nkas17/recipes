@@ -1,37 +1,30 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 import RecipeEntryView from './RecipeEntryView';
 
-const setup = saving => ({
+const defaultProps = {
 	recipe: {},
-	saving,
+	saving: false,
 	errors: {},
 	categories: [],
 	onSave: () => {},
 	onChange: () => {},
 	onCancel: () => {},
-});
-
-// eslint-disable-next-line react/jsx-props-no-spreading
-const enzymeSetup = saving => shallow(<RecipeEntryView {...setup(saving)} />);
+};
 
 describe('RecipeEntryView', () => {
 	it('renders correctly', () => {
-		const tree = renderer
-			// eslint-disable-next-line react/jsx-props-no-spreading
-			.create(<RecipeEntryView {...setup(false)} />)
-			.toJSON();
-		expect(tree).toMatchSnapshot();
+		const tree = shallow(<RecipeEntryView props={defaultProps} />);
+		expect(toJSON(tree)).toMatchSnapshot();
 	});
 
-	it('has correct caption on save button when not saving', () => {
-		const wrapper = enzymeSetup(false);
-		expect(wrapper.find('#save').props().children).toBe('save');
-	});
-
-	it('has correct caption on save button when saving', () => {
-		const wrapper = enzymeSetup(true);
-		expect(wrapper.find('#save').props().children).toBe('saving...');
+	it('renders correctly when saving', () => {
+		const props = {
+			...defaultProps,
+			saving: true,
+		};
+		const tree = shallow(<RecipeEntryView props={props} />);
+		expect(toJSON(tree)).toMatchSnapshot();
 	});
 });

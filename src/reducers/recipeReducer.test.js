@@ -1,5 +1,8 @@
 import recipeReducer from './recipeReducer';
-import * as actions from '../actions/recipeActions';
+import {
+	createRecipeSuccess,
+	updateRecipeSuccess,
+} from '../actions/recipeActions';
 
 /* eslint-disable no-undef */
 
@@ -10,7 +13,7 @@ describe('Recipe Reducer', () => {
 
 		const newRecipe = { title: 'C' };
 
-		const action = actions.createRecipeSuccess(newRecipe);
+		const action = createRecipeSuccess(newRecipe);
 
 		// act
 		const newState = recipeReducer(initialState, action);
@@ -31,7 +34,7 @@ describe('Recipe Reducer', () => {
 		];
 
 		const recipe = { id: 'B', title: 'newTitle' };
-		const action = actions.updateRecipeSuccess(recipe);
+		const action = updateRecipeSuccess(recipe);
 
 		// act
 		const newState = recipeReducer(initialState, action);

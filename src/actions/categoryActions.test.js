@@ -1,5 +1,5 @@
 import { loadCategoriesSuccess } from './categoryActions';
-import * as actionTypes from './actionTypes';
+import { LOAD_CATEGORIES_SUCCESS } from './actionTypes';
 
 describe('Category Actions', () => {
 	// arrange
@@ -22,7 +22,7 @@ describe('Category Actions', () => {
 		it('should create a LOAD_CATEGORIES_SUCCESS action', () => {
 			// arrange
 			const expectedAction = {
-				type: actionTypes.LOAD_CATEGORIES_SUCCESS,
+				type: LOAD_CATEGORIES_SUCCESS,
 				categories,
 			};
 
