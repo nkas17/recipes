@@ -127,8 +127,8 @@ LoginPage.propTypes = {
 };
 
 const mapStateToProps = state => ({
-	loggingIn: state.user.authenticating,
-	authenticated: state.user.authenticated,
+	loggingIn: !!state.user.authenticating,
+	authenticated: !!state.user.authenticated,
 });
 
 const mapDispatchToProps = dispatch => ({

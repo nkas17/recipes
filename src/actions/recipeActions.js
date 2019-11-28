@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
-import RecipeApi from '../api/RecipeApi';
-// import RecipeApi from '../api/mockRecipeApi';
+// import RecipeApi from '../api/RecipeApi';
+import RecipeApi from '../api/mockRecipeApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 /**

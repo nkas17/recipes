@@ -9,7 +9,7 @@ import LoadingDots from './LoadingDots';
  */
 const Header = ({ loading, navigation, authenticated }) => (
 	<header>
-		<h1 className="page-header">come and eat!</h1>
+		<h1 className="page-header">lets eat!</h1>
 		{navigation && (
 			<nav>
 				<Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
