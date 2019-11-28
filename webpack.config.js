@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
 	mode: 'production',
@@ -44,6 +44,6 @@ module.exports = {
 	},
 	plugins: [
 		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
-		new BundleAnalyzerPlugin(),
+		// new BundleAnalyzerPlugin(),
 	],
 };
