@@ -16,7 +16,7 @@ class App extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
-			theme: '',
+			theme: 'light',
 		};
 
 		this._toggleTheme = this._toggleTheme.bind(this);
@@ -24,10 +24,10 @@ class App extends React.Component {
 
 	_toggleTheme() {
 		const { theme } = this.state;
-		if (theme === '') {
+		if (theme === 'light') {
 			this.setState({ theme: 'dark' });
 		} else {
-			this.setState({ theme: '' });
+			this.setState({ theme: 'light' });
 		}
 	}
 
@@ -40,7 +40,7 @@ class App extends React.Component {
 					className="btn btn-link theme-toggle"
 					onClick={this._toggleTheme}
 				>
-					theme toggle
+					{theme}
 				</button>
 				<main>
 					<Switch>

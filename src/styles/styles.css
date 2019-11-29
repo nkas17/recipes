@@ -17,7 +17,11 @@ html
 }
 
 #app .dark,
-#app .table{
+#app .dark table {
+	color: #AAA;
+}
+
+#app table{
 	color: #888;
 }
 
@@ -55,9 +59,12 @@ background-image: url("../images/food.webp");
 	padding: 1rem;
 	margin-top: .5rem;
 }
+#app .dark .recipe-display {
+	background-color: #444;
+}
 
 #app .dark table {
-	background-color: #333;
+	background-color: #444;
 }
 
 #app table {
@@ -99,7 +106,7 @@ background-image: url("../images/food.webp");
 #app .dark .jumbotron {
 	background-color: #333;
 }
-#app .dark .jumbotron>hr {
+#app .dark hr {
 	border-top-color: #a053ec;
 }
 
@@ -119,8 +126,7 @@ background-image: url("../images/food.webp");
 
 #app .dark .btn-link,
 #app .dark a {
-	color: #aaa;
-	text-decoration: underline;
+	color: #a053ec;
 }
 
 #app .dark .form-control {
