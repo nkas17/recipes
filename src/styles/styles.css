@@ -16,8 +16,8 @@ html
 	font-size: 16px;
 }
 
-#app .dark,
-#app .dark table {
+#app.dark,
+#app.dark table {
 	color: #AAA;
 }
 
@@ -53,42 +53,46 @@ background-image: url("../images/food.webp");
 	overflow: auto;
 }
 
+#app.dark {
+	background-color: rgba(0,0,0,.8);
+}
+
 #app .recipe-display {
 	background: rgba(255,255,255,.7);
 	border-radius: .3rem;
 	padding: 1rem;
 	margin-top: .5rem;
 }
-#app .dark .recipe-display {
+#app.dark .recipe-display {
 	background-color: #444;
 }
 
-#app .dark table {
+#app.dark table {
 	background-color: #444;
 }
 
 #app table {
 	background: rgba(255,255,255,.7);
-    border-radius: .3rem;
-    padding: 1rem;
-    margin-top: .5rem;
+	border-radius: .3rem;
+	padding: 1rem;
+	margin-top: .5rem;
 }
 
 #app .table td, #app .table th {
 	vertical-align: middle;
 }
 
-#app .dark .page-header,
-#app .dark .table>thead>tr>th,
-#app .dark .table>tbody>tr>td {
+#app.dark .page-header,
+#app.dark .table>thead>tr>th,
+#app.dark .table>tbody>tr>td {
 	border-bottom: 1px solid #a053ec;
 }
 
-#app .dark .table>tbody>tr>td {
+#app.dark .table>tbody>tr>td {
 	border-top: 1px solid #a053ec;
 }
 
-#app .dark header {
+#app.dark header {
 	background-color: #333;
 }
 
@@ -103,33 +107,33 @@ background-image: url("../images/food.webp");
 	padding: 0 .5rem;
 }
 
-#app .dark .jumbotron {
+#app.dark .jumbotron {
 	background-color: #333;
 }
-#app .dark hr {
+#app.dark hr {
 	border-top-color: #a053ec;
 }
 
-#app .dark nav a {
+#app.dark nav a {
 	color: #a053ec;
 	text-decoration: none;
 }
 
-#app .dark .btn {
+#app.dark .btn {
 	text-decoration: none;
 }
-#app .dark .btn-primary {
+#app.dark .btn-primary {
 	color: #aaa;
 	background-color: #622ac5;
 	border-color: #360096;
 }
 
-#app .dark .btn-link,
-#app .dark a {
+#app.dark .btn-link,
+#app.dark a {
 	color: #a053ec;
 }
 
-#app .dark .form-control {
+#app.dark .form-control {
 	background-color: #444;
 	color: #aaa;
 }

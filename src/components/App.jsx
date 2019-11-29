@@ -26,15 +26,19 @@ class App extends React.Component {
 		const { theme } = this.state;
 		if (theme === 'light') {
 			this.setState({ theme: 'dark' });
+			const app = document.getElementById('app');
+			app.className = 'dark';
 		} else {
 			this.setState({ theme: 'light' });
+			const app = document.getElementById('app');
+			app.className = 'light';
 		}
 	}
 
 	render() {
 		const { theme } = this.state;
 		return (
-			<div className={`${theme} container-fluid`}>
+			<div className="container-fluid">
 				<button
 					type="button"
 					className="btn btn-link theme-toggle"
