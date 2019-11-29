@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reject, sortBy } from 'lodash';
 import RecipeList from './RecipeList';
-import * as recipeActions from '../../actions/recipeActions';
+import { deleteRecipe } from '../../actions/recipeActions';
 import RecipeSearchView from './RecipeSearchView';
 import Header from '../common/Header';
 
 /**
  * Page that has all the recipe things
  */
-class RecipePage extends React.Component { //eslint-disable-line
+class RecipePage extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -127,7 +127,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators(recipeActions, dispatch),
+	actions: bindActionCreators(
+		{
+			deleteRecipe,
+		},
+		dispatch
+	),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipePage);

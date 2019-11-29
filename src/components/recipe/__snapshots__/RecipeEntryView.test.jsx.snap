@@ -2,104 +2,53 @@
 
 exports[`RecipeEntryView renders correctly 1`] = `
 <form>
-  <div
-    className="form-group"
-  >
-    <label
-      htmlFor="title"
-    >
-      Title
-    </label>
-    <input
-      className="form-control"
-      name="title"
-      onChange={[Function]}
-      placeholder=""
-      type="text"
-      value=""
-    />
-    
-  </div>
-  <div
-    className="form-group"
-  >
-    <label
-      htmlFor="description"
-    >
-      Description
-    </label>
-    <input
-      className="form-control"
-      name="description"
-      onChange={[Function]}
-      placeholder=""
-      type="text"
-      value=""
-    />
-    
-  </div>
-  <div
-    className="form-group"
-  >
-    <label
-      htmlFor="ingredients"
-    >
-      Ingredient List
-    </label>
-    <textarea
-      className="form-control"
-      cols=""
-      name="ingredients"
-      onChange={[Function]}
-      placeholder=""
-      readOnly={false}
-      rows="10"
-      value=""
-    />
-    
-  </div>
-  <div
-    className="form-group"
-  >
-    <label
-      htmlFor="directions"
-    >
-      Directions
-    </label>
-    <textarea
-      className="form-control"
-      cols=""
-      name="directions"
-      onChange={[Function]}
-      placeholder=""
-      readOnly={false}
-      rows="10"
-      value=""
-    />
-    
-  </div>
-  <div
-    className="form-group"
-  >
-    <label
-      htmlFor="category"
-    >
-      Category
-    </label>
-    <select
-      className="form-control"
-      name="category"
-      onChange={[Function]}
-      value=""
-    >
-      <option
-        value=""
-      >
-        select category
-      </option>
-    </select>
-    
-  </div>
+  <TextInput
+    error=""
+    label="Title"
+    name="title"
+    onChange={[Function]}
+    placeholder=""
+    value=""
+  />
+  <TextInput
+    error=""
+    label="Description"
+    name="description"
+    onChange={[Function]}
+    placeholder=""
+    value=""
+  />
+  <TextArea
+    cols=""
+    error=""
+    label="Ingredient List"
+    name="ingredients"
+    onChange={[Function]}
+    placeholder=""
+    readonly={false}
+    rows="10"
+    value=""
+  />
+  <TextArea
+    cols=""
+    error=""
+    label="Directions"
+    name="directions"
+    onChange={[Function]}
+    placeholder=""
+    readonly={false}
+    rows="10"
+    value=""
+  />
+  <SelectInput
+    defaultOption="select category"
+    error=""
+    label="Category"
+    name="category"
+    onChange={[Function]}
+    options={Array []}
+    value=""
+  />
   <button
     className="btn btn-primary"
     disabled={false}
@@ -112,6 +61,76 @@ exports[`RecipeEntryView renders correctly 1`] = `
   <button
     className="btn btn-link"
     disabled={false}
+    id="cancel"
+    onClick={[Function]}
+    type="button"
+  >
+    cancel
+  </button>
+</form>
+`;
+
+exports[`RecipeEntryView renders correctly when saving 1`] = `
+<form>
+  <TextInput
+    error=""
+    label="Title"
+    name="title"
+    onChange={[Function]}
+    placeholder=""
+    value=""
+  />
+  <TextInput
+    error=""
+    label="Description"
+    name="description"
+    onChange={[Function]}
+    placeholder=""
+    value=""
+  />
+  <TextArea
+    cols=""
+    error=""
+    label="Ingredient List"
+    name="ingredients"
+    onChange={[Function]}
+    placeholder=""
+    readonly={false}
+    rows="10"
+    value=""
+  />
+  <TextArea
+    cols=""
+    error=""
+    label="Directions"
+    name="directions"
+    onChange={[Function]}
+    placeholder=""
+    readonly={false}
+    rows="10"
+    value=""
+  />
+  <SelectInput
+    defaultOption="select category"
+    error=""
+    label="Category"
+    name="category"
+    onChange={[Function]}
+    options={Array []}
+    value=""
+  />
+  <button
+    className="btn btn-primary"
+    disabled={true}
+    id="save"
+    onClick={[Function]}
+    type="submit"
+  >
+    saving...
+  </button>
+  <button
+    className="btn btn-link"
+    disabled={true}
     id="cancel"
     onClick={[Function]}
     type="button"

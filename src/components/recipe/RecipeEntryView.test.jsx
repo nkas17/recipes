@@ -15,7 +15,10 @@ const defaultProps = {
 
 describe('RecipeEntryView', () => {
 	it('renders correctly', () => {
-		const tree = shallow(<RecipeEntryView props={defaultProps} />);
+		const props = {
+			...defaultProps,
+		};
+		const tree = shallow(<RecipeEntryView {...props} />); // eslint-disable-line react/jsx-props-no-spreading
 		expect(toJSON(tree)).toMatchSnapshot();
 	});
 
@@ -24,7 +27,7 @@ describe('RecipeEntryView', () => {
 			...defaultProps,
 			saving: true,
 		};
-		const tree = shallow(<RecipeEntryView props={props} />);
+		const tree = shallow(<RecipeEntryView {...props} />); // eslint-disable-line react/jsx-props-no-spreading
 		expect(toJSON(tree)).toMatchSnapshot();
 	});
 });
