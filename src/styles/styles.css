@@ -18,7 +18,7 @@ html
 
 #app.dark,
 #app.dark table {
-	color: #AAA;
+	color: #aaa;
 }
 
 #app table{
@@ -68,7 +68,7 @@ background-image: url("../images/food.webp");
 }
 
 #app.dark table {
-	background-color: #444;
+	background-color: #2A2A2A;
 }
 
 #app table {
