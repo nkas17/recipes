@@ -16,15 +16,6 @@ html
 	font-size: 16px;
 }
 
-#app.dark,
-#app.dark table {
-	color: #aaa;
-}
-
-#app table{
-	color: #888;
-}
-
 body {
 	color: #282727;
 	background-size: cover;
@@ -49,83 +40,120 @@ background-image: url("../images/food.webp");
 
 #app {
 	background-color: rgba(0,0,0,.5);
+	font: 16px Garamond, Helvetica, Arial, sans-serif;
+	font-weight: 200;
 	height: 100%;
 	overflow: auto;
 }
-
 #app.dark {
 	background-color: rgba(0,0,0,.8);
+	color: #aaa;
 }
 
-#app .recipe-display {
+#app header {
 	background: rgba(255,255,255,.7);
 	border-radius: .3rem;
-	padding: 1rem;
 	margin-top: .5rem;
+	padding: 1rem;
 }
-#app.dark .recipe-display {
-	background-color: #444;
+#app.dark header {
+	background-color: #333;
 }
 
+#app table{
+	background: rgba(255,255,255,.7);
+	border-radius: .3rem;
+	color: #888;
+	margin-top: .5rem;
+	padding: 1rem;
+}
 #app.dark table {
 	background-color: #2A2A2A;
-}
-
-#app table {
-	background: rgba(255,255,255,.7);
-	border-radius: .3rem;
-	padding: 1rem;
-	margin-top: .5rem;
+	color: #aaa;
 }
 
 #app .table td, #app .table th {
 	vertical-align: middle;
 }
 
-#app.dark .page-header,
 #app.dark .table>thead>tr>th,
-#app.dark .table>tbody>tr>td {
-	border-bottom: 1px solid #a053ec;
-}
-
-#app.dark .table>tbody>tr>td {
+#app.dark .table>tbody>tr>td{
 	border-top: 1px solid #a053ec;
 }
 
-#app.dark header {
-	background-color: #333;
-}
-
-#app header {
+#app .recipe-display {
 	background: rgba(255,255,255,.7);
 	border-radius: .3rem;
-	padding: 1rem;
 	margin-top: .5rem;
+	padding: 1rem;
+}
+#app.dark .recipe-display {
+	background-color: #444;
+}
+
+#app .page-header {
+	font: 3em 'Flex Display', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: 7px;
+}
+#app.dark .page-header {
+	border-bottom: 1px solid #a053ec;
 }
 
 #app .container-fluid {
 	padding: 0 .5rem;
 }
 
+#app .ingredient-list-item {
+	line-height: 1.5rem;
+}
+
+#app .theme-toggle {
+	float: right;
+	font-size: .5rem;
+}
+
+#app .delete-recipe {
+	font-size: .75rem;
+}
+
+#app .jumbotron {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background: rgba(255,255,255,.7);
+	margin-bottom: 0;
+}
 #app.dark .jumbotron {
 	background-color: #333;
 }
+
 #app.dark hr {
 	border-top-color: #a053ec;
 }
 
+#app nav {
+	padding-bottom: 10px;
+	font-family: Arial, sans-serif;
+	letter-spacing: 5px;
+	font-weight: bold;
+}
 #app.dark nav a {
 	color: #a053ec;
 	text-decoration: none;
 }
 
+
+#app .btn {
+	margin-right: 5px;
+}
 #app.dark .btn {
 	text-decoration: none;
 }
+
 #app.dark .btn-primary {
-	color: #aaa;
 	background-color: #622ac5;
 	border-color: #360096;
+	color: #aaa;
 }
 
 #app.dark .btn-link,
@@ -136,47 +164,6 @@ background-image: url("../images/food.webp");
 #app.dark .form-control {
 	background-color: #444;
 	color: #aaa;
-}
-
-#app {
-	font: 16px Garamond, Helvetica, Arial, sans-serif;
-	font-weight: 200;
-}
-#app .jumbotron {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-	background: rgba(255,255,255,.7);
-	margin-bottom: 0;
-}
-
-#app nav {
-	padding-bottom: 10px;
-	font-family: Arial, sans-serif;
-	letter-spacing: 5px;
-	font-weight: bold;
-}
-
-#app .ingredient-list-item {
-	line-height: 1.5rem;
-}
-
-#app .page-header {
-	font: 3em 'Flex Display', Helvetica, Arial, sans-serif;
-	font-weight: bold;
-	letter-spacing: 7px;
-}
-
-.btn {
-	margin-right: 5px;
-}
-
-#app .theme-toggle {
-	float: right;
-	font-size: .5rem;
-}
-
-#app .delete-recipe {
-	font-size: .75rem;
 }
 
 @media print {
