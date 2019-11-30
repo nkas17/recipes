@@ -30,7 +30,7 @@ class RecipeDisplayPage extends React.Component {
 						)}
 					</div>
 					<div className="jumbotron">
-						<div className="recipe-display">
+						<section className="recipe-display">
 							<h3>Ingredients</h3>
 							<hr />
 							{ingredients.map(ingredient => (
@@ -39,16 +39,16 @@ class RecipeDisplayPage extends React.Component {
 									<br />
 								</span>
 							)) || 'No Ingredients Added'}
-						</div>
+						</section>
 					</div>
 					<div className="jumbotron">
-						<div className="recipe-display">
+						<section className="recipe-display">
 							<h3>Directions</h3>
 							<hr />
 							{directions
 								? directions.map(direction => <p key={key++}>{direction}</p>)
 								: 'No Directions Added'}
-						</div>
+						</section>
 					</div>
 				</article>
 			</>
