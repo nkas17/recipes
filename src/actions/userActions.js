@@ -31,14 +31,14 @@ export const userLogout = () => ({
  */
 
 export const userLogin = (username, password) => dispatch => {
-	dispatch(beginAjaxCall());
+	dispatch(beginAjaxCall('userLogin'));
 	dispatch(userLoginStart());
 	return UserApi.userLogin(username, password)
 		.then(user => {
 			dispatch(userLoginSuccess(user));
 		})
 		.catch(error => {
-			dispatch(ajaxCallError());
+			dispatch(ajaxCallError('userLogin'));
 			dispatch(userLoginFailure(error));
 			if (error && error.additionalData && error.additionalData.error) {
 				vanillaToast.error(error.additionalData.error.message);

@@ -1,10 +1,8 @@
-import recipeReducer from './recipeReducer';
+import recipes from './recipeReducer';
 import {
 	createRecipeSuccess,
 	updateRecipeSuccess,
 } from '../actions/recipeActions';
-
-/* eslint-disable no-undef */
 
 describe('Recipe Reducer', () => {
 	it('should add recipe when passed CREATE_RECIPE_SUCCESS', () => {
@@ -16,7 +14,7 @@ describe('Recipe Reducer', () => {
 		const action = createRecipeSuccess(newRecipe);
 
 		// act
-		const newState = recipeReducer(initialState, action);
+		const newState = recipes(initialState, action);
 
 		// assert
 		expect(newState.length).toEqual(3);
@@ -37,7 +35,7 @@ describe('Recipe Reducer', () => {
 		const action = updateRecipeSuccess(recipe);
 
 		// act
-		const newState = recipeReducer(initialState, action);
+		const newState = recipes(initialState, action);
 		const updatedRecipe = newState.find(a => a.id === recipe.id);
 		const unTouchedRecipe = newState.find(a => a.id === 'A');
 

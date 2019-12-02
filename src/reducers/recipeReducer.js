@@ -1,26 +1,31 @@
-import * as actionTypes from '../actions/actionTypes';
+import {
+	CREATE_RECIPE_SUCCESS,
+	DELETE_RECIPE_SUCCESS,
+	LOAD_RECIPES_SUCCESS,
+	UPDATE_RECIPE_SUCCESS,
+} from '../actions/actionTypes';
 import initialState from './initialState';
+
 /**
  * recipe reducer
  */
-
-const recipeReducer = (state = initialState.recipes, action) => {
+const recipes = (state = initialState.recipes, action) => {
 	/* eslint-disable indent */
 	switch (action.type) {
-		case actionTypes.CREATE_RECIPE_SUCCESS:
-			return [...state, { ...action.recipe }];
-		case actionTypes.UPDATE_RECIPE_SUCCESS:
+		case CREATE_RECIPE_SUCCESS:
+			return [...state, action.recipe];
+		case UPDATE_RECIPE_SUCCESS:
 			return [
 				...state.filter(recipe => recipe.id !== action.recipe.id),
-				{ ...action.recipe },
+				action.recipe,
 			];
-		case actionTypes.DELETE_RECIPE_SUCCESS:
+		case DELETE_RECIPE_SUCCESS:
 			return [...state.filter(recipe => recipe.id !== action.recipe.id)];
-		case actionTypes.LOAD_RECIPES_SUCCESS:
+		case LOAD_RECIPES_SUCCESS:
 			return action.recipes;
 		default:
 			return state;
 	}
 };
 
-export default recipeReducer;
+export default recipes;

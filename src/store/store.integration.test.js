@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import rootReducer from '../reducers';
+import rootReducer from '../reducers/rootReducer';
 import initialState from '../reducers/initialState';
 import { createRecipeSuccess } from '../actions/recipeActions';
 

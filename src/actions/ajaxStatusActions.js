@@ -1,5 +1,11 @@
 import { BEGIN_AJAX_CALL, AJAX_CALL_ERROR } from './actionTypes';
 
-export const beginAjaxCall = () => ({ type: BEGIN_AJAX_CALL });
+export const beginAjaxCall = description => ({
+	type: BEGIN_AJAX_CALL,
+	payload: { description },
+});
 
-export const ajaxCallError = () => ({ type: AJAX_CALL_ERROR });
+export const ajaxCallError = description => ({
+	type: AJAX_CALL_ERROR,
+	payload: { description },
+});

@@ -1,5 +1,5 @@
 import CategoryApi from '../api/mockCategoryApi';
-import * as actionTypes from './actionTypes';
+import { LOAD_CATEGORIES_SUCCESS } from './actionTypes';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
 /**
@@ -7,7 +7,7 @@ import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
  */
 
 export const loadCategoriesSuccess = categories => ({
-	type: actionTypes.LOAD_CATEGORIES_SUCCESS,
+	type: LOAD_CATEGORIES_SUCCESS,
 	categories,
 });
 
@@ -16,13 +16,13 @@ export const loadCategoriesSuccess = categories => ({
  */
 
 export const loadCategories = () => dispatch => {
-	dispatch(beginAjaxCall());
+	dispatch(beginAjaxCall('getAllCategories'));
 	return CategoryApi.getAllCategories()
 		.then(categories => {
 			dispatch(loadCategoriesSuccess(categories));
 		})
 		.catch(error => {
-			dispatch(ajaxCallError());
+			dispatch(ajaxCallError('getAllCategories'));
 			throw error;
 		});
 };

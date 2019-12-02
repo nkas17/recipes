@@ -9,7 +9,7 @@ import initialState from './initialState';
  * user reducer
  */
 
-const userReducer = (state = initialState.user, action) => {
+const user = (state = initialState.user, action) => {
 	/* eslint-disable indent */
 	switch (action.type) {
 		case USER_AUTHENTICATE_SUCCESS:
@@ -42,4 +42,4 @@ const userReducer = (state = initialState.user, action) => {
 	}
 };
 
-export default userReducer;
+export default user;

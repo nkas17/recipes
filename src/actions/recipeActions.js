@@ -33,19 +33,19 @@ export const deleteRecipeSuccess = recipe => ({
  */
 
 export const loadRecipes = () => dispatch => {
-	dispatch(beginAjaxCall());
+	dispatch(beginAjaxCall('getAllRecipes'));
 	return RecipeApi.getAllRecipes()
 		.then(recipes => {
 			dispatch(loadRecipesSuccess(recipes));
 		})
 		.catch(error => {
-			dispatch(ajaxCallError());
+			dispatch(ajaxCallError('getAllRecipes'));
 			throw error;
 		});
 };
 
 export const saveRecipe = (recipe, token) => dispatch => {
-	dispatch(beginAjaxCall());
+	dispatch(beginAjaxCall('saveRecipe'));
 	return RecipeApi.saveRecipe(recipe, token)
 		.then(savedRecipe => {
 			// eslint-disable-next-line no-unused-expressions
@@ -54,19 +54,19 @@ export const saveRecipe = (recipe, token) => dispatch => {
 				: dispatch(createRecipeSuccess(savedRecipe));
 		})
 		.catch(error => {
-			dispatch(ajaxCallError());
+			dispatch(ajaxCallError('saveRecipe'));
 			throw error;
 		});
 };
 
 export const deleteRecipe = (recipeId, token) => dispatch => {
-	dispatch(beginAjaxCall());
+	dispatch(beginAjaxCall('deleteRecipe'));
 	return RecipeApi.deleteRecipe(recipeId, token)
 		.then(recipe => {
 			dispatch(deleteRecipeSuccess(recipe));
 		})
 		.catch(error => {
-			dispatch(ajaxCallError());
+			dispatch(ajaxCallError('deleteRecipe'));
 			throw error;
 		});
 };
