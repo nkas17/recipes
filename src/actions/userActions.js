@@ -8,6 +8,10 @@ import {
 import { UserApi } from '../api/UserApi';
 import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
 
+/**
+ * actions
+ */
+
 export const userLoginSuccess = user => ({
 	type: USER_AUTHENTICATE_SUCCESS,
 	user,
@@ -18,7 +22,7 @@ export const userLoginFailure = error => ({
 	error,
 });
 
-const userLoginStart = () => ({
+export const userLoginStart = () => ({
 	type: USER_AUTHENTICATE,
 });
 
@@ -43,5 +47,6 @@ export const userLogin = (username, password) => dispatch => {
 			if (error && error.additionalData && error.additionalData.error) {
 				vanillaToast.error(error.additionalData.error.message);
 			}
+			throw error;
 		});
 };
