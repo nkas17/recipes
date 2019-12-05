@@ -1,3 +1,4 @@
+import vanillaToast from 'vanilla-toast';
 import {
 	userLoginSuccess,
 	userLoginFailure,
@@ -99,10 +100,15 @@ describe('User Thunks', () => {
 			});
 		});
 		it('should error a user when logging in with additional error data', () => {
-			const error = new Error({
-				error: { additionalData: { error: { messsage: 'message' } } },
-			});
+			const error = {
+				additionalData: {
+					error: {
+						message: 'message',
+					},
+				},
+			};
 			UserApi.userLogin = jest.fn().mockRejectedValue(error);
+			vanillaToast.error = jest.fn();
 			const dispatch = jest.fn();
 			const username = 'username';
 			const password = 'password';
@@ -116,6 +122,9 @@ describe('User Thunks', () => {
 				expect(dispatch).toHaveBeenNthCalledWith(3, ajaxCallError('userLogin'));
 				expect(dispatch).toHaveBeenNthCalledWith(4, userLoginFailure(err));
 				expect(dispatch).toHaveBeenCalledTimes(4);
+				expect(vanillaToast.error).toHaveBeenCalledWith(
+					err.additionalData.error.message
+				);
 			});
 		});
 	});
