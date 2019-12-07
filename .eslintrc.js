@@ -17,6 +17,7 @@ module.exports = {
 		indent: [
 			"error",
 			"tab",
+			{ "SwitchCase": 1 }
 		],
 		"react/jsx-indent": [
 			"error",

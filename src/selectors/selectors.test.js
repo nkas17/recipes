@@ -1,4 +1,4 @@
-import { categoriesFormattedForSelectInput } from './selectors';
+import { categoriesFormattedForSelectInput, getUser } from './selectors';
 
 describe('Recipe Selectors', () => {
 	describe('categoriesFormattedForSelectInput', () => {
@@ -25,6 +25,12 @@ describe('Recipe Selectors', () => {
 			];
 
 			expect(categoriesFormattedForSelectInput(categories)).toEqual(expected);
+		});
+	});
+	describe('getUser', () => {
+		it('should return the user', () => {
+			const store = { user: 'user' };
+			expect(getUser(store)).toEqual('user');
 		});
 	});
 });

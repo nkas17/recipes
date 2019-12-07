@@ -10,7 +10,6 @@ import initialState from './initialState';
  * recipe reducer
  */
 const recipes = (state = initialState.recipes, action) => {
-	/* eslint-disable indent */
 	switch (action.type) {
 		case CREATE_RECIPE_SUCCESS:
 			return [...state, action.recipe];
