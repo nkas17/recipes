@@ -1,9 +1,7 @@
-// import delay from './delay';
-
 const handleResult = response => {
 	if (response.status >= 200 && response.status < 300) {
 		return response.json().then(data => {
-			console.log({ data }); // eslint-disable-line no-console
+			// console.log({ data }); // eslint-disable-line no-console
 			return { ...data, authenticated: true };
 		});
 	}
@@ -41,13 +39,3 @@ export class UserApi {
 }
 
 export default UserApi;
-
-// export class MockUserApi {
-// 	static userLogin() {
-// 		return new Promise((resolve /* reject */) => {
-// 			setTimeout(() => {
-// 				resolve({ token: 'mocked', authenticated: true });
-// 			}, delay);
-// 		});
-// 	}
-// }

@@ -16,6 +16,12 @@
 	*  [x] search includes category
 * [x]add background image
 * [x]gateway to db
+* [ ]increase test coverage
+		[x]selectors
+		[x]actions
+		[x]reducers
+		[ ]components
+		[ ]apis
 * [ ]switch to full redux
 * [ ]new design/css without bootstrap
 * [ ]add pictures with recipes

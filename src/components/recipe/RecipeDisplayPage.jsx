@@ -33,12 +33,14 @@ class RecipeDisplayPage extends React.Component {
 						<section className="recipe-display">
 							<h3>Ingredients</h3>
 							<hr />
-							{ingredients.map(ingredient => (
-								<span className="ingredient-list-item" key={key++}>
-									{ingredient}
-									<br />
-								</span>
-							)) || 'No Ingredients Added'}
+							{(ingredients &&
+								ingredients.map(ingredient => (
+									<span className="ingredient-list-item" key={key++}>
+										{ingredient}
+										<br />
+									</span>
+								))) ||
+								'No Ingredients Added'}
 						</section>
 					</div>
 					<div className="jumbotron">

@@ -1,7 +1,7 @@
 const handleResult = response => {
 	if (response.status >= 200 && response.status < 300) {
 		return response.json().then(data => {
-			console.log({ data }); // eslint-disable-line no-console
+			// console.log({ data }); // eslint-disable-line no-console
 			return data;
 		});
 	}
