@@ -1,47 +1,81 @@
 import recipes from './recipeReducer';
 import {
-	createRecipeSuccess,
-	updateRecipeSuccess,
-} from '../actions/recipeActions';
+	CREATE_RECIPE_SUCCESS,
+	DELETE_RECIPE_SUCCESS,
+	LOAD_RECIPES_SUCCESS,
+	UPDATE_RECIPE_SUCCESS,
+} from '../actions/actionTypes';
 
 describe('Recipe Reducer', () => {
-	it('should add recipe when passed CREATE_RECIPE_SUCCESS', () => {
-		// arrange
-		const initialState = [{ title: 'A' }, { title: 'B' }];
-
-		const newRecipe = { title: 'C' };
-
-		const action = createRecipeSuccess(newRecipe);
-
-		// act
-		const newState = recipes(initialState, action);
-
-		// assert
-		expect(newState.length).toEqual(3);
-		expect(newState[0].title).toEqual('A');
-		expect(newState[1].title).toEqual('B');
-		expect(newState[2].title).toEqual('C');
+	describe('MISSING_ACTION', () => {
+		it('should return existing state', () => {
+			expect(
+				recipes([{ title: 'recipe' }], {
+					type: 'MISSING_ACTION',
+					recipe: { title: 'newRecipe' },
+				})
+			).toEqual([{ title: 'recipe' }]);
+		});
 	});
-
-	it('should update a recipe when passed UPDATE_RECIPE_SUCCESS', () => {
-		// arrange
-		const initialState = [
-			{ id: 'A', title: 'A' },
-			{ id: 'B', title: 'B' },
-			{ id: 'C', title: 'C' },
-		];
-
-		const recipe = { id: 'B', title: 'newTitle' };
-		const action = updateRecipeSuccess(recipe);
-
-		// act
-		const newState = recipes(initialState, action);
-		const updatedRecipe = newState.find(a => a.id === recipe.id);
-		const unTouchedRecipe = newState.find(a => a.id === 'A');
-
-		// assert
-		expect(updatedRecipe.title).toEqual('newTitle');
-		expect(unTouchedRecipe.title).toEqual('A');
-		expect(newState.length).toEqual(3);
+	describe('CREATE_RECIPE_SUCCESS', () => {
+		it('should add a new recipe', () => {
+			expect(
+				recipes([{ title: 'recipe' }], {
+					type: CREATE_RECIPE_SUCCESS,
+					recipe: { title: 'newRecipe' },
+				})
+			).toEqual([{ title: 'recipe' }, { title: 'newRecipe' }]);
+		});
+	});
+	describe('UPDATE_RECIPE_SUCCESS', () => {
+		it('should update an existing recipe', () => {
+			expect(
+				recipes(
+					[
+						{ id: 1, title: 'recipe' },
+						{ id: 2, title: 'oldRecipe' },
+					],
+					{
+						type: UPDATE_RECIPE_SUCCESS,
+						recipe: { id: 1, title: 'newRecipe' },
+					}
+				)
+			).toEqual([
+				{ id: 2, title: 'oldRecipe' },
+				{ id: 1, title: 'newRecipe' },
+			]);
+		});
+	});
+	describe('DELETE_RECIPE_SUCCESS', () => {
+		it('should delete an existing recipe', () => {
+			expect(
+				recipes(
+					[
+						{ id: 1, title: 'recipe' },
+						{ id: 2, title: 'oldRecipe' },
+					],
+					{
+						type: DELETE_RECIPE_SUCCESS,
+						recipe: { id: 2, title: 'oldRecipe' },
+					}
+				)
+			).toEqual([{ id: 1, title: 'recipe' }]);
+		});
+	});
+	describe('LOAD_RECIPE_SUCCESS', () => {
+		it('should load recipes', () => {
+			expect(
+				recipes(undefined, {
+					type: LOAD_RECIPES_SUCCESS,
+					recipes: [
+						{ id: 1, title: 'recipe' },
+						{ id: 2, title: 'oldRecipe' },
+					],
+				})
+			).toEqual([
+				{ id: 1, title: 'recipe' },
+				{ id: 2, title: 'oldRecipe' },
+			]);
+		});
 	});
 });
