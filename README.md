@@ -4,7 +4,8 @@
 ### Front-end:
 * react
 * redux
-### Back-end: https://github.com/nkas17/recipe-api-gateway
+### Back-end
+#### https://github.com/nkas17/recipe-api-gateway
 
 ## Requirements:
 * [x]add recipes
