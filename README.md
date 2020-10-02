@@ -6,6 +6,9 @@
 * redux
 ### Back-end
 #### https://github.com/nkas17/recipe-api-gateway
+* node.js
+* express
+* mongo db
 
 ## Requirements:
 * [x] add recipes

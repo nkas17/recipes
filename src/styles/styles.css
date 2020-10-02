@@ -43,7 +43,22 @@ body {
 }
 
 .webp body {
-background-image: url("../images/food.webp");
+	background-image: url("../images/food.webp");
+}
+
+.loader {
+	border: 8px solid #dddddd;
+	border-top: 8px solid #733b22;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 2s linear infinite;
+	margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #app {

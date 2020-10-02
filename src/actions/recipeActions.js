@@ -34,6 +34,9 @@ export const deleteRecipeSuccess = recipe => ({
 
 export const loadRecipes = () => dispatch => {
 	dispatch(beginAjaxCall('getAllRecipes'));
+	dispatch({
+		type: actionTypes.LOAD_RECIPES,
+	});
 	return RecipeApi.getAllRecipes()
 		.then(recipes => {
 			dispatch(loadRecipesSuccess(recipes));

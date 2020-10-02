@@ -73,7 +73,7 @@ class RecipePage extends React.Component {
 
 	render() {
 		const { searchValue } = this.state;
-		const { authenticated } = this.props;
+		const { authenticated, isLoadingRecipes } = this.props;
 		return (
 			<>
 				<Header />
@@ -83,24 +83,30 @@ class RecipePage extends React.Component {
 							<h2>recipes</h2>
 							<hr />
 						</div>
-						<RecipeSearchView
-							searchValue={searchValue}
-							onChange={this._onSearchChange}
-						/>
-						{authenticated && (
-							<button
-								type="button"
-								className="btn btn-link ml-3"
-								onClick={this._redirectToAddRecipePage}
-							>
-								add
-							</button>
+						{(isLoadingRecipes && <div className="loader" />) || (
+							<>
+								<RecipeSearchView
+									searchValue={searchValue}
+									onChange={this._onSearchChange}
+								/>
+								<>
+									{authenticated && (
+										<button
+											type="button"
+											className="btn btn-link ml-3"
+											onClick={this._redirectToAddRecipePage}
+										>
+											add
+										</button>
+									)}
+								</>
+								<RecipeList
+									recipes={this._getRecipesToDisplay()}
+									deleteRecipe={this._deleteRecipe}
+									showDelete={authenticated}
+								/>
+							</>
 						)}
-						<RecipeList
-							recipes={this._getRecipesToDisplay()}
-							deleteRecipe={this._deleteRecipe}
-							showDelete={authenticated}
-						/>
 					</div>
 				</article>
 			</>
@@ -115,13 +121,15 @@ RecipePage.defaultProps = {
 RecipePage.propTypes = {
 	recipes: PropTypes.arrayOf(PropTypes.object).isRequired,
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
+	isLoadingRecipes: PropTypes.bool.isRequired,
 	actions: PropTypes.objectOf(PropTypes.func).isRequired,
 	authenticated: PropTypes.bool.isRequired,
 	token: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
-	recipes: sortBy(state.recipes, [o => o.title]),
+	isLoadingRecipes: state.recipeStore.isLoading,
+	recipes: sortBy(state.recipeStore.recipes, [o => o.title]),
 	authenticated: state.user.authenticated,
 	token: state.user.token,
 });

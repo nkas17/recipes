@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import recipes from './recipeReducer';
+import recipeStore from './recipeReducer';
 import categories from './categoryReducer';
 import user from './userReducer';
 import numAjaxCallsInProgress from './ajaxStatusReducer';
@@ -7,7 +7,7 @@ import numAjaxCallsInProgress from './ajaxStatusReducer';
 const rootReducer = combineReducers({
 	categories,
 	numAjaxCallsInProgress,
-	recipes,
+	recipeStore,
 	user,
 });
 

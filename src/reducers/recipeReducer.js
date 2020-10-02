@@ -3,25 +3,38 @@ import {
 	DELETE_RECIPE_SUCCESS,
 	LOAD_RECIPES_SUCCESS,
 	UPDATE_RECIPE_SUCCESS,
+	LOAD_RECIPES,
 } from '../actions/actionTypes';
 import initialState from './initialState';
 
 /**
  * recipe reducer
  */
-const recipes = (state = initialState.recipes, action) => {
+const recipes = (state = initialState.recipeStore, action) => {
 	switch (action.type) {
 		case CREATE_RECIPE_SUCCESS:
-			return [...state, action.recipe];
+			return { recipes: [...state, action.recipe] };
 		case UPDATE_RECIPE_SUCCESS:
-			return [
-				...state.filter(recipe => recipe.id !== action.recipe.id),
-				action.recipe,
-			];
+			return {
+				recipes: [
+					...state.filter(recipe => recipe.id !== action.recipe.id),
+					action.recipe,
+				],
+			};
 		case DELETE_RECIPE_SUCCESS:
-			return [...state.filter(recipe => recipe.id !== action.recipe.id)];
+			return {
+				recipes: [...state.filter(recipe => recipe.id !== action.recipe.id)],
+			};
+		case LOAD_RECIPES:
+			return {
+				...state,
+				isLoading: true,
+			};
 		case LOAD_RECIPES_SUCCESS:
-			return action.recipes;
+			return {
+				recipes: action.recipes,
+				isLoading: false,
+			};
 		default:
 			return state;
 	}

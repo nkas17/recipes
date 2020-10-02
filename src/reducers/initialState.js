@@ -1,5 +1,5 @@
 export default {
-	recipes: [],
+	recipeStore: { recipes: [] },
 	categories: [],
 	numAjaxCallsInProgress: 0,
 	user: {

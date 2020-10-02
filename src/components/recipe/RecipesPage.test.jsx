@@ -33,4 +33,18 @@ describe('RecipesPage', () => {
 		);
 		expect(toJSON(tree)).toMatchSnapshot();
 	});
+
+	it('renders correctly while loading', () => {
+		const tree = shallow(
+			<RecipePageTest
+				history={{}}
+				recipes={recipes}
+				authenticated
+				isLoadingRecipes
+				token="tokenValue"
+				actions={{}}
+			/>
+		);
+		expect(toJSON(tree)).toMatchSnapshot();
+	});
 });
