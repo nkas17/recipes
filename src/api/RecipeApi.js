@@ -48,6 +48,21 @@ class RecipeApi {
 		return fetch(url, options).then(handleResult);
 	}
 
+	static updateRecipe(recipe, token) {
+		const theRecipe = { ...recipe };
+		const options = {
+			method: 'PATCH',
+			headers: {
+				Accept: 'application/json',
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(theRecipe),
+		};
+
+		return fetch(url, options).then(handleResult);
+	}
+
 	static deleteRecipe(recipeId, token) {
 		const deleteUrl = `${url}/${recipeId}`;
 		const options = {

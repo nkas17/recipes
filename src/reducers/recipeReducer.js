@@ -13,17 +13,19 @@ import initialState from './initialState';
 const recipes = (state = initialState.recipeStore, action) => {
 	switch (action.type) {
 		case CREATE_RECIPE_SUCCESS:
-			return { recipes: [...state, action.recipe] };
+			return { recipes: [...state.recipes, action.recipe] };
 		case UPDATE_RECIPE_SUCCESS:
 			return {
 				recipes: [
-					...state.filter(recipe => recipe.id !== action.recipe.id),
+					...state.recipes.filter(recipe => recipe.id !== action.recipe.id),
 					action.recipe,
 				],
 			};
 		case DELETE_RECIPE_SUCCESS:
 			return {
-				recipes: [...state.filter(recipe => recipe.id !== action.recipe.id)],
+				recipes: [
+					...state.recipes.filter(recipe => recipe._id !== action.recipe._id),
+				],
 			};
 		case LOAD_RECIPES:
 			return {

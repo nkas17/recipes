@@ -140,7 +140,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 
 	if (recipeId !== 'new') {
-		recipe = find(state.recipes, { id: recipeId });
+		recipe = find(state.recipeStore.recipes, { id: recipeId });
 		if (recipe === undefined) {
 			recipe = {
 				title: '',

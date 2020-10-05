@@ -49,12 +49,19 @@ export const loadRecipes = () => dispatch => {
 
 export const saveRecipe = (recipe, token) => dispatch => {
 	dispatch(beginAjaxCall('saveRecipe'));
+	if (recipe._id) {
+		return RecipeApi.updateRecipe(recipe, token)
+			.then(savedRecipe => {
+				dispatch(updateRecipeSuccess(savedRecipe));
+			})
+			.catch(error => {
+				dispatch(ajaxCallError('saveRecipe'));
+				throw error;
+			});
+	}
 	return RecipeApi.saveRecipe(recipe, token)
 		.then(savedRecipe => {
-			// eslint-disable-next-line no-unused-expressions
-			recipe.id
-				? dispatch(updateRecipeSuccess(savedRecipe))
-				: dispatch(createRecipeSuccess(savedRecipe));
+			dispatch(createRecipeSuccess(savedRecipe));
 		})
 		.catch(error => {
 			dispatch(ajaxCallError('saveRecipe'));

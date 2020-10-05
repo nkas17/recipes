@@ -9,9 +9,7 @@ import Header from '../common/Header';
  * Recipe display page
  * View recipes and edit them with a click of a button
  */
-
-// eslint-disable-next-line react/prefer-stateless-function
-class RecipeDisplayPage extends React.Component {
+class RecipeDisplayPage extends React.PureComponent {
 	render() {
 		const { recipe, authenticated } = this.props;
 		const ingredients = recipe.ingredients && split(recipe.ingredients, '\n');
@@ -80,7 +78,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 
 	if (recipeId !== 'new') {
-		recipe = find(state.recipes, { id: recipeId });
+		recipe = find(state.recipeStore.recipes, { id: recipeId });
 		if (recipe === undefined) {
 			recipe = {
 				title: '',
