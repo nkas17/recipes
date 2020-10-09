@@ -3,7 +3,7 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant' // es
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers/rootReducer';
 
-const configureStore = initialState => {
+const configureStore = (initialState) => {
 	const composeEnhancers =
 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 	let middleware;

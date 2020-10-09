@@ -90,7 +90,7 @@ describe('User Thunks', () => {
 			return userLogin(
 				username,
 				password
-			)(dispatch).catch(err => {
+			)(dispatch).catch((err) => {
 				expect(UserApi.userLogin).toHaveBeenCalledWith(username, password);
 				expect(dispatch).toHaveBeenNthCalledWith(1, beginAjaxCall('userLogin'));
 				expect(dispatch).toHaveBeenNthCalledWith(2, userLoginStart());
@@ -115,7 +115,7 @@ describe('User Thunks', () => {
 			return userLogin(
 				username,
 				password
-			)(dispatch).catch(err => {
+			)(dispatch).catch((err) => {
 				expect(UserApi.userLogin).toHaveBeenCalledWith(username, password);
 				expect(dispatch).toHaveBeenNthCalledWith(1, beginAjaxCall('userLogin'));
 				expect(dispatch).toHaveBeenNthCalledWith(2, userLoginStart());

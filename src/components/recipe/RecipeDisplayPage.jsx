@@ -32,7 +32,7 @@ class RecipeDisplayPage extends React.PureComponent {
 							<h3>Ingredients</h3>
 							<hr />
 							{(ingredients &&
-								ingredients.map(ingredient => (
+								ingredients.map((ingredient) => (
 									<span className="ingredient-list-item" key={key++}>
 										{ingredient}
 										<br />
@@ -46,7 +46,7 @@ class RecipeDisplayPage extends React.PureComponent {
 							<h3>Directions</h3>
 							<hr />
 							{directions
-								? directions.map(direction => <p key={key++}>{direction}</p>)
+								? directions.map((direction) => <p key={key++}>{direction}</p>)
 								: 'No Directions Added'}
 						</section>
 					</div>

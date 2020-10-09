@@ -32,7 +32,7 @@ const recipes = [
 
 class RecipeApi {
 	static getAllRecipes() {
-		return new Promise(resolve => {
+		return new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(Object.assign([], recipes));
 			}, delay);
@@ -55,7 +55,7 @@ class RecipeApi {
 
 				if (theRecipe.id) {
 					const existingRecipeIndex = recipes.findIndex(
-						a => a.id === theRecipe.id
+						(a) => a.id === theRecipe.id
 					);
 					recipes.splice(existingRecipeIndex, 1, theRecipe);
 				} else {
@@ -76,7 +76,7 @@ class RecipeApi {
 		return new Promise((resolve /* reject */) => {
 			setTimeout(() => {
 				const indexOfRecipeToDelete = recipes.findIndex(
-					recipe => recipe.id === recipeId
+					(recipe) => recipe.id === recipeId
 				);
 				recipes.splice(indexOfRecipeToDelete, 1);
 				resolve();

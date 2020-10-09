@@ -1,12 +1,12 @@
-const handleResult = response => {
+const handleResult = (response) => {
 	if (response.status >= 200 && response.status < 300) {
-		return response.json().then(data => {
+		return response.json().then((data) => {
 			// console.log({ data }); // eslint-disable-line no-console
 			return data;
 		});
 	}
 	if (response.bodyUsed) {
-		return response.json().then(data => {
+		return response.json().then((data) => {
 			const error = new Error(`Response error for ${response.url}`);
 			error.additionalData = data;
 			throw error;

@@ -48,14 +48,14 @@ class RecipePage extends React.Component {
 			actions
 				.deleteRecipe(recipeId, token)
 				.then(() => vanillaToast.success('Recipe deleted'))
-				.catch(error => vanillaToast.error(error));
+				.catch((error) => vanillaToast.error(error));
 		}
 	}
 
 	_getRecipesToDisplay() {
 		const { recipes } = this.props;
 		const { searchValue } = this.state;
-		return reject(recipes, recipe => {
+		return reject(recipes, (recipe) => {
 			const titleIndex = recipe.title
 				.toLowerCase()
 				.indexOf(searchValue.toLowerCase());
@@ -127,14 +127,14 @@ RecipePage.propTypes = {
 	token: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	isLoadingRecipes: state.recipeStore.isLoading,
-	recipes: sortBy(state.recipeStore.recipes, [o => o.title]),
+	recipes: sortBy(state.recipeStore.recipes, [(o) => o.title]),
 	authenticated: state.user.authenticated,
 	token: state.user.token,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	actions: bindActionCreators(
 		{
 			deleteRecipe,

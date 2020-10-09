@@ -8,7 +8,7 @@ import RecipeListRow from './RecipeListRow';
 const RecipeList = ({ recipes, deleteRecipe, showDelete }) => (
 	<table className="table">
 		<tbody>
-			{recipes.map(recipe => (
+			{recipes.map((recipe) => (
 				<RecipeListRow
 					key={recipe.id}
 					recipe={recipe}

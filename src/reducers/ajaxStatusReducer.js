@@ -1,7 +1,7 @@
 import { BEGIN_AJAX_CALL, AJAX_CALL_ERROR } from '../actions/actionTypes';
 import initialState from './initialState';
 
-export const actionTypeEndsInSuccess = type =>
+export const actionTypeEndsInSuccess = (type) =>
 	type.substring(type.length - 8) === '_SUCCESS';
 
 export default (state = initialState.numAjaxCallsInProgress, action) => {

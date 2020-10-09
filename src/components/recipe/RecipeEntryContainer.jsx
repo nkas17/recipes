@@ -71,7 +71,7 @@ class RecipeEntryContainer extends React.Component {
 		actions
 			.saveRecipe(recipe, token)
 			.then(() => this._redirectOnSave())
-			.catch(error => {
+			.catch((error) => {
 				vanillaToast.error(error);
 				this.setState({ saving: false });
 			});
@@ -156,7 +156,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	actions: bindActionCreators(recipeActions, dispatch),
 });
 

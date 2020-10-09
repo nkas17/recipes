@@ -30,7 +30,7 @@ Header.propTypes = {
 	authenticated: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	loading: state.numAjaxCallsInProgress > 0,
 	authenticated: state.user.authenticated,
 });

@@ -43,7 +43,9 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new CopyWebpackPlugin([{ from: 'index.html' }, { from: 'assets' }]),
+		new CopyWebpackPlugin({
+			patterns: [{ from: 'index.html' }, { from: 'assets' }],
+		}),
 		// new BundleAnalyzerPlugin(),
 	],
 };

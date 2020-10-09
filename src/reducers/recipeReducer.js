@@ -17,14 +17,14 @@ const recipes = (state = initialState.recipeStore, action) => {
 		case UPDATE_RECIPE_SUCCESS:
 			return {
 				recipes: [
-					...state.recipes.filter(recipe => recipe.id !== action.recipe.id),
+					...state.recipes.filter((recipe) => recipe.id !== action.recipe.id),
 					action.recipe,
 				],
 			};
 		case DELETE_RECIPE_SUCCESS:
 			return {
 				recipes: [
-					...state.recipes.filter(recipe => recipe._id !== action.recipe._id),
+					...state.recipes.filter((recipe) => recipe._id !== action.recipe._id),
 				],
 			};
 		case LOAD_RECIPES:

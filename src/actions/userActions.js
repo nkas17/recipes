@@ -12,12 +12,12 @@ import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
  * actions
  */
 
-export const userLoginSuccess = user => ({
+export const userLoginSuccess = (user) => ({
 	type: USER_AUTHENTICATE_SUCCESS,
 	user,
 });
 
-export const userLoginFailure = error => ({
+export const userLoginFailure = (error) => ({
 	type: USER_AUTHENTICATE_FAILURE,
 	error,
 });
@@ -34,14 +34,14 @@ export const userLogout = () => ({
  * thunks
  */
 
-export const userLogin = (username, password) => dispatch => {
+export const userLogin = (username, password) => (dispatch) => {
 	dispatch(beginAjaxCall('userLogin'));
 	dispatch(userLoginStart());
 	return UserApi.userLogin(username, password)
-		.then(user => {
+		.then((user) => {
 			dispatch(userLoginSuccess(user));
 		})
-		.catch(error => {
+		.catch((error) => {
 			dispatch(ajaxCallError('userLogin'));
 			dispatch(userLoginFailure(error));
 			if (error && error.additionalData && error.additionalData.error) {

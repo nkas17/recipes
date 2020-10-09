@@ -126,12 +126,12 @@ LoginPage.propTypes = {
 	history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	loggingIn: !!state.user.authenticating,
 	authenticated: !!state.user.authenticated,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
 	actions: bindActionCreators(
 		{
 			userLogin,

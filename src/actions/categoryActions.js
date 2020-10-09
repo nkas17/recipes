@@ -6,7 +6,7 @@ import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
  * actions
  */
 
-export const loadCategoriesSuccess = categories => ({
+export const loadCategoriesSuccess = (categories) => ({
 	type: LOAD_CATEGORIES_SUCCESS,
 	categories,
 });
@@ -15,13 +15,13 @@ export const loadCategoriesSuccess = categories => ({
  * thunks
  */
 
-export const loadCategories = () => dispatch => {
+export const loadCategories = () => (dispatch) => {
 	dispatch(beginAjaxCall('getAllCategories'));
 	return CategoryApi.getAllCategories()
-		.then(categories => {
+		.then((categories) => {
 			dispatch(loadCategoriesSuccess(categories));
 		})
-		.catch(error => {
+		.catch((error) => {
 			dispatch(ajaxCallError('getAllCategories'));
 			throw error;
 		});
