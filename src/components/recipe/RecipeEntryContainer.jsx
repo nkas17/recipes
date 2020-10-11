@@ -13,8 +13,8 @@ const replaceAll = (str, get, replace) =>
 	str.replace(new RegExp(get, 'g'), replace);
 
 class RecipeEntryContainer extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			recipe: { ...props.recipe },

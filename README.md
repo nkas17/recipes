@@ -9,6 +9,10 @@
 * node.js
 * express
 * mongo db
+### Testing
+* jest - for testing framework and redux unit tests
+* enzyme - only shallow for snapshots
+* testing-utils/react - for automated User testing
 
 ## Requirements:
 * [x] add recipes

@@ -6,15 +6,14 @@ import { bindActionCreators } from 'redux';
 import { reject, sortBy } from 'lodash';
 import RecipeList from './RecipeList';
 import { deleteRecipe } from '../../actions/recipeActions';
-import RecipeSearchView from './RecipeSearchView';
 import Header from '../common/Header';
 
 /**
  * Page that has all the recipe things
  */
 class RecipePage extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+	constructor(props) {
+		super(props);
 		this.state = {
 			searchValue: '',
 		};
@@ -85,10 +84,18 @@ class RecipePage extends React.Component {
 						</div>
 						{(isLoadingRecipes && <div className="loader" />) || (
 							<>
-								<RecipeSearchView
-									searchValue={searchValue}
-									onChange={this._onSearchChange}
-								/>
+								<div className="row">
+									<div className="col-12 my-4">
+										<input
+											type="text"
+											name="searchRecipe"
+											className="form-control"
+											placeholder="Search Recipes"
+											value={searchValue}
+											onChange={this._onSearchChange}
+										/>
+									</div>
+								</div>
 								<>
 									{authenticated && (
 										<button

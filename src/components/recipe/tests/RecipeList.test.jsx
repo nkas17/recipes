@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { RecipePageTest } from './RecipesPage';
+import RecipeList from '../RecipeList';
 
 const recipes = [
 	{
@@ -20,30 +20,10 @@ const recipes = [
 	},
 ];
 
-describe('RecipesPage', () => {
+describe('RecipeList', () => {
 	it('renders correctly', () => {
 		const tree = shallow(
-			<RecipePageTest
-				history={{}}
-				recipes={recipes}
-				authenticated
-				token="tokenValue"
-				actions={{}}
-			/>
-		);
-		expect(toJSON(tree)).toMatchSnapshot();
-	});
-
-	it('renders correctly while loading', () => {
-		const tree = shallow(
-			<RecipePageTest
-				history={{}}
-				recipes={recipes}
-				authenticated
-				isLoadingRecipes
-				token="tokenValue"
-				actions={{}}
-			/>
+			<RecipeList recipes={recipes} showDelete deleteRecipe={() => {}} />
 		);
 		expect(toJSON(tree)).toMatchSnapshot();
 	});

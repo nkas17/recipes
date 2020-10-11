@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
-import RecipeEntryView from './RecipeEntryView';
+import RecipeEntryView from '../RecipeEntryView';
 
 const defaultProps = {
 	recipe: {},
@@ -18,7 +19,7 @@ describe('RecipeEntryView', () => {
 		const props = {
 			...defaultProps,
 		};
-		const tree = shallow(<RecipeEntryView {...props} />); // eslint-disable-line react/jsx-props-no-spreading
+		const tree = shallow(<RecipeEntryView {...props} />);
 		expect(toJSON(tree)).toMatchSnapshot();
 	});
 
@@ -27,7 +28,7 @@ describe('RecipeEntryView', () => {
 			...defaultProps,
 			saving: true,
 		};
-		const tree = shallow(<RecipeEntryView {...props} />); // eslint-disable-line react/jsx-props-no-spreading
+		const tree = shallow(<RecipeEntryView {...props} />);
 		expect(toJSON(tree)).toMatchSnapshot();
 	});
 });
