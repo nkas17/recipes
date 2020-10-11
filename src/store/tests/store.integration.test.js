@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
-import rootReducer from '../reducers/rootReducer';
-import initialState from '../reducers/initialState';
-import { createRecipeSuccess } from '../actions/recipeActions';
+import rootReducer from '../../reducers/rootReducer';
+import initialState from '../../reducers/initialState';
+import { createRecipeSuccess } from '../../actions/recipeActions';
 
 describe('Store', () => {
 	it('should handle creating recipes', () => {
@@ -16,7 +16,7 @@ describe('Store', () => {
 		store.dispatch(action);
 
 		// assert
-		const actual = store.getState().recipes[0];
+		const actual = store.getState().recipeStore.recipes[0];
 		const expected = {
 			title: 'Delicious Meal',
 		};

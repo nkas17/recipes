@@ -1,7 +1,7 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
-import AboutPage from './AboutPage';
+import AboutPage from '../AboutPage';
 
 describe('AboutPage', () => {
 	it('should render correctly', () => {

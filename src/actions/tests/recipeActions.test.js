@@ -8,15 +8,16 @@ import {
 	deleteRecipe,
 	loadRecipes,
 	saveRecipe,
-} from './recipeActions';
-import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
+} from '../recipeActions';
+import { beginAjaxCall, ajaxCallError } from '../ajaxStatusActions';
 import {
+	LOAD_RECIPES,
 	CREATE_RECIPE_SUCCESS,
 	DELETE_RECIPE_SUCCESS,
 	LOAD_RECIPES_SUCCESS,
 	UPDATE_RECIPE_SUCCESS,
-} from './actionTypes';
-import RecipeApi from '../api/RecipeApi';
+} from '../actionTypes';
+import RecipeApi from '../../api/RecipeApi';
 
 // arrange - shared data
 const recipe = {
@@ -116,7 +117,7 @@ describe('Recipe Thunks', () => {
 		});
 	});
 	describe('loadRecipes', () => {
-		it('should successfully load a recipes', () => {
+		it('should successfully load recipes', () => {
 			RecipeApi.getAllRecipes = jest.fn().mockResolvedValue(recipe);
 			const dispatch = jest.fn();
 			return loadRecipes()(dispatch).then(() => {
@@ -125,8 +126,11 @@ describe('Recipe Thunks', () => {
 					1,
 					beginAjaxCall('getAllRecipes')
 				);
-				expect(dispatch).toHaveBeenNthCalledWith(2, loadRecipesSuccess(recipe));
-				expect(dispatch).toHaveBeenCalledTimes(2);
+				expect(dispatch).toHaveBeenNthCalledWith(2, {
+					type: LOAD_RECIPES,
+				});
+				expect(dispatch).toHaveBeenNthCalledWith(3, loadRecipesSuccess(recipe));
+				expect(dispatch).toHaveBeenCalledTimes(3);
 			});
 		});
 		it('should fail to load recipes', () => {
@@ -138,11 +142,14 @@ describe('Recipe Thunks', () => {
 					1,
 					beginAjaxCall('getAllRecipes')
 				);
+				expect(dispatch).toHaveBeenNthCalledWith(2, {
+					type: LOAD_RECIPES,
+				});
 				expect(dispatch).toHaveBeenNthCalledWith(
-					2,
+					3,
 					ajaxCallError('getAllRecipes')
 				);
-				expect(dispatch).toHaveBeenCalledTimes(2);
+				expect(dispatch).toHaveBeenCalledTimes(3);
 			});
 		});
 	});
@@ -174,19 +181,20 @@ describe('Recipe Thunks', () => {
 		});
 		it('should successfully update a recipe', () => {
 			const savedRecipe = {
+				_id: '1',
 				id: 'tacos',
 				title: 'tacos',
 				category: 'other',
 				description: 'Tasty homemade tacos - hard or soft',
 				ingredients: ['cheese', 'ground beef', 'tortilla'],
 			};
-			RecipeApi.saveRecipe = jest.fn().mockResolvedValue(savedRecipe);
+			RecipeApi.updateRecipe = jest.fn().mockResolvedValue(savedRecipe);
 			const dispatch = jest.fn();
 			return saveRecipe(
 				savedRecipe,
 				'token'
 			)(dispatch).then(() => {
-				expect(RecipeApi.saveRecipe).toHaveBeenCalled();
+				expect(RecipeApi.updateRecipe).toHaveBeenCalled();
 				expect(dispatch).toHaveBeenNthCalledWith(
 					1,
 					beginAjaxCall('saveRecipe')

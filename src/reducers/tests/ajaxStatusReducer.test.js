@@ -1,6 +1,6 @@
 import ajaxStatusReducer, {
 	actionTypeEndsInSuccess,
-} from './ajaxStatusReducer';
+} from '../ajaxStatusReducer';
 
 describe('Ajax Status Reducer', () => {
 	describe('ajaxStatusReducer', () => {

@@ -1,10 +1,10 @@
-import userReducer from './userReducer';
+import userReducer from '../userReducer';
 import {
 	USER_AUTHENTICATE_SUCCESS,
 	USER_AUTHENTICATE_FAILURE,
 	USER_AUTHENTICATE,
 	USER_UNAUTHENTICATE,
-} from '../actions/actionTypes';
+} from '../../actions/actionTypes';
 
 describe('User Reducer', () => {
 	describe('USER_AUTHENTICATE_SUCCESS', () => {

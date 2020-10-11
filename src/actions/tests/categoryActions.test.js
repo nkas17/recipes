@@ -1,9 +1,9 @@
-import CategoryApi from '../api/mockCategoryApi';
-import { loadCategories, loadCategoriesSuccess } from './categoryActions';
-import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
-import { LOAD_CATEGORIES_SUCCESS } from './actionTypes';
+import CategoryApi from '../../api/mockCategoryApi';
+import { loadCategories, loadCategoriesSuccess } from '../categoryActions';
+import { beginAjaxCall, ajaxCallError } from '../ajaxStatusActions';
+import { LOAD_CATEGORIES_SUCCESS } from '../actionTypes';
 
-jest.mock('./ajaxStatusActions');
+jest.mock('../ajaxStatusActions');
 
 const dispatch = jest.fn();
 

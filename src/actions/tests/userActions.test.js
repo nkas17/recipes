@@ -5,15 +5,15 @@ import {
 	userLoginStart,
 	userLogout,
 	userLogin,
-} from './userActions';
+} from '../userActions';
 import {
 	USER_AUTHENTICATE_SUCCESS,
 	USER_AUTHENTICATE_FAILURE,
 	USER_AUTHENTICATE,
 	USER_UNAUTHENTICATE,
-} from './actionTypes';
-import { UserApi } from '../api/UserApi';
-import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
+} from '../actionTypes';
+import { UserApi } from '../../api/UserApi';
+import { beginAjaxCall, ajaxCallError } from '../ajaxStatusActions';
 
 beforeEach(() => {
 	jest.clearAllMocks();

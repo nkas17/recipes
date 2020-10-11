@@ -7,7 +7,7 @@ const configureStore = (initialState) => {
 	const composeEnhancers =
 		window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 	let middleware;
-	if (process.env.NODE_ENV === 'production') {
+	if (process.env.NODE_ENV !== 'production') {
 		middleware = applyMiddleware(
 			thunk,
 				reduxImmutableStateInvariant()// eslint-disable-line

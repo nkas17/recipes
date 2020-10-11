@@ -1,5 +1,5 @@
-import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
-import { BEGIN_AJAX_CALL, AJAX_CALL_ERROR } from './actionTypes';
+import { beginAjaxCall, ajaxCallError } from '../ajaxStatusActions';
+import { BEGIN_AJAX_CALL, AJAX_CALL_ERROR } from '../actionTypes';
 
 describe('ajaxStatusActions', () => {
 	it('beginAjaxCall runs correctly', () => {

@@ -1,11 +1,11 @@
-import recipes from './recipeReducer';
+import recipes from '../recipeReducer';
 import {
 	CREATE_RECIPE_SUCCESS,
 	DELETE_RECIPE_SUCCESS,
 	LOAD_RECIPES_SUCCESS,
 	UPDATE_RECIPE_SUCCESS,
 	LOAD_RECIPES,
-} from '../actions/actionTypes';
+} from '../../actions/actionTypes';
 
 describe('Recipe Reducer', () => {
 	describe('MISSING_ACTION', () => {
@@ -21,10 +21,13 @@ describe('Recipe Reducer', () => {
 	describe('CREATE_RECIPE_SUCCESS', () => {
 		it('should add a new recipe', () => {
 			expect(
-				recipes([{ title: 'recipe' }], {
-					type: CREATE_RECIPE_SUCCESS,
-					recipe: { title: 'newRecipe' },
-				})
+				recipes(
+					{ recipes: [{ title: 'recipe' }] },
+					{
+						type: CREATE_RECIPE_SUCCESS,
+						recipe: { title: 'newRecipe' },
+					}
+				)
 			).toEqual({ recipes: [{ title: 'recipe' }, { title: 'newRecipe' }] });
 		});
 	});
@@ -32,10 +35,12 @@ describe('Recipe Reducer', () => {
 		it('should update an existing recipe', () => {
 			expect(
 				recipes(
-					[
-						{ id: 1, title: 'recipe' },
-						{ id: 2, title: 'oldRecipe' },
-					],
+					{
+						recipes: [
+							{ id: 1, title: 'recipe' },
+							{ id: 2, title: 'oldRecipe' },
+						],
+					},
 					{
 						type: UPDATE_RECIPE_SUCCESS,
 						recipe: { id: 1, title: 'newRecipe' },
@@ -53,16 +58,18 @@ describe('Recipe Reducer', () => {
 		it('should delete an existing recipe', () => {
 			expect(
 				recipes(
-					[
-						{ id: 1, title: 'recipe' },
-						{ id: 2, title: 'oldRecipe' },
-					],
+					{
+						recipes: [
+							{ _id: 1, title: 'recipe' },
+							{ _id: 2, title: 'oldRecipe' },
+						],
+					},
 					{
 						type: DELETE_RECIPE_SUCCESS,
-						recipe: { id: 2, title: 'oldRecipe' },
+						recipe: { _id: 2, title: 'oldRecipe' },
 					}
 				)
-			).toEqual({ recipes: [{ id: 1, title: 'recipe' }] });
+			).toEqual({ recipes: [{ _id: 1, title: 'recipe' }] });
 		});
 	});
 	describe('LOAD_RECIPES', () => {

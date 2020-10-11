@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { HeaderTest, mapStateToProps } from './Header';
+import { HeaderTest, mapStateToProps } from '../Header';
 
 describe('Header renders', () => {
 	it('correctly without loading', () => {

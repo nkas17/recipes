@@ -1,4 +1,4 @@
-import { categoriesFormattedForSelectInput, getUser } from './selectors';
+import { categoriesFormattedForSelectInput, getUser } from '../selectors';
 
 describe('Recipe Selectors', () => {
 	describe('categoriesFormattedForSelectInput', () => {

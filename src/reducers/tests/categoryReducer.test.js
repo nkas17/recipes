@@ -1,5 +1,5 @@
-import categoryReducer from './categoryReducer';
-import { LOAD_CATEGORIES_SUCCESS } from '../actions/actionTypes';
+import categoryReducer from '../categoryReducer';
+import { LOAD_CATEGORIES_SUCCESS } from '../../actions/actionTypes';
 
 describe('Category Reducer', () => {
 	describe('categoryReducer', () => {
