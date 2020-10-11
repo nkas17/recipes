@@ -225,5 +225,27 @@ describe('Recipe Thunks', () => {
 				expect(dispatch).toHaveBeenCalledTimes(2);
 			});
 		});
+		it('should fail to update a recipe', () => {
+			RecipeApi.updateRecipe = jest.fn().mockRejectedValue(new Error('error'));
+			const dispatch = jest.fn();
+			return saveRecipe(
+				{ _id: 1 },
+				'token'
+			)(dispatch).catch(() => {
+				expect(RecipeApi.updateRecipe).toHaveBeenCalledWith(
+					{ _id: 1 },
+					'token'
+				);
+				expect(dispatch).toHaveBeenNthCalledWith(
+					1,
+					beginAjaxCall('saveRecipe')
+				);
+				expect(dispatch).toHaveBeenNthCalledWith(
+					2,
+					ajaxCallError('saveRecipe')
+				);
+				expect(dispatch).toHaveBeenCalledTimes(2);
+			});
+		});
 	});
 });
