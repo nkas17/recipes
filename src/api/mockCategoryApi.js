@@ -9,8 +9,16 @@ const categories = [
 		name: 'other',
 	},
 	{
+		id: 'dessert',
+		name: 'dessert',
+	},
+	{
 		id: 'poultry',
 		name: 'poultry',
+	},
+	{
+		id: 'vegetable',
+		name: 'vegetable',
 	},
 	{
 		id: 'beef',

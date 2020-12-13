@@ -48,7 +48,7 @@ body {
 
 .loader {
 	border: 8px solid #dddddd;
-	border-top: 8px solid #733b22;
+	border-top: 8px solid #02543e;
 	border-radius: 50%;
 	width: 60px;
 	height: 60px;
@@ -84,7 +84,7 @@ body {
 }
 
 #app table{
-	background: rgba(215, 215, 214, 0.83);
+	background: white;
 	border-radius: .3rem;
 	margin-top: .5rem;
 	padding: 1rem;
@@ -106,7 +106,7 @@ body {
 }
 
 #app .recipe-display {
-	background: rgba(215, 215, 214, 0.83);
+	background: white;
 	border-radius: .3rem;
 	margin-top: .5rem;
 	padding: 1rem;
@@ -298,7 +298,7 @@ table {
 	font-weight: bold;
 }
 #app nav a {
-	color: #733b23;
+	color: #02543e;
 }
 #app.dark nav a {
 	color: #a053ec;
@@ -319,8 +319,8 @@ table {
 	text-decoration: none;
 }
 #app .btn-primary {
-	background-color: #733b23;
-	border-color: #733b23;
+	background-color: #02543e;
+	border-color: #02543e;
 	color: #fff;
 }
 #app.dark .btn-primary {
@@ -331,7 +331,7 @@ table {
 
 #app .btn-link,
 #app  a {
-	color: #733b23;
+	color: #02543e;
 }
 #app.dark .btn-link,
 #app.dark a {
@@ -339,7 +339,7 @@ table {
 }
 
 #app .form-control {
-	background-color: #ddd;
+	background-color: white;
 	color: #333;
 }
 #app.dark .form-control {
