@@ -5,10 +5,10 @@ import user from './userReducer';
 import numAjaxCallsInProgress from './ajaxStatusReducer';
 
 const rootReducer = combineReducers({
-	categories,
-	numAjaxCallsInProgress,
-	recipeStore,
-	user,
+  categories,
+  numAjaxCallsInProgress,
+  recipeStore,
+  user,
 });
 
 export default rootReducer;

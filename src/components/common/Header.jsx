@@ -8,31 +8,31 @@ import LoadingDots from './LoadingDots';
  * Common Header component
  */
 const Header = ({ loading, navigation, authenticated }) => (
-	<header>
-		<h1 className="page-header">lets eat!</h1>
-		{navigation && (
-			<nav>
-				<Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
-				<Link to="/login">log&nbsp;{authenticated ? 'out' : 'in'}</Link>
-				{loading && <LoadingDots interval={200} dots={10} />}
-			</nav>
-		)}
-	</header>
+  <header>
+    <h1 className="page-header">lets eat!</h1>
+    {navigation && (
+      <nav>
+        <Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
+        <Link to="/login">log&nbsp;{authenticated ? 'out' : 'in'}</Link>
+        {loading && <LoadingDots interval={200} dots={10} />}
+      </nav>
+    )}
+  </header>
 );
 
 Header.defaultProps = {
-	navigation: true,
+  navigation: true,
 };
 
 Header.propTypes = {
-	loading: PropTypes.bool.isRequired,
-	navigation: PropTypes.bool,
-	authenticated: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  navigation: PropTypes.bool,
+  authenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	loading: state.numAjaxCallsInProgress > 0,
-	authenticated: state.user.authenticated,
+  loading: state.numAjaxCallsInProgress > 0,
+  authenticated: state.user.authenticated,
 });
 
 export default connect(mapStateToProps)(Header);

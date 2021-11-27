@@ -3,49 +3,52 @@ const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
-	mode: 'production',
-	resolve: {
-		extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
-	},
-	entry: ['./index.jsx'],
-	context: resolve(__dirname, 'src'),
-	module: {
-		rules: [
-			{
-				test: /\.jsx?$/,
-				use: ['babel-loader'],
-				include: /src/,
-			},
-			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
-			},
-			{
-				test: /\.(jpe?g|png|gif|ico|webp)$/i,
-				loader: 'file-loader?name=[name].[ext]',
-			},
-			{
-				test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url-loader?limit=10000&mimetype=application/font-woff',
-			},
-			{
-				test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
-			},
-			{
-				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'file-loader',
-			},
-			{
-				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-				loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
-			},
-		],
-	},
-	plugins: [
-		new CopyWebpackPlugin({
-			patterns: [{ from: 'index.html' }, { from: 'assets' }],
-		}),
-		// new BundleAnalyzerPlugin(),
-	],
+  mode: 'production',
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+  },
+  entry: ['./index.jsx'],
+  context: resolve(__dirname, 'src'),
+  module: {
+    rules: [
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            // presets: ['@babel/preset-typescript'],
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10000,
+          },
+        },
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10000,
+          },
+        },
+      },
+    ],
+  },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'index.html' }, { from: 'assets' }],
+    }),
+    // new BundleAnalyzerPlugin(),
+  ],
 };

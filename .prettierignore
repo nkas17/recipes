@@ -1,0 +1,13 @@
+.idea
+__snapshots__
+.gitignore
+yarn.lock
+.prettierignore
+.eslintignore
+dist
+fonts
+images
+.DS_Store
+coverage
+stats.json
+assets

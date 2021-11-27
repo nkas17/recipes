@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 import ThemeToggle from './theme-toggle/ThemeToggle';
 import AboutPage from './about/AboutPage';
@@ -15,23 +14,23 @@ import RecipeEntryContainer from './recipe/RecipeEntryContainer';
  */
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
-	render() {
-		return (
-			<main className="container-fluid">
-				<ThemeToggle />
-				<Switch>
-					<Route exact path="/" component={RecipesPage} />
-					<Route exact path="/login" component={LoginPage} />
-					<Route path="/about" component={AboutPage} />
-					<Route exact path="/recipe" component={RecipesPage} />
-					<Route exact path="/recipe/:id" component={RecipeDisplayPage} />
-					<Route path="/recipe/:id/edit" component={RecipeEntryContainer} />
-					<Route exact path="/mealList" component={MealListPage} />
-					<Route exact path="/groceryList" component={GroceryListPage} />
-				</Switch>
-			</main>
-		);
-	}
+  render() {
+    return (
+      <main className="container-fluid">
+        <ThemeToggle />
+        <Switch>
+          <Route exact path="/" component={RecipesPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route path="/about" component={AboutPage} />
+          <Route exact path="/recipe" component={RecipesPage} />
+          <Route exact path="/recipe/:id" component={RecipeDisplayPage} />
+          <Route path="/recipe/:id/edit" component={RecipeEntryContainer} />
+          <Route exact path="/mealList" component={MealListPage} />
+          <Route exact path="/groceryList" component={GroceryListPage} />
+        </Switch>
+      </main>
+    );
+  }
 }
 
-export default hot(module)(App);
+export default App;

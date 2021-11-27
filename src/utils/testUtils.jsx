@@ -8,18 +8,18 @@ import configureStore from '../store/configureStore';
 
 // Render with redux. Redefining render of @testing-library/react
 function render(
-	ui,
-	{ initialState, store = configureStore(initialState), ...renderOptions } = {}
+  ui,
+  { initialState, store = configureStore(initialState), ...renderOptions } = {},
 ) {
-	// eslint-disable-next-line react/prop-types
-	function Wrapper({ children }) {
-		return (
-			<HashRouter>
-				<Provider store={store}>{children}</Provider>
-			</HashRouter>
-		);
-	}
-	return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  // eslint-disable-next-line react/prop-types
+  function Wrapper({ children }) {
+    return (
+      <HashRouter>
+        <Provider store={store}>{children}</Provider>
+      </HashRouter>
+    );
+  }
+  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 }
 
 export * from '@testing-library/react';

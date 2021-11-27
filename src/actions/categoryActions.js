@@ -7,8 +7,8 @@ import { beginAjaxCall, ajaxCallError } from './ajaxStatusActions';
  */
 
 export const loadCategoriesSuccess = (categories) => ({
-	type: LOAD_CATEGORIES_SUCCESS,
-	categories,
+  type: LOAD_CATEGORIES_SUCCESS,
+  categories,
 });
 
 /**
@@ -16,13 +16,13 @@ export const loadCategoriesSuccess = (categories) => ({
  */
 
 export const loadCategories = () => (dispatch) => {
-	dispatch(beginAjaxCall('getAllCategories'));
-	return CategoryApi.getAllCategories()
-		.then((categories) => {
-			dispatch(loadCategoriesSuccess(categories));
-		})
-		.catch((error) => {
-			dispatch(ajaxCallError('getAllCategories'));
-			throw error;
-		});
+  dispatch(beginAjaxCall('getAllCategories'));
+  return CategoryApi.getAllCategories()
+    .then((categories) => {
+      dispatch(loadCategoriesSuccess(categories));
+    })
+    .catch((error) => {
+      dispatch(ajaxCallError('getAllCategories'));
+      throw error;
+    });
 };
