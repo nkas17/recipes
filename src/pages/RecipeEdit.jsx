@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import vanillaToast from 'vanilla-toast';
 import { find } from 'lodash';
-import * as recipeActions from '../../actions/recipeActions';
-import { categoriesFormattedForSelectInput } from '../../selectors/selectors';
-import RecipeEntryView from './RecipeEntryView';
-import Header from '../common/Header';
+import * as recipeActions from '../actions/recipeActions';
+import { categoriesFormattedForSelectInput } from '../selectors/selectors';
+import RecipeEntryView from '../components/recipe/RecipeEntryView';
+import Header from '../components/common/Header';
 
 const replaceAll = (str, get, replace) =>
   str.replace(new RegExp(get, 'g'), replace);
 
-class RecipeEntryContainer extends React.Component {
+class RecipeEdit extends React.Component {
   constructor(props) {
     super(props);
 
@@ -122,7 +122,7 @@ class RecipeEntryContainer extends React.Component {
   }
 }
 
-RecipeEntryContainer.propTypes = {
+RecipeEdit.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
   match: PropTypes.objectOf(PropTypes.any).isRequired,
   recipe: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -160,7 +160,4 @@ const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(recipeActions, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RecipeEntryContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeEdit);

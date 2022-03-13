@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Header from '../common/Header';
-import { userLogin, userLogout } from '../../actions/userActions';
+import Header from '../components/common/Header';
+import { userLogin, userLogout } from '../actions/userActions';
 
-class LoginPage extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -119,7 +119,7 @@ class LoginPage extends React.Component {
   }
 }
 
-LoginPage.propTypes = {
+Login.propTypes = {
   actions: PropTypes.objectOf(PropTypes.any).isRequired,
   loggingIn: PropTypes.bool.isRequired,
   authenticated: PropTypes.bool.isRequired,
@@ -141,7 +141,4 @@ const mapDispatchToProps = (dispatch) => ({
   ),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(withRouter(LoginPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

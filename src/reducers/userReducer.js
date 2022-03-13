@@ -9,6 +9,7 @@ import initialState from './initialState';
 /**
  * user reducer
  */
+// eslint-disable-next-line default-param-last
 const user = (state = initialState.user, action) => {
   switch (action.type) {
     case USER_AUTHENTICATE_SUCCESS:

@@ -4,9 +4,9 @@ import vanillaToast from 'vanilla-toast';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reject, sortBy } from 'lodash';
-import RecipeList from './RecipeList';
-import { deleteRecipe } from '../../actions/recipeActions';
-import Header from '../common/Header';
+import { deleteRecipe } from '../actions/recipeActions';
+import Header from '../components/common/Header';
+import RecipeListRow from '../components/recipe/RecipeListRow';
 
 /**
  * Page that has all the recipe things
@@ -64,9 +64,9 @@ class RecipePage extends React.Component {
       const categoryIndex = recipe.category
         .toLowerCase()
         .indexOf(searchValue.toLowerCase());
-      const isDisplaying =
-        titleIndex === -1 && descriptionIndex === -1 && categoryIndex === -1;
-      return isDisplaying;
+      return (
+        titleIndex === -1 && descriptionIndex === -1 && categoryIndex === -1
+      );
     });
   }
 
@@ -96,22 +96,27 @@ class RecipePage extends React.Component {
                     />
                   </div>
                 </div>
-                <>
-                  {authenticated && (
-                    <button
-                      type="button"
-                      className="btn btn-link ml-3"
-                      onClick={this._redirectToAddRecipePage}
-                    >
-                      add
-                    </button>
-                  )}
-                </>
-                <RecipeList
-                  recipes={this._getRecipesToDisplay()}
-                  deleteRecipe={this._deleteRecipe}
-                  showDelete={authenticated}
-                />
+                {authenticated && (
+                  <button
+                    type="button"
+                    className="btn btn-link ml-3"
+                    onClick={this._redirectToAddRecipePage}
+                  >
+                    add
+                  </button>
+                )}
+                <table className="table">
+                  <tbody>
+                    {this._getRecipesToDisplay().map((recipe) => (
+                      <RecipeListRow
+                        key={recipe.id}
+                        recipe={recipe}
+                        deleteRecipe={this._deleteRecipe}
+                        showDelete={authenticated}
+                      />
+                    ))}
+                  </tbody>
+                </table>
               </>
             )}
           </div>

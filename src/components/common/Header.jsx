@@ -7,18 +7,20 @@ import LoadingDots from './LoadingDots';
 /**
  * Common Header component
  */
-const Header = ({ loading, navigation, authenticated }) => (
-  <header>
-    <h1 className="page-header">lets eat!</h1>
-    {navigation && (
-      <nav>
-        <Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
-        <Link to="/login">log&nbsp;{authenticated ? 'out' : 'in'}</Link>
-        {loading && <LoadingDots interval={200} dots={10} />}
-      </nav>
-    )}
-  </header>
-);
+function Header({ loading, navigation, authenticated }) {
+  return (
+    <header>
+      <h1 className="page-header">lets eat!</h1>
+      {navigation && (
+        <nav>
+          <Link to="/recipe">recipes</Link>|<Link to="/about">about</Link>|
+          <Link to="/login">log&nbsp;{authenticated ? 'out' : 'in'}</Link>
+          {loading && <LoadingDots interval={200} dots={10} />}
+        </nav>
+      )}
+    </header>
+  );
+}
 
 Header.defaultProps = {
   navigation: true,

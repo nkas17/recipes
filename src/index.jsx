@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import App from './components/App';
+import App from './App';
 import { loadRecipes } from './actions/recipeActions';
 import { loadCategories } from './actions/categoryActions';
 import './styles/styles.css';

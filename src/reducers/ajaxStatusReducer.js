@@ -4,6 +4,7 @@ import initialState from './initialState';
 export const actionTypeEndsInSuccess = (type) =>
   type.substring(type.length - 8) === '_SUCCESS';
 
+// eslint-disable-next-line default-param-last
 export default (state = initialState.numAjaxCallsInProgress, action) => {
   if (action.type === BEGIN_AJAX_CALL) {
     return state + 1;

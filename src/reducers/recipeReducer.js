@@ -10,6 +10,7 @@ import initialState from './initialState';
 /**
  * recipe reducer
  */
+// eslint-disable-next-line default-param-last
 const recipes = (state = initialState.recipeStore, action) => {
   switch (action.type) {
     case CREATE_RECIPE_SUCCESS:

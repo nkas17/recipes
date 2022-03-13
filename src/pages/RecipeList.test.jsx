@@ -2,9 +2,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import { render, screen, fireEvent } from '../../../utils/testUtils';
+import { render, screen, fireEvent } from '../utils/testUtils';
 import '@testing-library/jest-dom/extend-expect';
-import RecipePage, { RecipePageTest } from '../RecipesPage';
+import RecipePage, { RecipePageTest } from './RecipeList';
 
 const recipes = [
   {

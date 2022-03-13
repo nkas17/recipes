@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { find, split } from 'lodash';
-import Header from '../common/Header';
+import Header from '../components/common/Header';
 
 /**
  * Recipe display page
  * View recipes and edit them with a click of a button
  */
-class RecipeDisplayPage extends React.PureComponent {
+class Recipe extends React.PureComponent {
   render() {
     const { recipe, authenticated } = this.props;
     const ingredients = recipe.ingredients && split(recipe.ingredients, '\n');
@@ -56,7 +56,7 @@ class RecipeDisplayPage extends React.PureComponent {
   }
 }
 
-RecipeDisplayPage.propTypes = {
+Recipe.propTypes = {
   /**
    * the recipe to display
    */
@@ -95,4 +95,4 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeDisplayPage);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);
