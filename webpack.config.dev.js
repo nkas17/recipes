@@ -5,9 +5,9 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 module.exports = {
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
   },
-  entry: ['./index.jsx'],
+  entry: ['./index.tsx'],
   context: resolve(__dirname, 'src'),
   devtool: 'inline-source-map',
   devServer: {
@@ -24,7 +24,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            // presets: ['@babel/preset-typescript'],
+            presets: ['@babel/preset-typescript'],
             plugins: [require.resolve('react-refresh/babel')].filter(Boolean),
           },
         },

@@ -13,9 +13,7 @@ const recipe = {
 
 describe('RecipeListRow', () => {
   it('renders correctly', () => {
-    const tree = shallow(
-      <RecipeListRow recipe={recipe} showDelete deleteRecipe={() => {}} />,
-    );
+    const tree = shallow(<RecipeListRow recipe={recipe} showDelete deleteRecipe={() => {}} />);
     expect(toJSON(tree)).toMatchSnapshot();
   });
 });

@@ -55,18 +55,10 @@ class RecipePage extends React.Component {
     const { recipes } = this.props;
     const { searchValue } = this.state;
     return reject(recipes, (recipe) => {
-      const titleIndex = recipe.title
-        .toLowerCase()
-        .indexOf(searchValue.toLowerCase());
-      const descriptionIndex = recipe.description
-        .toLowerCase()
-        .indexOf(searchValue.toLowerCase());
-      const categoryIndex = recipe.category
-        .toLowerCase()
-        .indexOf(searchValue.toLowerCase());
-      return (
-        titleIndex === -1 && descriptionIndex === -1 && categoryIndex === -1
-      );
+      const titleIndex = recipe.title.toLowerCase().indexOf(searchValue.toLowerCase());
+      const descriptionIndex = recipe.description.toLowerCase().indexOf(searchValue.toLowerCase());
+      const categoryIndex = recipe.category.toLowerCase().indexOf(searchValue.toLowerCase());
+      return titleIndex === -1 && descriptionIndex === -1 && categoryIndex === -1;
     });
   }
 

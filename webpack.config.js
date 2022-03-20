@@ -5,9 +5,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 module.exports = {
   mode: 'production',
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.css', '.scss'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.css', '.scss'],
   },
-  entry: ['./index.jsx'],
+  entry: ['./index.tsx'],
   context: resolve(__dirname, 'src'),
   module: {
     rules: [
@@ -17,7 +17,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            // presets: ['@babel/preset-typescript'],
+            presets: ['@babel/preset-typescript'],
           },
         },
       },

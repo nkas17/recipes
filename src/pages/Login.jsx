@@ -62,11 +62,7 @@ class Login extends React.Component {
             <hr />
             <div className="col-md-6 col-md-offset-3">
               <form name="form" onSubmit={this._handleSubmit}>
-                <div
-                  className={`form-group${
-                    submitted && !username ? ' has-error' : ''
-                  }`}
-                >
+                <div className={`form-group${submitted && !username ? ' has-error' : ''}`}>
                   <input
                     type="text"
                     className="form-control"
@@ -75,15 +71,9 @@ class Login extends React.Component {
                     placeholder="enter username"
                     onChange={this._handleChange}
                   />
-                  {submitted && !username && (
-                    <div className="help-block">Username is required</div>
-                  )}
+                  {submitted && !username && <div className="help-block">Username is required</div>}
                 </div>
-                <div
-                  className={`form-group${
-                    submitted && !password ? ' has-error' : ''
-                  }`}
-                >
+                <div className={`form-group${submitted && !password ? ' has-error' : ''}`}>
                   <input
                     type="password"
                     className="form-control"
@@ -92,9 +82,7 @@ class Login extends React.Component {
                     placeholder="enter password"
                     onChange={this._handleChange}
                   />
-                  {submitted && !password && (
-                    <div className="help-block">Password is required</div>
-                  )}
+                  {submitted && !password && <div className="help-block">Password is required</div>}
                 </div>
                 <div className="form-group">
                   <button type="submit" className="btn btn-primary">

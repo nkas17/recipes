@@ -4,15 +4,7 @@ import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import SelectInput from '../common/SelectInput';
 
-function RecipeEntryView({
-  recipe,
-  categories,
-  onSave,
-  onChange,
-  onCancel,
-  saving,
-  errors,
-}) {
+function RecipeEntryView({ recipe, categories, onSave, onChange, onCancel, saving, errors }) {
   return (
     <form>
       <TextInput

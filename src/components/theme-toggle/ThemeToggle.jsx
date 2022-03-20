@@ -25,11 +25,7 @@ class ThemeToggle extends React.Component {
   render() {
     const { theme } = this.state;
     return (
-      <button
-        type="button"
-        className="btn btn-link theme-toggle"
-        onClick={this.toggleTheme}
-      >
+      <button type="button" className="btn btn-link theme-toggle" onClick={this.toggleTheme}>
         {theme}
       </button>
     );

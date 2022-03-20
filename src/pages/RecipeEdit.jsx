@@ -9,8 +9,7 @@ import { categoriesFormattedForSelectInput } from '../selectors/selectors';
 import RecipeEntryView from '../components/recipe/RecipeEntryView';
 import Header from '../components/common/Header';
 
-const replaceAll = (str, get, replace) =>
-  str.replace(new RegExp(get, 'g'), replace);
+const replaceAll = (str, get, replace) => str.replace(new RegExp(get, 'g'), replace);
 
 class RecipeEdit extends React.Component {
   constructor(props) {

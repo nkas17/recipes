@@ -1,17 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TextArea({
-  name,
-  label,
-  onChange,
-  readonly,
-  rows,
-  cols,
-  placeholder,
-  value,
-  error,
-}) {
+function TextArea({ name, label, onChange, readonly, rows, cols, placeholder, value, error }) {
   let wrapperClass = 'form-group';
   if (error && error.length > 0) {
     wrapperClass = `${wrapperClass} has-error`;

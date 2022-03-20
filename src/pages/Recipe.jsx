@@ -23,9 +23,7 @@ class Recipe extends React.PureComponent {
             <h2>{recipe.title}</h2>
             <p>{recipe.description}</p>
             <hr />
-            {authenticated && (
-              <Link to={`/recipe/${recipe.id}/edit`}>edit</Link>
-            )}
+            {authenticated && <Link to={`/recipe/${recipe.id}/edit`}>edit</Link>}
           </div>
           <div className="jumbotron">
             <section className="recipe-display">
