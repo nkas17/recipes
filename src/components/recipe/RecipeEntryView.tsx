@@ -1,10 +1,36 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import SelectInput from '../common/SelectInput';
+import { Recipe } from '../../types/recipe';
+import { Category } from '../../types/category';
 
-function RecipeEntryView({ recipe, categories, onSave, onChange, onCancel, saving, errors }) {
+interface RecipeEntryViewProps {
+  recipe: Recipe;
+  categories: Category[];
+  onSave: () => void;
+  onChange: () => void;
+  onCancel: () => void;
+  saving?: boolean;
+  errors?: {
+    title: string;
+    description: string;
+    ingredients: string;
+    directions: string;
+    category: string;
+  };
+}
+
+function RecipeEntryView({
+  recipe,
+  categories,
+  onSave,
+  onChange,
+  onCancel,
+  saving = false,
+  errors = { title: '', description: '', ingredients: '', directions: '', category: '' },
+}: RecipeEntryViewProps) {
   return (
     <form>
       <TextInput
@@ -67,20 +93,5 @@ function RecipeEntryView({ recipe, categories, onSave, onChange, onCancel, savin
     </form>
   );
 }
-
-RecipeEntryView.defaultProps = {
-  saving: false,
-  errors: {},
-};
-
-RecipeEntryView.propTypes = {
-  recipe: PropTypes.objectOf(PropTypes.any).isRequired,
-  categories: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-  onSave: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
-  saving: PropTypes.bool,
-  errors: PropTypes.objectOf(PropTypes.any),
-};
 
 export default RecipeEntryView;

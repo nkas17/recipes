@@ -1,11 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Recipe } from '../../types/recipe';
+
+interface RecipeListRowProps {
+  recipe: Recipe;
+  deleteRecipe: (id: { $oid: string } | undefined) => void;
+  showDelete: boolean;
+}
 
 /**
  * A Row of a recipe
  */
-function RecipeListRow({ recipe, deleteRecipe, showDelete }) {
+function RecipeListRow({ recipe, deleteRecipe, showDelete }: RecipeListRowProps) {
   return (
     <tr>
       <td>
@@ -26,22 +32,5 @@ function RecipeListRow({ recipe, deleteRecipe, showDelete }) {
     </tr>
   );
 }
-
-RecipeListRow.propTypes = {
-  /**
-   * the recipe to display
-   */
-  recipe: PropTypes.objectOf(PropTypes.any).isRequired,
-
-  /**
-   * function to delete a recipe
-   */
-  deleteRecipe: PropTypes.func.isRequired,
-
-  /**
-   * whether we should show the delete button
-   */
-  showDelete: PropTypes.bool.isRequired,
-};
 
 export default RecipeListRow;
